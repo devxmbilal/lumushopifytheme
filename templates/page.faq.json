@@ -1,0 +1,207 @@
+{
+  "sections": {
+    "lumu_faq_banner": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Frequently Asked Questions",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Got questions? We've got answers. Find everything you need to know about shopping with Lumu below.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_faq_shipping": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does delivery take?",
+            "icon": "truck",
+            "row_content": "<p>Standard delivery takes 3-5 business days across Pakistan. Major cities like Karachi, Lahore, and Islamabad typically receive orders within 2-3 business days.</p>"
+          }
+        },
+        "q_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is shipping really free?",
+            "icon": "truck",
+            "row_content": "<p>Yes! We offer free standard shipping on all orders over Rs 2,000. Orders below Rs 2,000 have a flat shipping fee of Rs 150.</p>"
+          }
+        },
+        "q_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I track my order?",
+            "icon": "truck",
+            "row_content": "<p>Once your order ships, you'll receive a tracking number via SMS and email. You can also track your order from your account page on our website.</p>"
+          }
+        },
+        "q_4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you deliver to all cities in Pakistan?",
+            "icon": "truck",
+            "row_content": "<p>Yes! We deliver nationwide across Pakistan through our trusted courier partners. Whether you're in a major city or a smaller town, we've got you covered.</p>"
+          }
+        }
+      },
+      "block_order": ["q_1", "q_2", "q_3", "q_4"],
+      "settings": {
+        "caption": "SHIPPING & DELIVERY",
+        "heading": "Shipping Information",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "section",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "lumu_faq_returns": {
+      "type": "collapsible-content",
+      "blocks": {
+        "r_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "return",
+            "row_content": "<p>We offer a 7-day hassle-free return policy. If you're not satisfied with your purchase, simply initiate a return within 7 days of delivery and we'll process your refund.</p>"
+          }
+        },
+        "r_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I return an item?",
+            "icon": "return",
+            "row_content": "<p>Contact our support team via WhatsApp or email with your order number. We'll arrange a pickup from your address at no extra cost.</p>"
+          }
+        },
+        "r_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When will I receive my refund?",
+            "icon": "return",
+            "row_content": "<p>Refunds are processed within 5-7 business days after we receive and inspect the returned item. The amount will be credited to your original payment method.</p>"
+          }
+        }
+      },
+      "block_order": ["r_1", "r_2", "r_3"],
+      "settings": {
+        "caption": "RETURNS & REFUNDS",
+        "heading": "Returns Policy",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "section",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "lumu_faq_payments": {
+      "type": "collapsible-content",
+      "blocks": {
+        "p_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods do you accept?",
+            "icon": "lock",
+            "row_content": "<p>We accept Cash on Delivery (COD), credit/debit cards (Visa, Mastercard), bank transfers, JazzCash, and EasyPaisa. All online payments are secured with SSL encryption.</p>"
+          }
+        },
+        "p_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is Cash on Delivery available?",
+            "icon": "lock",
+            "row_content": "<p>Yes, Cash on Delivery (COD) is available nationwide across Pakistan. Simply select COD at checkout and pay when your order arrives.</p>"
+          }
+        },
+        "p_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are my payment details safe?",
+            "icon": "lock",
+            "row_content": "<p>Absolutely. Our website is protected with industry-standard SSL encryption. We never store your card details on our servers. All transactions are processed through secure, PCI-compliant payment gateways.</p>"
+          }
+        }
+      },
+      "block_order": ["p_1", "p_2", "p_3"],
+      "settings": {
+        "caption": "PAYMENTS",
+        "heading": "Payment Information",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "section",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "lumu_faq_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Have Questions?",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our support team is available 24/7 to help. Reach out to us anytime via our contact page or WhatsApp.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "lumu_faq_banner",
+    "lumu_faq_shipping",
+    "lumu_faq_returns",
+    "lumu_faq_payments",
+    "lumu_faq_cta"
+  ]
+}

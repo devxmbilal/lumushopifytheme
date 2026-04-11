@@ -1,6 +1,178 @@
-/* Lumu Custom Styles */
+/* ============================================
+   LUMU CUSTOM STYLES — Premium E-Commerce
+   ============================================ */
 
-/* Add to Cart Hover SVGs & Animation */
+/* ---- Google Inter Font Import ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ---- Global Premium Typography & Variables ---- */
+:root {
+  --font-body-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --lumu-purple: #8577C7;
+  --lumu-purple-dark: #6153a7;
+  --lumu-purple-light: #a491f0;
+  --lumu-green: #2e7d32;
+  --lumu-red: #d32f2f;
+  --buttons-radius: 8px;
+  --inputs-radius: 8px;
+  --badges-radius: 4px;
+}
+
+body, html {
+  font-family: var(--font-body-family) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading-family) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
+.button, input, select, textarea {
+  font-family: var(--font-body-family) !important;
+}
+
+/* ---- Premium Card Styles ---- */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card__inner {
+  border-radius: 12px;
+}
+
+/* ---- Buttons ---- */
+.button, .shopify-payment-button__button {
+  border-radius: var(--buttons-radius) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease !important;
+}
+
+.button--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(133, 119, 199, 0.35);
+}
+
+/* ---- Multicolumn / Category Cards Enhancement ---- */
+.multicolumn-card.content-container {
+  border-radius: 16px !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.multicolumn-card.content-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(133, 119, 199, 0.15) !important;
+}
+
+.multicolumn-card__info h3 {
+  font-weight: 700 !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 6px;
+}
+
+.multicolumn-card__info .rte {
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.multicolumn-card__info .link.animate-arrow {
+  color: var(--lumu-purple);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  transition: gap 0.3s ease;
+  gap: 4px;
+}
+
+.multicolumn-card__info .link.animate-arrow:hover {
+  gap: 8px;
+}
+
+/* ---- Section Headings Enhancement ---- */
+.title-wrapper-with-link .title {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.title-wrapper-with-link .title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--lumu-purple), var(--lumu-purple-light));
+  border-radius: 3px;
+}
+
+.center .title-wrapper-with-link .title::after,
+.title-wrapper-with-link.center .title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---- Image Banner / Hero Enhancement ---- */
+.banner {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.banner__content {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.banner__heading {
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+}
+
+.banner__text {
+  font-size: 1.6rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ---- Product Card Enhancements ---- */
+.card--standard .card__content {
+  padding: 12px 0 0;
+}
+
+.card-information__text {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.card__heading a {
+  transition: color 0.2s ease;
+}
+
+.card__heading a:hover {
+  color: var(--lumu-purple) !important;
+}
+
+/* ---- Add to Cart SVG Hover Animation ---- */
 .add-to-cart-svg:after {
   box-shadow: none !important;
 }
@@ -35,7 +207,7 @@ button.add-to-cart-svg:hover .add-to-cart-text {
   margin-right: 6px;
   margin-left: 6px;
   margin-bottom: -7px;
-  padding: 0px 0;
+  padding: 0;
   opacity: 1;
   position: absolute;
   bottom: 0;
@@ -47,7 +219,7 @@ button.add-to-cart-svg:hover .add-to-cart-text {
   }
 }
 
-/* Sale Badge Layout */
+/* ---- Sale Badge Layout ---- */
 .collection .card__badge.top {
   position: absolute;
   width: 100%;
@@ -60,10 +232,10 @@ button.add-to-cart-svg:hover .add-to-cart-text {
 @media screen and (max-width: 990px) {
   .collection .card__badge.top {
     transform: translate(-2%, -50%);
-  } 
+  }
 }
 
-/* Pricing Overrides */
+/* ---- Pricing Overrides ---- */
 .price--on-sale .price__sale {
   display: flex !important;
   flex-direction: row-reverse !important;
@@ -71,7 +243,7 @@ button.add-to-cart-svg:hover .add-to-cart-text {
   justify-content: flex-end;
 }
 s.price-item.price-item--regular {
-  color: #8577C7 !important;
+  color: var(--lumu-purple) !important;
   font-weight: 600 !important;
 }
 span.price-item.price-item--sale.price-item--last {
@@ -79,11 +251,11 @@ span.price-item.price-item--sale.price-item--last {
   color: #000;
 }
 
-/* Lumu Savings Styles */
+/* ---- Lumu Savings Styles ---- */
 .lumu-save-line {
   font-family: inherit;
   font-size: 1.3rem;
-  color: #2e7d32;
+  color: var(--lumu-green);
   margin-top: 4px;
   display: block;
   position: relative;
@@ -113,27 +285,9 @@ span.price-item.price-item--sale.price-item--last {
   font-weight: 600;
 }
 
-/* Lumu Premium Typography & Global Styles */
-:root {
-  --font-body-family: 'Inter', sans-serif;
-  --font-heading-family: 'Inter', sans-serif;
-  --buttons-radius: 8px;
-  --inputs-radius: 8px;
-  --badges-radius: 4px;
-}
-
-body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
-  font-family: var(--font-body-family) !important;
-}
-
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.button, .shopify-payment-button__button {
-  border-radius: var(--buttons-radius) !important;
-}
+/* ============================================
+   PRODUCT PAGE — Trust & Urgency
+   ============================================ */
 
 /* Trust Badges */
 .product-trust-badges {
@@ -141,7 +295,7 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   margin-top: 15px;
   gap: 10px;
   justify-content: space-between;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding-top: 15px;
 }
 .trust-badge {
@@ -157,15 +311,15 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   width: 24px;
   height: 24px;
   margin-bottom: 5px;
-  color: #8577C7;
+  color: var(--lumu-purple);
 }
 
-/* Lumu Urgency Counter */
+/* Urgency Counter */
 .lumu-urgency-timer {
-  background: rgba(133, 119, 199, 0.08);
-  border: 1px solid rgba(133, 119, 199, 0.3);
-  padding: 12px;
-  border-radius: 6px;
+  background: rgba(133, 119, 199, 0.06);
+  border: 1px solid rgba(133, 119, 199, 0.2);
+  padding: 12px 16px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -176,7 +330,7 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   font-size: 1.3rem;
 }
 .lumu-urgency-timer strong {
-  color: #d32f2f;
+  color: var(--lumu-red);
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -184,7 +338,7 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #d32f2f;
+  background-color: var(--lumu-red);
   border-radius: 50%;
   margin-right: 12px;
   box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7);
@@ -196,19 +350,24 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
 }
 
-/* Lumu Premium Add to Cart */
+/* ============================================
+   PREMIUM ADD TO CART BUTTON
+   ============================================ */
 .lumu-atc-btn {
-  background: linear-gradient(135deg, #8577C7 0%, #6153a7 100%) !important;
+  background: linear-gradient(135deg, var(--lumu-purple) 0%, var(--lumu-purple-dark) 100%) !important;
   color: white !important;
   border: none !important;
   box-shadow: 0 4px 15px rgba(133, 119, 199, 0.4) !important;
   transition: all 0.3s ease !important;
   position: relative;
   overflow: hidden;
+  font-size: 1.5rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
 }
 .lumu-atc-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(133, 119, 199, 0.6) !important;
+  box-shadow: 0 6px 25px rgba(133, 119, 199, 0.6) !important;
 }
 .lumu-atc-btn::after {
   content: '';
@@ -217,7 +376,7 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
   transform: skewX(-25deg);
   animation: shine 4s infinite;
 }
@@ -227,40 +386,46 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
   100% { left: 200%; }
 }
 
-/* Free Shipping Progress Bar */
+/* ============================================
+   CART DRAWER — SHIPPING PROGRESS
+   ============================================ */
 .cart-drawer-shipping-bar {
-  background: #f7f7fc;
-  padding: 12px 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  background: linear-gradient(135deg, #f7f5fc 0%, #ede8ff 100%);
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
   text-align: center;
+  border: 1px solid rgba(133, 119, 199, 0.1);
 }
 .cart-drawer-shipping-bar p {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
   color: #333;
+  font-weight: 500;
 }
 .progress-bar-container {
-  background: #e0e0e0;
+  background: #e4e0f0;
   border-radius: 10px;
   height: 8px;
   width: 100%;
   overflow: hidden;
 }
 .progress-bar-fill {
-  background: linear-gradient(90deg, #8577C7, #a491f0);
+  background: linear-gradient(90deg, var(--lumu-purple), var(--lumu-purple-light));
   height: 100%;
   border-radius: 10px;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Pre-Footer Trust Banner */
+/* ============================================
+   PRE-FOOTER TRUST BANNER
+   ============================================ */
 .lumu-pre-footer {
   display: flex !important;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 30px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   margin-bottom: 20px;
 }
 .pre-footer-item {
@@ -273,7 +438,8 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
 .pre-footer-item svg {
   width: 32px;
   height: 32px;
-  color: #8577C7;
+  color: var(--lumu-purple);
+  flex-shrink: 0;
 }
 .pre-footer-text {
   display: flex;
@@ -281,9 +447,181 @@ body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
 }
 .pre-footer-text strong {
   font-size: 1.5rem;
-  color: #333;
+  color: #222;
+  font-weight: 700;
 }
 .pre-footer-text span {
   font-size: 1.3rem;
   color: #777;
+}
+
+/* ============================================
+   RICH TEXT SECTIONS POLISH
+   ============================================ */
+.rich-text__heading {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+.rich-text__text p {
+  line-height: 1.7;
+  font-size: 1.5rem;
+}
+
+/* ============================================
+   COLLAPSIBLE FAQ STYLES
+   ============================================ */
+.collapsible-content .accordion {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.collapsible-content__heading {
+  font-weight: 600 !important;
+}
+
+/* ============================================
+   NEWSLETTER SECTION
+   ============================================ */
+.newsletter__heading {
+  font-weight: 800 !important;
+}
+
+.newsletter-form__field-wrapper .field__input {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.newsletter-form__button {
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* ============================================
+   FOOTER POLISH
+   ============================================ */
+.footer__content-top {
+  padding-top: 40px;
+}
+
+.footer-block__heading {
+  font-weight: 700 !important;
+  font-size: 1.4rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.footer__content-bottom {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ============================================
+   IMAGE WITH TEXT SECTION POLISH
+   ============================================ */
+.image-with-text .grid__item {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image-with-text__content {
+  padding: 40px !important;
+}
+
+.image-with-text__heading {
+  font-weight: 800 !important;
+}
+
+.image-with-text__text p {
+  line-height: 1.75;
+  color: #444;
+  font-size: 1.5rem;
+}
+
+/* ============================================
+   COLLECTION PAGE POLISH
+   ============================================ */
+.collection-hero__title {
+  font-weight: 800 !important;
+}
+
+.facets__summary {
+  border-radius: 8px !important;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lumu-purple);
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+::selection {
+  background: rgba(133, 119, 199, 0.25);
+  color: #1a1a2e;
+}
+
+/* ============================================
+   SMOOTH SCROLL
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE POLISH
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .banner__heading {
+    font-size: 2.8rem !important;
+  }
+
+  .banner__text {
+    font-size: 1.4rem;
+  }
+
+  .multicolumn-card__info h3 {
+    font-size: 1.4rem !important;
+  }
+
+  .pre-footer-item {
+    flex: 1 1 100%;
+  }
+
+  .product-trust-badges {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .trust-badge {
+    flex: 1 1 45%;
+  }
+
+  .image-with-text__content {
+    padding: 24px !important;
+  }
+
+  .rich-text__text p {
+    font-size: 1.4rem;
+  }
+}
+
+/* ============================================
+   LOADING / PAGE TRANSITION
+   ============================================ */
+.animate--slide-in {
+  animation-duration: 0.6s !important;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }

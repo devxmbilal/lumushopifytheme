@@ -1,25 +1,66 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "lumu_contact_banner": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get In Touch",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Have a question, concern, or just want to say hello? We'd love to hear from you. Our team typically responds within 2-4 hours.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40
       }
     },
-    "form": {
+    "lumu_contact_methods": {
+      "type": "multicolumn",
+      "blocks": {
+        "m_1": { "type": "column", "settings": { "title": "📧 Email Us", "text": "<p>support@lumu.pk<br>We reply within 4 hours</p>" } },
+        "m_2": { "type": "column", "settings": { "title": "💬 WhatsApp", "text": "<p>+92 XXX XXXXXXX<br>Available 24/7</p>" } },
+        "m_3": { "type": "column", "settings": { "title": "📍 Location", "text": "<p>Lahore, Pakistan<br>Operating Hours: 9 AM - 9 PM</p>" } }
+      },
+      "block_order": ["m_1", "m_2", "m_3"],
+      "settings": {
+        "title": "",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_contact_form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
+        "heading": "Send Us a Message",
         "heading_size": "h1",
         "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "lumu_contact_banner",
+    "lumu_contact_methods",
+    "lumu_contact_form"
   ]
 }

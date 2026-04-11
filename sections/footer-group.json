@@ -5,44 +5,51 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
+        "footer-brand": {
+          "type": "brand_information",
+          "settings": {
+            "description": "Lumu is Pakistan's trusted online marketplace. We bring you authentic products across 100+ categories with fast delivery and easy returns."
+          }
+        },
+        "footer-shop": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "footer-help": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Care",
             "menu": "footer"
           }
         },
-        "footer-1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Info",
-            "menu": "footer"
-          }
-        },
-        "footer-2": {
+        "footer-info": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "heading": "Contact Us",
+            "subtext": "<p>📧 support@lumu.pk<br>💬 WhatsApp: +92 XXX XXXXXXX<br>📍 Lahore, Pakistan<br>⏰ Mon-Sat: 9AM - 9PM</p>"
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "footer-brand",
+        "footer-shop",
+        "footer-help",
+        "footer-info"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "Get Exclusive Deals & Updates",
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 48,
-        "padding_top": 36,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 48,
         "padding_bottom": 36
       }
     }
