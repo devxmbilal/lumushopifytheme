@@ -36,20 +36,134 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-body-family) !important;
 }
 
-/* ---- Premium Card Styles ---- */
-.card {
-  border-radius: 12px;
+/* ---- Premium Product Card Styles ---- */
+.card-wrapper {
+  background: #ffffff !important;
+  border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+  height: 100%;
+  transform: translateZ(0); /* Hardware accel for smooth hover */
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
+.card-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(133, 119, 199, 0.18) !important;
+  border-color: rgba(133, 119, 199, 0.25);
+}
+
+.card {
+  background: transparent !important;
+  border: none !important;
 }
 
 .card__inner {
-  border-radius: 12px;
+  border-radius: 14px 14px 0 0 !important;
+  overflow: hidden;
+  background: #f9f9fb !important; /* Soft backdrop for transparent images */
+}
+
+/* Image Hover Zoom Effect */
+.card__media .media img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card-wrapper:hover .card__media .media img {
+  transform: scale(1.06) !important;
+}
+
+/* Premium Typography for Cards */
+.card__content {
+  padding: 16px 20px 24px !important;
+  text-align: center;
+}
+
+.card-information {
+  text-align: center;
+}
+
+.card__heading {
+  font-family: var(--font-heading-family) !important;
+  font-weight: 700 !important;
+  font-size: 1.45rem !important;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.card-wrapper:hover .card__heading {
+  color: var(--lumu-purple);
+}
+
+/* Price Styling */
+.price {
+  font-weight: 700 !important;
+  color: var(--lumu-purple) !important;
+  font-size: 1.5rem !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.price__regular, .price__sale {
+  color: var(--lumu-purple) !important;
+}
+
+.price .price-item--compare {
+  color: #a0a0ab !important;
+  font-size: 1.25rem !important;
+  text-decoration: line-through;
+  font-weight: 500 !important;
+}
+
+/* Badges (Sale, Sold out) */
+.card__badge .badge {
+  background: var(--lumu-red) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  padding: 6px 10px;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+}
+
+.card__badge .badge.badge--bottom-left {
+  background: #111827 !important; /* Sold out = dark */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Quick Add Button Upgrade */
+.quick-add {
+  margin: 12px auto 0 !important;
+  width: calc(100% - 32px) !important;
+}
+
+.quick-add__submit {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-size: 1.25rem !important;
+  padding: 10px 16px !important;
+  width: 100% !important;
+  background: white !important;
+  border: 1px solid var(--lumu-purple) !important;
+  color: var(--lumu-purple) !important;
+  transition: all 0.3s ease !important;
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+}
+
+.card-wrapper:hover .quick-add__submit {
+  background: var(--lumu-purple) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(133, 119, 199, 0.3);
 }
 
 /* ---- Buttons ---- */

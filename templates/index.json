@@ -8,6 +8,10 @@
       "type": "lumu-categories",
       "settings": {}
     },
+    "lumu_trending_products": {
+      "type": "lumu-footer-products",
+      "settings": {}
+    },
     "lumu_flash_sale": {
       "type": "featured-collection",
       "settings": {
@@ -87,6 +91,7 @@
   "order": [
     "lumu_hero_slider",
     "lumu_categories",
+    "lumu_trending_products",
     "lumu_flash_sale",
     "lumu_brand_story",
     "lumu_new_arrivals",
