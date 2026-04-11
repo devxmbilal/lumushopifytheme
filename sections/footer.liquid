@@ -49,39 +49,6 @@
     or section.settings.enable_follow_on_shop
   -%}
     {%- unless only_empty_brand -%}
-      <!-- Lumu Pre-Footer Trust Banner -->
-      <div class="lumu-pre-footer page-width">
-        <div class="pre-footer-item">
-          <span class="svg-wrapper">{{ 'icon-truck.svg' | inline_asset_content }}</span>
-          <div class="pre-footer-text">
-            <strong>Free Shipping</strong>
-            <span>On orders over Rs 2000</span>
-          </div>
-        </div>
-        <div class="pre-footer-item">
-          <span class="svg-wrapper">{{ 'icon-return.svg' | inline_asset_content }}</span>
-          <div class="pre-footer-text">
-            <strong>7 Days Return</strong>
-            <span>If goods have problems</span>
-          </div>
-        </div>
-        <div class="pre-footer-item">
-          <span class="svg-wrapper">{{ 'icon-success.svg' | inline_asset_content }}</span>
-          <div class="pre-footer-text">
-            <strong>Secure Payment</strong>
-            <span>100% secure payment</span>
-          </div>
-        </div>
-        <div class="pre-footer-item">
-          <span class="svg-wrapper">{{ 'icon-chat_bubble.svg' | inline_asset_content }}</span>
-          <div class="pre-footer-text">
-            <strong>24/7 Support</strong>
-            <span>Dedicated support</span>
-          </div>
-        </div>
-      </div>
-      <!-- End Pre-Footer -->
-
       <div class="footer__content-top page-width">
         {%- if section.blocks.size > 0 -%}
           {%- liquid

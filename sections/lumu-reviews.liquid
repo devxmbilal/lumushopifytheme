@@ -1,0 +1,116 @@
+<style>
+  .lumu-reviews {
+    background: #121212; /* Matches the dark pre-footer products section */
+    padding: 64px 0 48px;
+  }
+  .lumu-reviews__inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+  }
+  .lumu-reviews__header {
+    text-align: center; margin-bottom: 48px; position: relative; padding-bottom: 16px;
+  }
+  .lumu-reviews__title {
+    font-size: 2.6rem; font-weight: 800; color: white;
+    letter-spacing: -0.02em;
+  }
+  .lumu-reviews__header::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 3px; background: linear-gradient(90deg, #8577C7, #a491f0); border-radius: 3px;
+  }
+  .lumu-reviews__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .lumu-reviews__card {
+    background: #ffffff; /* White cards as requested */
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  .lumu-reviews__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(133,119,199,0.25);
+  }
+  .lumu-reviews__stars {
+    color: #ffb800; /* Gold stars */
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .lumu-reviews__text {
+    font-size: 1.45rem; color: #1a1a1a; /* Black text */
+    line-height: 1.6; font-style: italic;
+    margin-bottom: 24px;
+  }
+  .lumu-reviews__author {
+    font-weight: 700; color: #000000; /* Bold black */
+    font-size: 1.4rem;
+  }
+  .lumu-reviews__verified {
+    font-size: 1.2rem; color: #16a34a; /* Green verified tag */
+    font-weight: 600; margin-top: 4px;
+    display: flex; align-items: center; justify-content: center; gap: 4px;
+  }
+  .lumu-reviews__verified svg { width: 14px; height: 14px; }
+
+  @media (max-width: 989px) { .lumu-reviews__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 749px) {
+    .lumu-reviews__grid { grid-template-columns: 1fr; gap: 16px; }
+    .lumu-reviews__card { padding: 24px 20px; }
+    .lumu-reviews__title { font-size: 2.2rem; }
+  }
+</style>
+
+<div class="lumu-reviews">
+  <div class="lumu-reviews__inner">
+    <div class="lumu-reviews__header">
+      <h2 class="lumu-reviews__title">What Our Customers Say</h2>
+    </div>
+    <div class="lumu-reviews__grid">
+      <!-- Review 1 -->
+      <div class="lumu-reviews__card">
+        <div class="lumu-reviews__stars">★★★★★</div>
+        <div class="lumu-reviews__text">"Absolutely love the quality! My order arrived in Lahore within 2 days. The packaging was beautiful and the product exceeded my expectations."</div>
+        <div class="lumu-reviews__author">Ayesha K.</div>
+        <div class="lumu-reviews__verified">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Verified Buyer
+        </div>
+      </div>
+      <!-- Review 2 -->
+      <div class="lumu-reviews__card">
+        <div class="lumu-reviews__stars">★★★★★</div>
+        <div class="lumu-reviews__text">"First time shopping at Lumu and I'm very impressed. The customer support team was super helpful on WhatsApp when I wanted to change my color preference."</div>
+        <div class="lumu-reviews__author">Usman M.</div>
+        <div class="lumu-reviews__verified">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Verified Buyer
+        </div>
+      </div>
+      <!-- Review 3 -->
+      <div class="lumu-reviews__card">
+        <div class="lumu-reviews__stars">★★★★★</div>
+        <div class="lumu-reviews__text">"The premium feel of the tech gadgets I ordered is unmatched for this price. Definitely recommending to all my friends and family."</div>
+        <div class="lumu-reviews__author">Zainab T.</div>
+        <div class="lumu-reviews__verified">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Verified Buyer
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lumu Customer Reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Lumu Customer Reviews"
+    }
+  ]
+}
+{% endschema %}
