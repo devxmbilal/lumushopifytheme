@@ -1,0 +1,289 @@
+/* Lumu Custom Styles */
+
+/* Add to Cart Hover SVGs & Animation */
+.add-to-cart-svg:after {
+  box-shadow: none !important;
+}
+.add-to-cart-svg {
+  background: unset;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  padding: 8px;
+}
+.add-to-cart-svg:focus-visible {
+  box-shadow: none !important;
+}
+
+span.add-to-cart-text.text-on-hover {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+  color: #000;
+  font-size: 10px;
+  max-height: 30px;
+  white-space: nowrap;
+}
+button.add-to-cart-svg:hover .add-to-cart-text {
+  visibility: visible;
+  max-width: max-content;
+  width: max-content;
+  margin-right: 6px;
+  margin-left: 6px;
+  margin-bottom: -7px;
+  padding: 0px 0;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .add-to-cart-svg {
+    display: none;
+  }
+}
+
+/* Sale Badge Layout */
+.collection .card__badge.top {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translate(-3%, -50%);
+  z-index: 2;
+}
+
+@media screen and (max-width: 990px) {
+  .collection .card__badge.top {
+    transform: translate(-2%, -50%);
+  } 
+}
+
+/* Pricing Overrides */
+.price--on-sale .price__sale {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  gap: 6px !important;
+  justify-content: flex-end;
+}
+s.price-item.price-item--regular {
+  color: #8577C7 !important;
+  font-weight: 600 !important;
+}
+span.price-item.price-item--sale.price-item--last {
+  font-weight: 600 !important;
+  color: #000;
+}
+
+/* Lumu Savings Styles */
+.lumu-save-line {
+  font-family: inherit;
+  font-size: 1.3rem;
+  color: #2e7d32;
+  margin-top: 4px;
+  display: block;
+  position: relative;
+}
+.lumu-save-line b {
+  font-weight: bold;
+}
+
+/* Confetti Pop Animation */
+.confetti-pop {
+  position: absolute;
+  pointer-events: none;
+  font-size: 12px;
+  animation: popUp 1s ease-out forwards;
+  z-index: 10;
+}
+@keyframes popUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-30px) scale(1.5); opacity: 0; }
+}
+
+/* Main Collection adjustments */
+.content-add-to-cart-wrapper .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
+  margin-top: 0;
+}
+.content-add-to-cart-wrapper span.price-item.price-item--regular {
+  font-weight: 600;
+}
+
+/* Lumu Premium Typography & Global Styles */
+:root {
+  --font-body-family: 'Inter', sans-serif;
+  --font-heading-family: 'Inter', sans-serif;
+  --buttons-radius: 8px;
+  --inputs-radius: 8px;
+  --badges-radius: 4px;
+}
+
+body, h1, h2, h3, h4, h5, h6, .button, input, select, textarea {
+  font-family: var(--font-body-family) !important;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.button, .shopify-payment-button__button {
+  border-radius: var(--buttons-radius) !important;
+}
+
+/* Trust Badges */
+.product-trust-badges {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 15px;
+}
+.trust-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+  font-weight: 500;
+}
+.trust-badge svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+  color: #8577C7;
+}
+
+/* Lumu Urgency Counter */
+.lumu-urgency-timer {
+  background: rgba(133, 119, 199, 0.08);
+  border: 1px solid rgba(133, 119, 199, 0.3);
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+.lumu-urgency-timer p {
+  margin: 0;
+  font-size: 1.3rem;
+}
+.lumu-urgency-timer strong {
+  color: #d32f2f;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.pulse-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #d32f2f;
+  border-radius: 50%;
+  margin-right: 12px;
+  box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7);
+  animation: pulse-red 1.5s infinite;
+}
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(211, 47, 47, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+}
+
+/* Lumu Premium Add to Cart */
+.lumu-atc-btn {
+  background: linear-gradient(135deg, #8577C7 0%, #6153a7 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(133, 119, 199, 0.4) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+.lumu-atc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(133, 119, 199, 0.6) !important;
+}
+.lumu-atc-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
+}
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+/* Free Shipping Progress Bar */
+.cart-drawer-shipping-bar {
+  background: #f7f7fc;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.cart-drawer-shipping-bar p {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+.progress-bar-container {
+  background: #e0e0e0;
+  border-radius: 10px;
+  height: 8px;
+  width: 100%;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  background: linear-gradient(90deg, #8577C7, #a491f0);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Pre-Footer Trust Banner */
+.lumu-pre-footer {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+.pre-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1 1 250px;
+  margin: 10px 0;
+}
+.pre-footer-item svg {
+  width: 32px;
+  height: 32px;
+  color: #8577C7;
+}
+.pre-footer-text {
+  display: flex;
+  flex-direction: column;
+}
+.pre-footer-text strong {
+  font-size: 1.5rem;
+  color: #333;
+}
+.pre-footer-text span {
+  font-size: 1.3rem;
+  color: #777;
+}

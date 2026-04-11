@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lumu Huge Savings!",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Discover trending items across Women, Men, Electronics & Home.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "color_scheme": "scheme-1",
+        "show_text_box": false
+      }
+    },
+    "shop_categories": {
+      "type": "multicolumn",
+      "blocks": {
+        "c_1": { "type": "column", "settings": { "title": "Women", "link_label": "Shop", "link": "shopify://collections/all" } },
+        "c_2": { "type": "column", "settings": { "title": "Men", "link_label": "Shop", "link": "shopify://collections/all" } },
+        "c_3": { "type": "column", "settings": { "title": "Kids", "link_label": "Shop", "link": "shopify://collections/all" } },
+        "c_4": { "type": "column", "settings": { "title": "Home & Kitchen", "link_label": "Shop", "link": "shopify://collections/all" } },
+        "c_5": { "type": "column", "settings": { "title": "Beauty & Health", "link_label": "Shop", "link": "shopify://collections/all" } },
+        "c_6": { "type": "column", "settings": { "title": "Electronics", "link_label": "Shop", "link": "shopify://collections/all" } }
+      },
+      "block_order": [ "c_1", "c_2", "c_3", "c_4", "c_5", "c_6" ],
+      "settings": {
+        "title": "Shop By Department",
+        "heading_size": "h2",
+        "columns_desktop": 6,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "column_alignment": "center",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "lumu_flash_sale": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Flash Deals & Hot Arrivals",
+        "heading_size": "h2",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "image_ratio": "square"
+      }
+    },
+    "trust_banner": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Free Delivery Across Pakistan",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience premium quality products delivered right to your doorstep, backed by Lumu's fast service.<\/p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "shop_categories",
+    "lumu_flash_sale",
+    "trust_banner"
+  ]
+}
