@@ -33,41 +33,73 @@
   .lumu-pfp__shop-btn svg { width: 16px; height: 16px; transition: transform 0.3s ease; }
   .lumu-pfp__shop-btn:hover svg { transform: translateX(4px); }
   .lumu-pfp__grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    align-items: stretch;
   }
   .lumu-pfp__card {
-    background: rgba(255,255,255,0.05); border-radius: 14px;
-    overflow: hidden; text-decoration: none; color: white;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: #ffffff; /* Clean white card */
+    border-radius: 16px; /* Increased radius for 3D look */
+    overflow: hidden; text-decoration: none; color: #121212;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15); /* 3D depth */
+    display: flex; flex-direction: column;
+    height: 100%;
   }
   .lumu-pfp__card:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    transform: translateY(-8px); /* 3D lift */
+    box-shadow: 0 20px 40px rgba(133,119,199,0.25); /* Purple glow */
     border-color: rgba(133,119,199,0.3);
   }
+  .lumu-pfp__card-img-wrap {
+    width: 100%; position: relative; padding-top: 100%; /* 1:1 Aspect Ratio constraint */
+    background: #fbfbfd; overflow: hidden;
+  }
   .lumu-pfp__card-img {
-    width: 100%; aspect-ratio: 3/4; object-fit: cover;
-    transition: transform 0.5s ease;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; /* Professional filling */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .lumu-pfp__card:hover .lumu-pfp__card-img { transform: scale(1.05); }
-  .lumu-pfp__card-img-wrap { overflow: hidden; }
-  .lumu-pfp__card-body { padding: 14px 16px 18px; }
+  .lumu-pfp__card:hover .lumu-pfp__card-img { transform: scale(1.08); }
+  .lumu-pfp__card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+  
+  .lumu-pfp__reviews {
+    display: flex; align-items: center; gap: 3px; color: #ffb800; margin-bottom: 8px;
+  }
+  .lumu-pfp__reviews svg { width: 14px; height: 14px; }
+  .lumu-pfp__reviews span { color: #666; font-size: 1.2rem; margin-left: 6px; font-weight: 500; }
+  
   .lumu-pfp__card-name {
-    font-size: 1.35rem; font-weight: 600; color: rgba(255,255,255,0.9);
-    margin-bottom: 6px; line-height: 1.3;
+    font-size: 1.5rem; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 8px; line-height: 1.35;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    transition: color 0.3s ease;
   }
+  .lumu-pfp__card:hover .lumu-pfp__card-name { color: #8577C7; }
+  
   .lumu-pfp__card-price {
-    font-size: 1.4rem; font-weight: 700; color: #a491f0;
+    font-size: 1.6rem; font-weight: 800; color: #8577C7; margin-bottom: 16px;
   }
-  .lumu-pfp__card-price s { color: rgba(255,255,255,0.35); font-weight: 400; margin-left: 6px; font-size: 1.2rem; }
+  .lumu-pfp__card-price s { color: #a0a0ab; font-weight: 500; font-size: 1.3rem; margin-left: 8px; text-decoration: line-through; }
+  
+  .lumu-pfp__atc-btn {
+    margin-top: auto; width: 100%;
+    padding: 12px; background: white; border: 1px solid #8577C7; color: #8577C7;
+    border-radius: 8px; font-weight: 700; font-size: 1.3rem; text-transform: uppercase;
+    transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 8px;
+  }
+  .lumu-pfp__card:hover .lumu-pfp__atc-btn {
+    background: #8577C7; color: white;
+    box-shadow: 0 4px 15px rgba(133,119,199,0.3);
+  }
+  
   @media (max-width: 989px) { .lumu-pfp__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 549px) {
-    .lumu-pfp__grid { gap: 12px; }
-    .lumu-pfp__title { font-size: 2rem; }
-    .lumu-pfp__card-body { padding: 10px 12px 14px; }
+    .lumu-pfp__grid { gap: 16px; }
+    .lumu-pfp__title { font-size: 2.2rem; }
+    .lumu-pfp__card-body { padding: 14px; }
+    .lumu-pfp__card-name { font-size: 1.35rem; }
+    .lumu-pfp__atc-btn { font-size: 1.15rem; padding: 10px; }
   }
 </style>
 
@@ -83,24 +115,44 @@
     <div class="lumu-pfp__grid">
       {%- assign products_list = collections.all.products -%}
       {%- for product in products_list limit: 4 -%}
-        <a href="{{ product.url }}" class="lumu-pfp__card">
-          <div class="lumu-pfp__card-img-wrap">
-            {%- if product.featured_image != blank -%}
-              <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.title | escape }}" class="lumu-pfp__card-img" loading="lazy" width="500" height="667">
-            {%- else -%}
-              <div class="lumu-pfp__card-img" style="background:#1a1a2e;"></div>
-            {%- endif -%}
-          </div>
-          <div class="lumu-pfp__card-body">
-            <div class="lumu-pfp__card-name">{{ product.title }}</div>
-            <div class="lumu-pfp__card-price">
-              {{ product.price | money }}
-              {%- if product.compare_at_price > product.price -%}
-                <s>{{ product.compare_at_price | money }}</s>
+        <div class="lumu-pfp__card-wrapper" style="height: 100%;">
+          <a href="{{ product.url }}" class="lumu-pfp__card">
+            <div class="lumu-pfp__card-img-wrap">
+              {%- if product.featured_image != blank -%}
+                <!-- Using square constraint -->
+                <img src="{{ product.featured_image | image_url: width: 600, height: 600, crop: 'center' }}" alt="{{ product.title | escape }}" class="lumu-pfp__card-img" loading="lazy">
+              {%- else -%}
+                <div class="lumu-pfp__card-img" style="background:#f0f0f5;"></div>
               {%- endif -%}
             </div>
-          </div>
-        </a>
+            
+            <div class="lumu-pfp__card-body">
+              <!-- Star Reviews -->
+              <div class="lumu-pfp__reviews">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span>(4.9)</span>
+              </div>
+              
+              <div class="lumu-pfp__card-name">{{ product.title }}</div>
+              
+              <div class="lumu-pfp__card-price">
+                {{ product.price | money }}
+                {%- if product.compare_at_price > product.price -%}
+                  <s>{{ product.compare_at_price | money }}</s>
+                {%- endif -%}
+              </div>
+              
+              <!-- Add to Cart styled button -->
+              <div class="lumu-pfp__atc-btn">
+                Add to Cart
+              </div>
+            </div>
+          </a>
+        </div>
       {%- endfor -%}
     </div>
   </div>
