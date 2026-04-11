@@ -500,6 +500,7 @@ span.price-item.price-item--sale.price-item--last {
    ============================================ */
 .footer {
   position: relative;
+  background-color: #0f172a !important; /* Premium Dark Blue */
 }
 
 .footer::before {
