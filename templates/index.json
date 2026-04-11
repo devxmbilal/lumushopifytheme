@@ -1,91 +1,17 @@
 {
   "sections": {
-    "lumu_announcement_bar": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div class=\"lumu-top-bar\"><div class=\"page-width lumu-top-bar__inner\"><span>🚚 FREE Shipping on Orders Over Rs 2,000</span><span>📞 WhatsApp: +92 XXX XXXXXXX</span><span>🔒 100% Secure Checkout</span></div></div><style>.lumu-top-bar{background:linear-gradient(135deg,#8577C7 0%,#6153a7 100%);color:#fff;padding:8px 0;font-size:12px;text-align:center;letter-spacing:0.5px}.lumu-top-bar__inner{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}.lumu-top-bar span{white-space:nowrap}@media(max-width:749px){.lumu-top-bar__inner{gap:15px;font-size:11px}}</style>",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
+    "lumu_hero_slider": {
+      "type": "lumu-hero-slider",
+      "settings": {}
     },
-    "hero_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Your One-Stop Shop for <em>Everything</em>",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "From fashion to electronics, home essentials to beauty — shop 100+ categories with free delivery across Pakistan.",
-            "text_style": "subtitle"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop All Products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "View Collections",
-            "button_link_2": "shopify://collections",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-5",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
-    },
-    "shop_categories": {
-      "type": "multicolumn",
-      "blocks": {
-        "c_1": { "type": "column", "settings": { "title": "👗 Women", "text": "<p>Trending dresses, tops, shoes & accessories</p>", "link_label": "Shop Women →", "link": "shopify://collections/all" } },
-        "c_2": { "type": "column", "settings": { "title": "👔 Men", "text": "<p>Shirts, pants, sneakers & grooming essentials</p>", "link_label": "Shop Men →", "link": "shopify://collections/all" } },
-        "c_3": { "type": "column", "settings": { "title": "👶 Kids", "text": "<p>Adorable clothing, toys & school supplies</p>", "link_label": "Shop Kids →", "link": "shopify://collections/all" } },
-        "c_4": { "type": "column", "settings": { "title": "🏠 Home & Kitchen", "text": "<p>Bedding, cookware, décor & smart gadgets</p>", "link_label": "Shop Home →", "link": "shopify://collections/all" } },
-        "c_5": { "type": "column", "settings": { "title": "💄 Beauty & Health", "text": "<p>Skincare, makeup, wellness & fragrances</p>", "link_label": "Shop Beauty →", "link": "shopify://collections/all" } },
-        "c_6": { "type": "column", "settings": { "title": "📱 Electronics", "text": "<p>Earbuds, chargers, smartwatches & accessories</p>", "link_label": "Shop Electronics →", "link": "shopify://collections/all" } }
-      },
-      "block_order": [ "c_1", "c_2", "c_3", "c_4", "c_5", "c_6" ],
-      "settings": {
-        "title": "Shop By Department",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
-        "button_label": "Browse All Departments",
-        "button_link": "shopify://collections",
-        "padding_top": 52,
-        "padding_bottom": 52
-      }
+    "lumu_categories": {
+      "type": "lumu-categories",
+      "settings": {}
     },
     "lumu_flash_sale": {
       "type": "featured-collection",
       "settings": {
-        "title": "🔥 Flash Deals & Hot Arrivals",
+        "title": "Flash Deals & Hot Arrivals",
         "heading_size": "h1",
         "collection": "all",
         "products_to_show": 8,
@@ -97,7 +23,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "padding_top": 40,
+        "padding_top": 52,
         "padding_bottom": 52
       }
     },
@@ -143,7 +69,7 @@
     "lumu_new_arrivals": {
       "type": "featured-collection",
       "settings": {
-        "title": "✨ New Arrivals Just Dropped",
+        "title": "New Arrivals Just Dropped",
         "heading_size": "h1",
         "collection": "all",
         "products_to_show": 4,
@@ -162,10 +88,10 @@
     "lumu_trust_features": {
       "type": "multicolumn",
       "blocks": {
-        "t_1": { "type": "column", "settings": { "title": "🚚 Free Delivery", "text": "<p>Free shipping on all orders above Rs 2,000 across Pakistan.</p>" } },
-        "t_2": { "type": "column", "settings": { "title": "🔄 Easy Returns", "text": "<p>Changed your mind? Return within 7 days, no questions asked.</p>" } },
-        "t_3": { "type": "column", "settings": { "title": "🔒 Secure Payments", "text": "<p>Your data is protected with industry-standard SSL encryption.</p>" } },
-        "t_4": { "type": "column", "settings": { "title": "💬 24/7 Support", "text": "<p>Reach us anytime via WhatsApp, email, or live chat.</p>" } }
+        "t_1": { "type": "column", "settings": { "title": "Free Delivery", "text": "<p>Free shipping on all orders above Rs 2,000 across Pakistan.</p>" } },
+        "t_2": { "type": "column", "settings": { "title": "Easy Returns", "text": "<p>Changed your mind? Return within 7 days, no questions asked.</p>" } },
+        "t_3": { "type": "column", "settings": { "title": "Secure Payments", "text": "<p>Your data is protected with industry-standard SSL encryption.</p>" } },
+        "t_4": { "type": "column", "settings": { "title": "24/7 Support", "text": "<p>Reach us anytime via WhatsApp, email, or live chat.</p>" } }
       },
       "block_order": [ "t_1", "t_2", "t_3", "t_4" ],
       "settings": {
@@ -212,9 +138,8 @@
     }
   },
   "order": [
-    "lumu_announcement_bar",
-    "hero_banner",
-    "shop_categories",
+    "lumu_hero_slider",
+    "lumu_categories",
     "lumu_flash_sale",
     "lumu_promo_banner",
     "lumu_new_arrivals",

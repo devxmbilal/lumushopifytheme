@@ -1,0 +1,163 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .lumu-slider { position: relative; overflow: hidden; border-radius: 0; }
+  .lumu-slider__track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  .lumu-slider__slide {
+    min-width: 100%; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 520px; background-size: cover; background-position: center;
+  }
+  .lumu-slider__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(26,26,46,0.65) 0%, rgba(133,119,199,0.35) 100%);
+  }
+  .lumu-slider__content {
+    position: relative; z-index: 2; text-align: center;
+    color: white; max-width: 700px; padding: 40px 20px;
+  }
+  .lumu-slider__content h2 {
+    font-size: 4.2rem; font-weight: 800; margin-bottom: 16px;
+    line-height: 1.1; letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .lumu-slider__content p {
+    font-size: 1.6rem; margin-bottom: 24px; opacity: 0.9;
+    line-height: 1.6; text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+  }
+  .lumu-slider__btn {
+    display: inline-block; padding: 14px 36px;
+    background: white; color: #1a1a2e; border-radius: 8px;
+    font-weight: 700; font-size: 1.5rem; text-decoration: none;
+    transition: all 0.3s ease; letter-spacing: 0.03em;
+  }
+  .lumu-slider__btn:hover {
+    background: #8577C7; color: white;
+    transform: translateY(-2px); box-shadow: 0 6px 20px rgba(133,119,199,0.4);
+  }
+  .lumu-slider__btn--outline {
+    background: transparent; border: 2px solid white; color: white; margin-left: 12px;
+  }
+  .lumu-slider__btn--outline:hover {
+    background: white; color: #1a1a2e;
+  }
+  .lumu-slider__nav {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; z-index: 3;
+  }
+  .lumu-slider__dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: rgba(255,255,255,0.5); border: none; cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .lumu-slider__dot.active { background: white; transform: scale(1.2); }
+  .lumu-slider__arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 3; background: rgba(255,255,255,0.2); border: none;
+    color: white; width: 48px; height: 48px; border-radius: 50%;
+    font-size: 20px; cursor: pointer; transition: all 0.3s ease;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .lumu-slider__arrow:hover { background: rgba(255,255,255,0.4); }
+  .lumu-slider__arrow--prev { left: 20px; }
+  .lumu-slider__arrow--next { right: 20px; }
+
+  @media (max-width: 749px) {
+    .lumu-slider__slide { min-height: 380px; }
+    .lumu-slider__content h2 { font-size: 2.6rem; }
+    .lumu-slider__content p { font-size: 1.4rem; }
+    .lumu-slider__btn { padding: 12px 24px; font-size: 1.3rem; }
+    .lumu-slider__btn--outline { margin-left: 0; margin-top: 10px; }
+    .lumu-slider__arrow { width: 36px; height: 36px; font-size: 16px; }
+  }
+</style>
+
+<div class="lumu-slider" id="LumuSlider">
+  <div class="lumu-slider__track" id="LumuSliderTrack">
+    <!-- Slide 1 -->
+    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-1.png' | asset_url }}');">
+      <div class="lumu-slider__overlay"></div>
+      <div class="lumu-slider__content">
+        <h2>Your One-Stop Shop for <em>Everything</em></h2>
+        <p>From fashion to electronics, home essentials to beauty — shop 100+ categories with free delivery across Pakistan.</p>
+        <div>
+          <a href="/collections/all" class="lumu-slider__btn">Shop Now</a>
+          <a href="/collections" class="lumu-slider__btn lumu-slider__btn--outline">Browse Collections</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-2.png' | asset_url }}');">
+      <div class="lumu-slider__overlay"></div>
+      <div class="lumu-slider__content">
+        <h2>Latest Tech & Gadgets</h2>
+        <p>Discover premium earbuds, smartwatches, chargers & more at prices you'll love. All 100% authentic.</p>
+        <div>
+          <a href="/collections/all" class="lumu-slider__btn">Shop Electronics</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-3.png' | asset_url }}');">
+      <div class="lumu-slider__overlay"></div>
+      <div class="lumu-slider__content">
+        <h2>Transform Your Space</h2>
+        <p>Premium home & kitchen essentials delivered to your door. Bedding, décor, cookware & more.</p>
+        <div>
+          <a href="/collections/all" class="lumu-slider__btn">Shop Home</a>
+          <a href="/collections" class="lumu-slider__btn lumu-slider__btn--outline">View All</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="lumu-slider__arrow lumu-slider__arrow--prev" onclick="lumuSlide(-1)">&#10094;</button>
+  <button class="lumu-slider__arrow lumu-slider__arrow--next" onclick="lumuSlide(1)">&#10095;</button>
+
+  <div class="lumu-slider__nav" id="LumuSliderNav">
+    <button class="lumu-slider__dot active" onclick="lumuGoTo(0)"></button>
+    <button class="lumu-slider__dot" onclick="lumuGoTo(1)"></button>
+    <button class="lumu-slider__dot" onclick="lumuGoTo(2)"></button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    let current = 0;
+    const total = 3;
+    const track = document.getElementById('LumuSliderTrack');
+    const dots = document.querySelectorAll('.lumu-slider__dot');
+
+    function updateSlider() {
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    window.lumuSlide = function(dir) {
+      current = (current + dir + total) % total;
+      updateSlider();
+    };
+
+    window.lumuGoTo = function(idx) {
+      current = idx;
+      updateSlider();
+    };
+
+    setInterval(() => { window.lumuSlide(1); }, 5000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lumu Hero Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Lumu Hero Slider"
+    }
+  ]
+}
+{% endschema %}
