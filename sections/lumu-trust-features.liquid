@@ -1,0 +1,127 @@
+<style>
+  .lumu-trust {
+    background: linear-gradient(135deg, #8577C7 0%, #6153a7 100%);
+    padding: 64px 0;
+  }
+  .lumu-trust__title {
+    text-align: center; margin-bottom: 48px; position: relative; padding-bottom: 16px;
+  }
+  .lumu-trust__title h2 {
+    font-size: 3rem; font-weight: 800; color: white; letter-spacing: -0.02em;
+  }
+  .lumu-trust__title::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 3px; background: rgba(255,255,255,0.5); border-radius: 3px;
+  }
+  .lumu-trust__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+  }
+  .lumu-trust__card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.35s ease;
+  }
+  .lumu-trust__card:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+  .lumu-trust__icon {
+    width: 60px; height: 60px; margin: 0 auto 18px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lumu-trust__icon svg {
+    width: 28px; height: 28px; color: white; stroke: white; fill: none;
+  }
+  .lumu-trust__card-title {
+    font-size: 1.6rem; font-weight: 700; color: white;
+    margin-bottom: 8px; letter-spacing: 0.01em;
+  }
+  .lumu-trust__card-text {
+    font-size: 1.35rem; color: rgba(255,255,255,0.8);
+    line-height: 1.55;
+  }
+  @media (max-width: 989px) {
+    .lumu-trust__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 549px) {
+    .lumu-trust__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .lumu-trust__card { padding: 22px 16px; }
+    .lumu-trust__icon { width: 48px; height: 48px; border-radius: 12px; }
+    .lumu-trust__icon svg { width: 22px; height: 22px; }
+    .lumu-trust__card-title { font-size: 1.4rem; }
+    .lumu-trust__card-text { font-size: 1.2rem; }
+    .lumu-trust__title h2 { font-size: 2.2rem; }
+  }
+</style>
+
+<div class="lumu-trust">
+  <div class="lumu-trust__title">
+    <h2>Why Shop With Lumu?</h2>
+  </div>
+  <div class="lumu-trust__grid">
+    <!-- Free Delivery -->
+    <div class="lumu-trust__card">
+      <div class="lumu-trust__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+      <div class="lumu-trust__card-title">Free Delivery</div>
+      <div class="lumu-trust__card-text">Free shipping on all orders above Rs 2,000 across Pakistan.</div>
+    </div>
+    <!-- Easy Returns -->
+    <div class="lumu-trust__card">
+      <div class="lumu-trust__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+        </svg>
+      </div>
+      <div class="lumu-trust__card-title">Easy Returns</div>
+      <div class="lumu-trust__card-text">Changed your mind? Return within 7 days, no questions asked.</div>
+    </div>
+    <!-- Secure Payments -->
+    <div class="lumu-trust__card">
+      <div class="lumu-trust__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </div>
+      <div class="lumu-trust__card-title">Secure Payments</div>
+      <div class="lumu-trust__card-text">Your data is protected with industry-standard SSL encryption.</div>
+    </div>
+    <!-- 24/7 Support -->
+    <div class="lumu-trust__card">
+      <div class="lumu-trust__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <line x1="9" y1="10" x2="15" y2="10"/>
+        </svg>
+      </div>
+      <div class="lumu-trust__card-title">24/7 Support</div>
+      <div class="lumu-trust__card-text">Reach us anytime via WhatsApp, email, or live chat.</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lumu Trust Features",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Lumu Trust Features"
+    }
+  ]
+}
+{% endschema %}

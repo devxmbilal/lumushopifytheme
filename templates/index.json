@@ -86,26 +86,8 @@
       }
     },
     "lumu_trust_features": {
-      "type": "multicolumn",
-      "blocks": {
-        "t_1": { "type": "column", "settings": { "title": "Free Delivery", "text": "<p>Free shipping on all orders above Rs 2,000 across Pakistan.</p>" } },
-        "t_2": { "type": "column", "settings": { "title": "Easy Returns", "text": "<p>Changed your mind? Return within 7 days, no questions asked.</p>" } },
-        "t_3": { "type": "column", "settings": { "title": "Secure Payments", "text": "<p>Your data is protected with industry-standard SSL encryption.</p>" } },
-        "t_4": { "type": "column", "settings": { "title": "24/7 Support", "text": "<p>Reach us anytime via WhatsApp, email, or live chat.</p>" } }
-      },
-      "block_order": [ "t_1", "t_2", "t_3", "t_4" ],
-      "settings": {
-        "title": "Why Shop With Lumu?",
-        "heading_size": "h1",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-5",
-        "padding_top": 52,
-        "padding_bottom": 52
-      }
+      "type": "lumu-trust-features",
+      "settings": {}
     },
     "lumu_newsletter": {
       "type": "newsletter",
