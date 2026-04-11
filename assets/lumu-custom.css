@@ -496,7 +496,7 @@ span.price-item.price-item--sale.price-item--last {
 }
 
 /* ============================================
-   FOOTER — PREMIUM DARK POLISH
+   FOOTER — PREMIUM PROFESSIONAL
    ============================================ */
 .footer {
   position: relative;
@@ -508,89 +508,84 @@ span.price-item.price-item--sale.price-item--last {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #8577C7, #a491f0, #8577C7);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8577C7, #a491f0, #8577C7, transparent);
 }
 
 .footer__content-top {
-  padding-top: 48px;
-  padding-bottom: 24px;
+  padding-top: 56px;
+  padding-bottom: 32px;
+}
+
+/* Brand description in footer */
+.footer-block--brand_information .footer-block__brand-info {
+  font-size: 1.35rem;
+  line-height: 1.7;
+  opacity: 0.65;
+  max-width: 280px;
 }
 
 .footer-block__heading {
   font-weight: 700 !important;
-  font-size: 1.35rem !important;
+  font-size: 1.3rem !important;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 20px;
-  color: #a491f0 !important;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.footer-block__heading::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background: rgba(164, 145, 240, 0.4);
-  border-radius: 2px;
+  letter-spacing: 0.12em;
+  margin-bottom: 22px;
+  color: rgba(255,255,255,0.95) !important;
 }
 
 .footer-block .list-menu__item.link {
-  padding: 4px 0;
+  padding: 5px 0;
+  font-size: 1.35rem;
   transition: all 0.25s ease;
-  position: relative;
+  opacity: 0.55;
 }
 
 .footer-block .list-menu__item.link:hover {
-  padding-left: 8px;
+  opacity: 1;
   color: #a491f0 !important;
-}
-
-.footer-block .list-menu__item.link::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 2px;
-  background: #a491f0;
-  transition: width 0.25s ease;
-  border-radius: 2px;
-}
-
-.footer-block .list-menu__item.link:hover::before {
-  width: 4px;
+  padding-left: 4px;
 }
 
 .footer-block__details-content .rte {
-  line-height: 1.8;
-  font-size: 1.35rem;
+  line-height: 1.9;
+  font-size: 1.3rem;
+  opacity: 0.6;
 }
 
-.footer__content-bottom {
-  padding-top: 24px;
-  padding-bottom: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.footer-block__details-content .rte strong {
+  opacity: 1;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Newsletter area */
+.footer .newsletter {
+  text-align: center;
+}
+
+.footer .newsletter__heading {
+  font-size: 1.2rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.95) !important;
+  margin-bottom: 16px;
 }
 
 .footer .newsletter-form__field-wrapper {
-  max-width: 380px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .footer .newsletter-form__field-wrapper .field__input {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   color: white !important;
   border-radius: 8px 0 0 8px !important;
+  font-size: 1.3rem;
 }
 
 .footer .newsletter-form__field-wrapper .field__input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .footer .newsletter-form__button {
@@ -604,13 +599,22 @@ span.price-item.price-item--sale.price-item--last {
   background: #a491f0 !important;
 }
 
+/* Bottom bar */
+.footer__content-bottom {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 8px;
+}
+
+/* Social links */
 .footer .list-social {
-  gap: 12px;
+  gap: 14px;
 }
 
 .footer .list-social__link {
   transition: all 0.3s ease;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .footer .list-social__link:hover {
@@ -619,13 +623,16 @@ span.price-item.price-item--sale.price-item--last {
   color: #a491f0 !important;
 }
 
+/* Copyright */
 .footer .copyright {
-  opacity: 0.5;
-  font-size: 1.2rem;
+  opacity: 0.35;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
 }
 
+/* Payment icons */
 .footer .payment-icons {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .footer .payment-icons .icon {
@@ -635,6 +642,18 @@ span.price-item.price-item--sale.price-item--last {
 .footer .payment-icons .icon:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+
+/* Policy links */
+.footer .policies .link {
+  opacity: 0.4;
+  font-size: 1.2rem;
+  transition: all 0.25s ease;
+}
+
+.footer .policies .link:hover {
+  opacity: 1;
+  color: #a491f0 !important;
 }
 
 /* ============================================

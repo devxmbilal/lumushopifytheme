@@ -2,13 +2,17 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "lumu-footer-products": {
+      "type": "lumu-footer-products",
+      "settings": {}
+    },
     "footer": {
       "type": "footer",
       "blocks": {
         "footer-brand": {
           "type": "brand_information",
           "settings": {
-            "description": "Lumu is Pakistan's trusted online marketplace. We bring you authentic products across 100+ categories with fast delivery and easy returns."
+            "description": "Your trusted online marketplace. Quality products, best prices, and fast delivery across Pakistan."
           }
         },
         "footer-shop": {
@@ -29,7 +33,7 @@
           "type": "text",
           "settings": {
             "heading": "Contact Us",
-            "subtext": "<p>📧 support@lumu.pk<br>💬 WhatsApp: +92 XXX XXXXXXX<br>📍 Lahore, Pakistan<br>⏰ Mon-Sat: 9AM - 9PM</p>"
+            "subtext": "<p>support@lumu.pk<br>WhatsApp: +92 XXX XXXXXXX<br>Lahore, Pakistan<br>Mon-Sat: 9AM - 9PM</p>"
           }
         }
       },
@@ -40,7 +44,7 @@
         "footer-info"
       ],
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-4",
         "newsletter_enable": true,
         "newsletter_heading": "Get Exclusive Deals & Updates",
         "show_social": true,
@@ -55,6 +59,7 @@
     }
   },
   "order": [
+    "lumu-footer-products",
     "footer"
   ]
 }

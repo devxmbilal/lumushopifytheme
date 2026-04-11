@@ -1,0 +1,121 @@
+<style>
+  .lumu-pre-footer-products {
+    background: #121212;
+    padding: 64px 0 48px;
+  }
+  .lumu-pfp__inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+  }
+  .lumu-pfp__header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 36px; flex-wrap: wrap; gap: 16px;
+  }
+  .lumu-pfp__title {
+    font-size: 2.6rem; font-weight: 800; color: white;
+    letter-spacing: -0.02em; position: relative; padding-bottom: 12px;
+  }
+  .lumu-pfp__title::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 40px; height: 3px; background: linear-gradient(90deg, #8577C7, #a491f0); border-radius: 3px;
+  }
+  .lumu-pfp__shop-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; background: transparent;
+    border: 2px solid rgba(255,255,255,0.2); color: white;
+    border-radius: 8px; font-weight: 600; font-size: 1.4rem;
+    text-decoration: none; transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+  }
+  .lumu-pfp__shop-btn:hover {
+    border-color: #8577C7; background: #8577C7; color: white;
+    transform: translateY(-2px); box-shadow: 0 6px 20px rgba(133,119,199,0.3);
+  }
+  .lumu-pfp__shop-btn svg { width: 16px; height: 16px; transition: transform 0.3s ease; }
+  .lumu-pfp__shop-btn:hover svg { transform: translateX(4px); }
+  .lumu-pfp__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .lumu-pfp__card {
+    background: rgba(255,255,255,0.05); border-radius: 14px;
+    overflow: hidden; text-decoration: none; color: white;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .lumu-pfp__card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    border-color: rgba(133,119,199,0.3);
+  }
+  .lumu-pfp__card-img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .lumu-pfp__card:hover .lumu-pfp__card-img { transform: scale(1.05); }
+  .lumu-pfp__card-img-wrap { overflow: hidden; }
+  .lumu-pfp__card-body { padding: 14px 16px 18px; }
+  .lumu-pfp__card-name {
+    font-size: 1.35rem; font-weight: 600; color: rgba(255,255,255,0.9);
+    margin-bottom: 6px; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .lumu-pfp__card-price {
+    font-size: 1.4rem; font-weight: 700; color: #a491f0;
+  }
+  .lumu-pfp__card-price s { color: rgba(255,255,255,0.35); font-weight: 400; margin-left: 6px; font-size: 1.2rem; }
+  @media (max-width: 989px) { .lumu-pfp__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 549px) {
+    .lumu-pfp__grid { gap: 12px; }
+    .lumu-pfp__title { font-size: 2rem; }
+    .lumu-pfp__card-body { padding: 10px 12px 14px; }
+  }
+</style>
+
+<div class="lumu-pre-footer-products">
+  <div class="lumu-pfp__inner">
+    <div class="lumu-pfp__header">
+      <h2 class="lumu-pfp__title">Trending Now</h2>
+      <a href="/collections/all" class="lumu-pfp__shop-btn">
+        Shop All Products
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+    </div>
+    <div class="lumu-pfp__grid">
+      {%- assign products_list = collections.all.products -%}
+      {%- for product in products_list limit: 4 -%}
+        <a href="{{ product.url }}" class="lumu-pfp__card">
+          <div class="lumu-pfp__card-img-wrap">
+            {%- if product.featured_image != blank -%}
+              <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.title | escape }}" class="lumu-pfp__card-img" loading="lazy" width="500" height="667">
+            {%- else -%}
+              <div class="lumu-pfp__card-img" style="background:#1a1a2e;"></div>
+            {%- endif -%}
+          </div>
+          <div class="lumu-pfp__card-body">
+            <div class="lumu-pfp__card-name">{{ product.title }}</div>
+            <div class="lumu-pfp__card-price">
+              {{ product.price | money }}
+              {%- if product.compare_at_price > product.price -%}
+                <s>{{ product.compare_at_price | money }}</s>
+              {%- endif -%}
+            </div>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lumu Footer Products",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Lumu Footer Products"
+    }
+  ]
+}
+{% endschema %}
