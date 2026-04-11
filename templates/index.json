@@ -27,44 +27,9 @@
         "padding_bottom": 52
       }
     },
-    "lumu_promo_banner": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Quality You Can Trust",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Every item on Lumu is carefully vetted for quality. We partner directly with trusted brands and manufacturers to bring you authentic products at unbeatable prices — all backed by our 7-day hassle-free return policy.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More About Lumu",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": ["heading", "text", "button"],
-      "settings": {
-        "height": "auto",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+    "lumu_brand_story": {
+      "type": "lumu-brand-story",
+      "settings": {}
     },
     "lumu_new_arrivals": {
       "type": "featured-collection",
@@ -123,7 +88,7 @@
     "lumu_hero_slider",
     "lumu_categories",
     "lumu_flash_sale",
-    "lumu_promo_banner",
+    "lumu_brand_story",
     "lumu_new_arrivals",
     "lumu_trust_features",
     "lumu_newsletter"

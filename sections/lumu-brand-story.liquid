@@ -1,0 +1,169 @@
+<style>
+  .lumu-brand-story {
+    background: #ffffff;
+    padding: 80px 0;
+  }
+  .lumu-bs__inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; align-items: center; gap: 80px;
+  }
+  .lumu-bs__img-wrapper {
+    flex: 1; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.08);
+    position: relative;
+  }
+  .lumu-bs__img-wrapper::after {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);
+    pointer-events: none;
+  }
+  .lumu-bs__img {
+    width: 100%; height: auto; display: block;
+    aspect-ratio: 4/5; object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .lumu-bs__img-wrapper:hover .lumu-bs__img {
+    transform: scale(1.06);
+  }
+  .lumu-bs__content {
+    flex: 1;
+  }
+  .lumu-bs__subtitle {
+    font-size: 1.35rem; font-weight: 700; color: #8577C7;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 16px; display: block;
+  }
+  .lumu-bs__title {
+    font-size: 3.8rem; font-weight: 800; color: #1a1a2e;
+    line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  .lumu-bs__text {
+    font-size: 1.6rem; color: #4a4a5e; line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .lumu-bs__features {
+    display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;
+  }
+  .lumu-bs__feature {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.5rem; font-weight: 600; color: #1a1a2e;
+  }
+  .lumu-bs__feature svg {
+    width: 24px; height: 24px; color: #10b981; flex-shrink: 0;
+  }
+  .lumu-bs__btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 16px 36px; background: #8577C7; color: white;
+    font-size: 1.5rem; font-weight: 700; border-radius: 8px;
+    text-decoration: none; transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(133,119,199,0.3);
+  }
+  .lumu-bs__btn:hover {
+    background: #a491f0; transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(133,119,199,0.4);
+    color: white;
+  }
+  
+  @media (max-width: 989px) {
+    .lumu-bs__inner { flex-direction: column; gap: 40px; }
+    .lumu-bs__img-wrapper { width: 100%; max-width: 600px; }
+    .lumu-bs__title { font-size: 3.2rem; }
+  }
+  @media (max-width: 749px) {
+    .lumu-brand-story { padding: 48px 0; }
+    .lumu-bs__title { font-size: 2.8rem; }
+    .lumu-bs__text { font-size: 1.4rem; }
+    .lumu-bs__btn { width: 100%; }
+  }
+</style>
+
+<div class="lumu-brand-story">
+  <div class="lumu-bs__inner">
+    <div class="lumu-bs__img-wrapper">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" class="lumu-bs__img" loading="lazy">
+      {%- else -%}
+        <!-- Using a high quality placeholder from previously generated hero images -->
+        <img src="{{ 'lumu-hero-3.png' | asset_url }}" alt="Lumu Brand Quality" class="lumu-bs__img" loading="lazy">
+      {%- endif -%}
+    </div>
+    
+    <div class="lumu-bs__content">
+      <span class="lumu-bs__subtitle">{{ section.settings.subtitle }}</span>
+      <h2 class="lumu-bs__title">{{ section.settings.title }}</h2>
+      <div class="lumu-bs__text">
+        {{ section.settings.text }}
+      </div>
+      
+      <div class="lumu-bs__features">
+        <div class="lumu-bs__feature">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          100% Authentic Quality Products
+        </div>
+        <div class="lumu-bs__feature">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Fast & Reliable Delivery Across Pakistan
+        </div>
+        <div class="lumu-bs__feature">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Dedicated 24/7 Customer Support
+        </div>
+      </div>
+      
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="lumu-bs__btn">
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lumu Brand Story",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "THE LUMU PROMISE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Premium Quality, Delivered to Your Doorstep."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>At Lumu, we believe shopping should be effortless. We scour the market to bring you the highest quality fashion, tech, and home essentials. Say goodbye to the hassle and let us handle everything from checkout to delivery right here in Pakistan.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Explore Our Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lumu Brand Story"
+    }
+  ]
+}
+{% endschema %}
