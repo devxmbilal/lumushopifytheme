@@ -1,0 +1,104 @@
+{% comment %}
+  Lumu Premium Product Reviews Custom UI
+  Provides a beautiful scaffolding for product reviews
+{% endcomment %}
+
+<div class="lumu-product-reviews" style="background-color: var(--lumu-dark, #0f172a); padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.05); font-family: 'Inter', sans-serif;">
+  <div class="page-width" style="max-width: 1200px; margin: 0 auto; color: white;">
+    
+    <!-- Reviews Header -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+      <div>
+        <h2 style="color: white; font-size: 3.2rem; margin: 0 0 10px 0; font-weight: 700;">Customer Reviews</h2>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="display: flex; color: #FFD700; gap: 4px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span style="font-size: 1.6rem; opacity: 0.8;">Based on 128 Reviews</span>
+        </div>
+      </div>
+      <button style="margin-top: 20px; background: var(--lumu-purple, #8577C7); color: white; border: none; padding: 12px 30px; font-size: 1.6rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s ease;">
+        Write a Review
+      </button>
+    </div>
+
+    <!-- Review Cards Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      
+      <!-- Review 1 -->
+      <div style="background: white; border-radius: 12px; padding: 24px; color: var(--lumu-dark, #0f172a);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <div>
+            <h3 style="margin: 0 0 4px 0; font-size: 1.8rem; font-weight: 700;">Amazing Quality!</h3>
+            <div style="display: flex; color: #FFD700; gap: 2px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+          </div>
+          <span style="font-size: 1.2rem; background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Verified Buyer ✔</span>
+        </div>
+        <p style="font-size: 1.5rem; line-height: 1.6; margin: 0 0 16px 0; opacity: 0.8;">The product exceeded my expectations. Delivery was fast, and the packaging was fully secure. Highly recommended.</p>
+        <span style="font-size: 1.3rem; font-weight: 600; opacity: 0.6;">Sarah Khan</span>
+      </div>
+
+      <!-- Review 2 -->
+      <div style="background: white; border-radius: 12px; padding: 24px; color: var(--lumu-dark, #0f172a);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <div>
+            <h3 style="margin: 0 0 4px 0; font-size: 1.8rem; font-weight: 700;">10/10 Experience</h3>
+            <div style="display: flex; color: #FFD700; gap: 2px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+          </div>
+          <span style="font-size: 1.2rem; background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Verified Buyer ✔</span>
+        </div>
+        <p style="font-size: 1.5rem; line-height: 1.6; margin: 0 0 16px 0; opacity: 0.8;">Exactly what I was looking for. Premium feel and perfect fit. I'll definitely be shopping more from Lumu.</p>
+        <span style="font-size: 1.3rem; font-weight: 600; opacity: 0.6;">Ahmed Raza</span>
+      </div>
+
+      <!-- Review 3 -->
+      <div style="background: white; border-radius: 12px; padding: 24px; color: var(--lumu-dark, #0f172a);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <div>
+            <h3 style="margin: 0 0 4px 0; font-size: 1.8rem; font-weight: 700;">Customer for life!</h3>
+            <div style="display: flex; color: #FFD700; gap: 2px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+          </div>
+          <span style="font-size: 1.2rem; background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Verified Buyer ✔</span>
+        </div>
+        <p style="font-size: 1.5rem; line-height: 1.6; margin: 0 0 16px 0; opacity: 0.8;">The 24/7 support answered all my questions instantly. When the product arrived, I was blown away by the quality.</p>
+        <span style="font-size: 1.3rem; font-weight: 600; opacity: 0.6;">Fatima M.</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Reviews",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Lumu Product Reviews"
+    }
+  ]
+}
+{% endschema %}

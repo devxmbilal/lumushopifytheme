@@ -193,8 +193,13 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                  <div class="product__description rte" style="font-size: 1.6rem; color: var(--lumu-text-light); line-height: 1.6;" {{ block.shopify_attributes }}>
                     {{ product.description }}
+                  </div>
+                {%- else -%}
+                   <!-- Fallback if no description exists -->
+                  <div class="product__description rte" style="font-size: 1.6rem; color: var(--lumu-text-light); line-height: 1.6;" {{ block.shopify_attributes }}>
+                    <p>Experience the perfect blend of style, comfort, and premium quality. Our products are meticulously crafted to meet the highest standards. Order yours today!</p>
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
