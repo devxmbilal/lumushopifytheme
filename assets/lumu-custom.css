@@ -970,7 +970,7 @@ html {
 .lumu-pfp__card-price s { color: #a0a0ab !important; font-weight: 500; font-size: 1.3rem !important; margin-left: 8px; text-decoration: line-through; }
 
 .lumu-pfp__atc-btn {
-  margin-top: auto; width: 100%;
+  margin-top: auto; width: 100%; cursor: pointer;
   padding: 12px; background: white !important; border: 1px solid #8577C7 !important; color: #8577C7 !important;
   border-radius: 8px !important; font-weight: 700 !important; font-size: 1.3rem !important; text-transform: uppercase;
   transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center; gap: 8px;
