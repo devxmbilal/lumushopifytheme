@@ -1017,11 +1017,13 @@ html {
 @media screen and (min-width: 990px) {
   .winning-navigation {
     grid-area: nav !important;
-    display: block !important;
+    display: flex !important;
+    justify-content: center !important;
     width: 100% !important;
     border-top: 1px solid rgba(0,0,0,0.06);
     padding-top: 15px !important;
     margin-top: 5px !important;
+    text-align: center;
   }
 }
 
@@ -1109,4 +1111,27 @@ html {
 
 .header__submenu .header__menu-item:hover {
   background: rgba(133, 119, 199, 0.05) !important;
+}
+
+/* ============================================
+   ANNOUNCEMENT BAR — Custom Branding
+   ============================================ */
+.announcement-bar-section {
+  background-color: #6755B9 !important;
+}
+
+.utility-bar {
+  background-color: transparent !important;
+}
+
+.announcement-bar__message, 
+.announcement-bar__message span {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.02em !important;
+}
+
+.announcement-bar {
+  padding: 8px 0 !important;
 }
