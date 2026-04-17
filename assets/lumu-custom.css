@@ -990,30 +990,49 @@ html {
 }
 
 /* ============================================
-   PREMIUM LOGO STYLING — Enhancement
+   PREMIUM LOGO & NAVBAR STYLING — Enhancement
    ============================================ */
+.header-wrapper {
+  background: #ffffff !important; /* Solid background to prevent content visibility */
+  z-index: 1000 !important;
+  position: relative;
+  transition: all 0.3s ease !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separation line */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04); /* Premium soft depth */
+}
+
+/* For sticky header state (if theme adds this class) */
+.shopify-section-header-sticky .header-wrapper {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+}
+
 .header__heading-logo-wrapper {
   display: flex !important;
   align-items: center !important;
+  padding: 8px 0 !important; /* Elegant spacing */
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .header__heading-logo.premium-logo {
-  max-height: 60px !important; /* Increased for premium impact */
+  max-height: 48px !important; /* Refined for elegance, not too bulky */
   width: auto !important;
   object-fit: contain !important;
   transition: all 0.4s ease !important;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.04));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.03));
   display: block;
 }
 
 .header__heading-link:hover .header__heading-logo.premium-logo {
-  transform: scale(1.05);
-  filter: drop-shadow(0 5px 15px rgba(133, 119, 199, 0.2));
+  transform: scale(1.04);
+  filter: drop-shadow(0 5px 15px rgba(133, 119, 199, 0.15));
 }
 
 @media screen and (max-width: 749px) {
   .header__heading-logo.premium-logo {
-    max-height: 45px !important;
+    max-height: 38px !important; /* Elegant mobile size */
+  }
+  .header-wrapper {
+     padding-top: 4px;
+     padding-bottom: 4px;
   }
 }
