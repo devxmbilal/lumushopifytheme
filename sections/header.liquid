@@ -452,6 +452,20 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
+
+  // Auto-close dropdowns on scroll to prevent floating menu bug
+  let isScrolling;
+  window.addEventListener('scroll', () => {
+    window.clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+      const header = document.querySelector('.section-header');
+      if (header && (header.classList.contains('shopify-section-header-hidden') || window.scrollY > 200)) {
+        document.querySelectorAll('.winning-navigation details[open]').forEach(details => {
+          details.removeAttribute('open');
+        });
+      }
+    }, 50);
+  }, { passive: true });
 {% endjavascript %}
 
 <script type="application/ld+json">

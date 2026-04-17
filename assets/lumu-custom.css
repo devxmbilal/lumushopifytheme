@@ -1139,6 +1139,22 @@ details-modal.header__search {
   background: rgba(133, 119, 199, 0.05) !important;
 }
 
+/* Fix for floating dropdown on scroll */
+#shopify-section-header.shopify-section-header-hidden .header__submenu,
+#shopify-section-header:not(.shopify-section-header-sticky) .header__submenu[open] {
+  display: none !important;
+}
+
+/* Ensure the submenu is relative to its row correctly */
+.winning-navigation details[open] > .header__submenu {
+  animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ============================================
    ANNOUNCEMENT BAR — Custom Branding
    ============================================ */
