@@ -1139,9 +1139,11 @@ details-modal.header__search {
   background: rgba(133, 119, 199, 0.05) !important;
 }
 
-/* Fix for floating dropdown on scroll — Only hide when header is hidden */
-.shopify-section-header-hidden .header__submenu {
-  display: none !important;
+/* Force submenu visibility when open */
+.winning-navigation details[open] > .header__submenu {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Ensure the submenu is relative to its row correctly */

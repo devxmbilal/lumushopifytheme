@@ -449,22 +449,10 @@
       this.searchModal = this.searchModal || this.header.querySelector('details-modal');
       this.searchModal.close(false);
     }
+    }
   }
 
   customElements.define('sticky-header', StickyHeader);
-
-  // Auto-close dropdowns on scroll to prevent floating menu bug
-  let isScrolling;
-  window.addEventListener('scroll', () => {
-    window.clearTimeout(isScrolling);
-    isScrolling = setTimeout(() => {
-      if (header && header.classList.contains('shopify-section-header-hidden')) {
-        document.querySelectorAll('.winning-navigation details[open]').forEach(details => {
-          details.removeAttribute('open');
-        });
-      }
-    }, 100);
-  }, { passive: true });
 {% endjavascript %}
 
 <script type="application/ld+json">
