@@ -280,7 +280,7 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {%- comment -%} Removed right search icon as per user request {%- endcomment -%}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
