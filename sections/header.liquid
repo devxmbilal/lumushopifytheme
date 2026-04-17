@@ -458,13 +458,12 @@
   window.addEventListener('scroll', () => {
     window.clearTimeout(isScrolling);
     isScrolling = setTimeout(() => {
-      const header = document.querySelector('.section-header');
-      if (header && (header.classList.contains('shopify-section-header-hidden') || window.scrollY > 200)) {
+      if (header && header.classList.contains('shopify-section-header-hidden')) {
         document.querySelectorAll('.winning-navigation details[open]').forEach(details => {
           details.removeAttribute('open');
         });
       }
-    }, 50);
+    }, 100);
   }, { passive: true });
 {% endjavascript %}
 

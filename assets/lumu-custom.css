@@ -1139,9 +1139,8 @@ details-modal.header__search {
   background: rgba(133, 119, 199, 0.05) !important;
 }
 
-/* Fix for floating dropdown on scroll */
-#shopify-section-header.shopify-section-header-hidden .header__submenu,
-#shopify-section-header:not(.shopify-section-header-sticky) .header__submenu[open] {
+/* Fix for floating dropdown on scroll — Only hide when header is hidden */
+.shopify-section-header-hidden .header__submenu {
   display: none !important;
 }
 
