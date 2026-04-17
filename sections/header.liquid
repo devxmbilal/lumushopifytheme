@@ -160,7 +160,14 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <div class="header__heading-logo-wrapper">
+                <img src="{{ 'logo-lumu.jpeg' | asset_url }}" 
+                     alt="{{ shop.name }}" 
+                     class="header__heading-logo premium-logo" 
+                     width="120" 
+                     height="40" 
+                     loading="eager">
+              </div>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -200,7 +207,14 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <div class="header__heading-logo-wrapper">
+                <img src="{{ 'logo-lumu.jpeg' | asset_url }}" 
+                     alt="{{ shop.name }}" 
+                     class="header__heading-logo premium-logo" 
+                     width="120" 
+                     height="40" 
+                     loading="eager">
+              </div>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}

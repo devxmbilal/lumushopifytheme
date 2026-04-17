@@ -988,3 +988,32 @@ html {
   .lumu-pfp__card-name { font-size: 1.35rem !important; }
   .lumu-pfp__atc-btn { font-size: 1.15rem !important; padding: 10px !important; }
 }
+
+/* ============================================
+   PREMIUM LOGO STYLING — Enhancement
+   ============================================ */
+.header__heading-logo-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.header__heading-logo.premium-logo {
+  max-height: 60px !important; /* Increased for premium impact */
+  width: auto !important;
+  object-fit: contain !important;
+  transition: all 0.4s ease !important;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.04));
+  display: block;
+}
+
+.header__heading-link:hover .header__heading-logo.premium-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 5px 15px rgba(133, 119, 199, 0.2));
+}
+
+@media screen and (max-width: 749px) {
+  .header__heading-logo.premium-logo {
+    max-height: 45px !important;
+  }
+}
