@@ -993,28 +993,52 @@ html {
    PREMIUM LOGO & NAVBAR STYLING — Enhancement
    ============================================ */
 .header-wrapper {
-  background: #ffffff !important; /* Solid background to prevent content visibility */
+  background: #ffffff !important;
   z-index: 1000 !important;
   position: relative;
   transition: all 0.3s ease !important;
-  border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separation line */
-  box-shadow: 0 2px 15px rgba(0,0,0,0.04); /* Premium soft depth */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
 }
 
-/* For sticky header state (if theme adds this class) */
-.shopify-section-header-sticky .header-wrapper {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+.header {
+  display: grid !important;
+  grid-template-areas: 'left-side logo right-side' 'nav nav nav' !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  row-gap: 15px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.header__heading { grid-area: logo !important; margin: 0 !important; }
+.header__icons { grid-area: right-side !important; display: flex !important; justify-content: flex-end !important; }
+.header-drawer, .header__search { grid-area: left-side !important; display: flex !important; align-items: center; }
+
+@media screen and (min-width: 990px) {
+  .winning-navigation {
+    grid-area: nav !important;
+    display: block !important;
+    width: 100% !important;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 15px !important;
+    margin-top: 5px !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .winning-navigation { display: none !important; }
+  .header { grid-template-areas: 'left-side logo right-side' !important; row-gap: 0 !important; }
 }
 
 .header__heading-logo-wrapper {
   display: flex !important;
   align-items: center !important;
-  padding: 8px 0 !important; /* Elegant spacing */
+  padding: 5px 0 !important;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .header__heading-logo.premium-logo {
-  max-height: 48px !important; /* Refined for elegance, not too bulky */
+  max-height: 52px !important;
   width: auto !important;
   object-fit: contain !important;
   transition: all 0.4s ease !important;
@@ -1022,17 +1046,67 @@ html {
   display: block;
 }
 
-.header__heading-link:hover .header__heading-logo.premium-logo {
-  transform: scale(1.04);
-  filter: drop-shadow(0 5px 15px rgba(133, 119, 199, 0.15));
+/* Winning Navigation Typography */
+.winning-navigation .list-menu--inline {
+  justify-content: center !important;
+  gap: 3.5rem !important;
 }
 
-@media screen and (max-width: 749px) {
-  .header__heading-logo.premium-logo {
-    max-height: 38px !important; /* Elegant mobile size */
-  }
-  .header-wrapper {
-     padding-top: 4px;
-     padding-bottom: 4px;
-  }
+.winning-navigation .header__menu-item {
+  font-family: var(--font-heading-family) !important;
+  font-weight: 700 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.12em !important;
+  color: #121212 !important;
+  text-transform: uppercase !important;
+  padding: 10px 0 !important;
+  transition: color 0.3s ease, transform 0.3s ease !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.winning-navigation .header__menu-item:hover {
+  color: var(--lumu-purple) !important;
+  transform: translateY(-1px);
+}
+
+.winning-navigation .header__menu-item span {
+  position: relative;
+}
+
+.winning-navigation .header__menu-item span::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--lumu-purple);
+  transition: width 0.3s ease;
+}
+
+.winning-navigation .header__menu-item:hover span::after {
+  width: 100%;
+}
+
+/* Dropdown Premium Styling */
+.header__submenu.list-menu {
+  background: white !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  min-width: 240px !important;
+}
+
+.header__submenu .header__menu-item {
+  font-size: 1.25rem !important;
+  letter-spacing: 0.05em !important;
+  padding: 8px 12px !important;
+  border-radius: 4px;
+}
+
+.header__submenu .header__menu-item:hover {
+  background: rgba(133, 119, 199, 0.05) !important;
 }

@@ -133,12 +133,10 @@
         render 'header-drawer'
       endif
 
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif
+      render 'header-search', input_id: 'Search-In-Modal-1'
     -%}
 
-    {%- if section.settings.logo_position != 'middle-center' -%}
+    {%- if true -%}{% comment %} Forcing Top Center Layout style {% endcomment %}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
@@ -175,16 +173,51 @@
       {%- endif -%}
     {%- endif -%}
 
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
+    {%- comment -%} Custom Menu Row — Winning Structure {%- endcomment -%}
+    <nav class="header__inline-menu winning-navigation">
+      <ul class="list-menu list-menu--inline" role="list">
+        <li>
+          <a href="{{ routes.root_url }}" class="header__menu-item list-menu__item link link--text focus-inset">
+            <span>HOME</span>
+          </a>
+        </li>
+        <li>
+          <details-disclosure>
+            <details id="Details-HeaderMenu-AllCategories">
+              <summary class="header__menu-item list-menu__item link link--text focus-inset">
+                <span>ALL CATEGORIES</span>
+                <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+              </summary>
+              <ul id="HeaderMenu-MenuList-AllCategories" class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce" role="list">
+                <li><a href="/collections/electronics-gadgets" class="header__menu-item list-menu__item link link--text focus-inset caption-large">ELECTRONICS & GADGETS</a></li>
+                <li><a href="/collections/womens-fashion" class="header__menu-item list-menu__item link link--text focus-inset caption-large">WOMEN'S FASHION</a></li>
+                <li><a href="/collections/mens-fashion" class="header__menu-item list-menu__item link link--text focus-inset caption-large">MEN'S FASHION</a></li>
+                <li><a href="/collections/kids-toys" class="header__menu-item list-menu__item link link--text focus-inset caption-large">KIDS & TOYS</a></li>
+                <li><a href="/collections/beauty-health" class="header__menu-item list-menu__item link link--text focus-inset caption-large">BEAUTY & HEALTH</a></li>
+                <li><a href="/collections/home-kitchen" class="header__menu-item list-menu__item link link--text focus-inset caption-large">HOME & KITCHEN</a></li>
+              </ul>
+            </details>
+          </details-disclosure>
+        </li>
+        <li>
+          <a href="/collections/all" class="header__menu-item list-menu__item link link--text focus-inset">
+            <span>BEST SELLERS</span>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/track-your-order" class="header__menu-item list-menu__item link link--text focus-inset">
+            <span>TRACK YOUR ORDER</span>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/contact" class="header__menu-item list-menu__item link link--text focus-inset">
+            <span>CONTACT US</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
+    {%- if false -%} {% comment %} Overriding default logo center logic to use custom nav below {% endcomment %}
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
@@ -220,6 +253,7 @@
       {%- if request.page_type == 'index' -%}
         </h1>
       {%- endif -%}
+    {%- endif -%}
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
