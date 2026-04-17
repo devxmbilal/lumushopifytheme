@@ -1015,11 +1015,23 @@ html {
   margin: 0 !important;
 }
 .header__icons { grid-area: right-side !important; display: flex !important; justify-content: flex-end !important; }
-.header-drawer, .details-modal.header__search { 
+
+/* Search icon positioning (Visible on both Mobile and Desktop) */
+details-modal.header__search { 
   grid-area: left-side !important; 
   display: flex !important; 
   align-items: center !important;
   justify-content: flex-start !important;
+}
+
+/* Mobile drawer positioning */
+@media screen and (max-width: 989px) {
+  header-drawer {
+    grid-area: left-side !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-right: 1.5rem !important;
+  }
 }
 
 /* Ensure the search icon itself is sized correctly */
