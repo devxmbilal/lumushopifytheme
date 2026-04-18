@@ -1023,6 +1023,7 @@ details-modal.header__search {
   display: flex !important; 
   align-items: center !important;
   justify-content: flex-start !important;
+  z-index: 10 !important;
 }
 
 /* Mobile drawer positioning */
@@ -1031,7 +1032,14 @@ details-modal.header__search {
     grid-area: left-side !important;
     display: flex !important;
     align-items: center !important;
-    margin-right: 1.5rem !important;
+    position: relative !important;
+    padding-left: 45px !important; /* Move it to make room for Search on the far left */
+  }
+  
+  details-modal.header__search {
+    width: auto !important;
+    position: absolute !important;
+    left: 20px !important;
   }
 }
 
