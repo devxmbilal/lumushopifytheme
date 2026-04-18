@@ -1042,30 +1042,35 @@ details-modal.header__search {
 
 /* Mobile drawer & search alignment */
 @media screen and (max-width: 989px) {
+  .header {
+    grid-template-areas: 'hamburger search logo icons' !important;
+    grid-template-columns: auto auto 110px 1fr !important; /* Fixed width for logo area to keep search visible */
+    gap: 10px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
   header-drawer {
-    grid-area: left-side !important;
+    grid-area: hamburger !important;
     display: flex !important;
     align-items: center !important;
-    margin-right: 1.5rem !important;
-    z-index: 10 !important;
+    margin: 0 !important;
   }
   
   details-modal.header__search {
-    grid-area: left-side !important;
-    position: static !important;
+    grid-area: search !important;
     display: flex !important;
     align-items: center !important;
-    margin-left: 0 !important;
-    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .header__icons {
+    grid-area: icons !important;
     justify-content: flex-end !important;
-    gap: 1rem !important;
   }
 
   .header__heading-logo.premium-logo {
-    max-width: 130px !important; /* Scale logo for mobile */
+    max-width: 100px !important; /* Smaller logo for mobile to fit all icons */
   }
 }
 
