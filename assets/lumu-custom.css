@@ -1253,9 +1253,163 @@ details-modal.header__search {
 .footer .list-social__link {
   color: #ffffff !important;
 }
+/* ============================================
+   LUMU TRUST HUB — Circular Design
+   ============================================ */
+.footer__trust-hub {
+  padding: 60px 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+}
 
-/* Footer Separator Line */
-.footer__content-top {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+.trust-hub__header {
+  margin-bottom: 60px;
+}
+
+.trust-hub__title {
+  font-size: 3.2rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.1em !important;
+  margin: 0 !important;
+  text-transform: uppercase;
+}
+
+.trust-hub__subtitle {
+  font-size: 2.4rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 5px !important;
+  text-transform: uppercase;
+}
+
+.trust-hub__circle-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-hub__center {
+  width: 180px;
+  height: 180px;
+  background: #ffffff;
+  border: 12px solid #6755B9;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 40px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.trust-hub__center-inner {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.trust-hub__lock, .trust-hub__shield {
+  width: 32px;
+  height: 32px;
+  color: #6755B9;
+}
+
+.trust-hub__brand-logo {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #6755B9;
+  letter-spacing: -0.05em;
+  font-style: italic;
+}
+
+.trust-hub__icon {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.trust-hub__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Position Icons in a Circle - 5 icons */
+.icon-visa { transform: translate(0, -160px); }
+.icon-mastercard { transform: translate(152px, -50px); }
+.icon-applepay { transform: translate(94px, 130px); }
+.icon-googlepay { transform: translate(-94px, 130px); }
+.icon-stripe { transform: translate(-152px, -50px); }
+
+/* Animated Orbit (Optional - but makes it look premium) */
+.trust-hub__circle-container::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border: 2px dashed rgba(255,255,255,0.2);
+  border-radius: 50%;
+  animation: rotateCircle 60s linear infinite;
+}
+
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   FOOTER TICKER — Horizontal Scroll
+   ============================================ */
+.footer__bottom-ticker {
+  background-color: #6755B9;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker__inner {
+  display: inline-block;
+  animation: scrollTicker 30s linear infinite;
+  padding-left: 100%;
+}
+
+.ticker__text {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 50px;
+}
+
+@keyframes scrollTicker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Responsive Hub */
+@media (max-width: 500px) {
+  .trust-hub__circle-container {
+    transform: scale(0.7);
+    height: 300px;
+  }
+  .trust-hub__title { font-size: 2.2rem !important; }
+  .trust-hub__subtitle { font-size: 1.8rem !important; }
 }
 
