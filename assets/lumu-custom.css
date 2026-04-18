@@ -1001,13 +1001,27 @@ html {
   box-shadow: 0 2px 15px rgba(0,0,0,0.04);
 }
 
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative;
+}
+
 .header {
   display: grid !important;
   grid-template-areas: 'left-side logo right-side' 'nav nav nav' !important;
-  grid-template-columns: 1fr auto 1fr !important; /* Logo perfectly centered */
+  grid-template-columns: 1fr auto 1fr !important; /* Desktop default */
   row-gap: 15px !important;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header {
+    grid-template-columns: auto 1fr auto !important; /* Mobile Fix: Allow logo to take middle space */
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
 }
 
 .header__heading { 
@@ -1026,26 +1040,33 @@ details-modal.header__search {
   z-index: 10 !important;
 }
 
-/* Mobile drawer positioning */
+/* Mobile drawer & search alignment */
 @media screen and (max-width: 989px) {
   header-drawer {
     grid-area: left-side !important;
     display: flex !important;
     align-items: center !important;
-    position: relative !important;
-    padding-left: 45px !important; /* Move it to make room for Search on the far left */
+    margin-right: 1.5rem !important;
+    z-index: 10 !important;
   }
   
   details-modal.header__search {
-    width: auto !important;
-    position: absolute !important;
-    left: 20px !important;
+    grid-area: left-side !important;
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
   }
-}
 
-/* Ensure the search icon itself is sized correctly */
-.header__search summary.header__icon--search {
-  padding-left: 0 !important;
+  .header__icons {
+    justify-content: flex-end !important;
+    gap: 1rem !important;
+  }
+
+  .header__heading-logo.premium-logo {
+    max-width: 130px !important; /* Scale logo for mobile */
+  }
 }
 
 @media screen and (min-width: 990px) {
