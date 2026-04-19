@@ -1245,54 +1245,162 @@ details-modal.header__search {
 }
 
 /* ============================================
-   FOOTER — Custom Branding
+   FOOTER — Custom Minimalist Branding
    ============================================ */
 .footer {
-  background-color: #6755B9 !important;
-  background-image: none !important; /* Remove gradient if any */
-  color: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #1a1a2e !important;
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-.footer-block__heading,
-.footer-block__details-content,
-.footer-block__details-content .link,
-.copyright__content,
-.copyright__content a,
-.footer__content-bottom-wrapper,
-.footer__localization h2,
-.footer-block__newsletter .field__input,
-.footer-block__newsletter .field__label,
-.footer-block__newsletter .field__button {
-  color: #ffffff !important;
+.lumu-minimal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
-/* Footer Links Hover */
-.footer-block__details-content .link:hover {
-  opacity: 0.8 !important;
-  text-decoration: underline !important;
+/* Left Side: Brand, Socials, Links */
+.lumu-footer__left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Footer Input Fields Styling */
-.footer .field__input {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  border-radius: 4px !important;
-  color: #ffffff !important;
+.lumu-footer__brand-social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.footer .field__input:focus {
-  border-color: #ffffff !important;
-  box-shadow: 0 0 0 1px #ffffff !important;
+.lumu-footer__logo {
+  height: 45px; /* Adjust based on logo size */
+  width: auto;
+  display: block;
 }
 
-.footer .field__label {
-  color: rgba(255, 255, 255, 0.8) !important;
+.lumu-footer__social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-/* Social Icons in Footer */
-.footer .list-social__link {
-  color: #ffffff !important;
+.lumu-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f0f0f5;
+  color: #6755B9;
+  transition: all 0.3s ease;
 }
+
+.lumu-social-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.lumu-social-icon:hover {
+  background-color: #6755B9;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.lumu-footer__legal-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.lumu-footer__legal-links a {
+  color: #6c6c85;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lumu-footer__legal-links a:hover {
+  color: #6755B9;
+  text-decoration: underline;
+}
+
+.lumu-footer__separator {
+  color: #d1d1dd;
+}
+
+/* Right Side: App Badges */
+.lumu-footer__right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.lumu-footer__app-text {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.lumu-footer__app-badges {
+  display: flex;
+  gap: 12px;
+}
+
+.lumu-badge-link {
+  text-decoration: none;
+  display: block;
+}
+
+.lumu-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  min-width: 140px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lumu-badge-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.lumu-badge-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.lumu-badge-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.lumu-badge-sub {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.lumu-badge-main {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 /* ============================================
    LUMU BRANDED BANNER — Image & Overlays
    ============================================ */
@@ -1316,7 +1424,7 @@ details-modal.header__search {
   display: block;
   min-height: 300px;
   object-fit: cover;
-  filter: brightness(0.85); /* Slightly darken to make text/buttons pop */
+  filter: brightness(0.85);
 }
 
 .banner__overlay {
@@ -1376,23 +1484,6 @@ details-modal.header__search {
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.banner__trust-text {
-  background: rgba(0,0,0,0.4);
-  padding: 10px 20px;
-  border-radius: 50px;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.banner__heading {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 0.1em;
-  word-spacing: 0.2em;
-}
-
 /* ============================================
    FOOTER TICKER — Horizontal Scroll
    ============================================ */
@@ -1425,9 +1516,35 @@ details-modal.header__search {
 }
 
 @media (max-width: 749px) {
+  .lumu-minimal-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 15px;
+    gap: 40px;
+  }
+  
+  .lumu-footer__brand-social {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .lumu-footer__legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .lumu-footer__right-section {
+    align-items: center;
+  }
+  
+  .lumu-footer__app-badges {
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .banner__links { flex-direction: column; width: 100%; }
   .banner__btn { width: 100%; }
-  .banner__heading { font-size: 1.2rem; }
   .banner__image { min-height: 400px; }
 }
 
