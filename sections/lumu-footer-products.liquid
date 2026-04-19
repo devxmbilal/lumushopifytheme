@@ -10,46 +10,66 @@
     </div>
     <div class="lumu-pfp__grid">
       {%- assign products_list = collections.all.products -%}
-      {%- for product in products_list limit: 4 -%}
-        <div class="lumu-pfp__card-wrapper" style="height: 100%;">
-          <a href="{{ product.url }}" class="lumu-pfp__card">
-            <div class="lumu-pfp__card-img-wrap">
-              {%- if product.featured_image != blank -%}
-                <!-- Using square constraint -->
-                <img src="{{ product.featured_image | image_url: width: 600, height: 600, crop: 'center' }}" alt="{{ product.title | escape }}" class="lumu-pfp__card-img" loading="lazy">
-              {%- else -%}
-                <div class="lumu-pfp__card-img" style="background:#f0f0f5;"></div>
-              {%- endif -%}
-            </div>
-            
-            <div class="lumu-pfp__card-body">
-              <!-- Star Reviews -->
-              <div class="lumu-pfp__reviews">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <span>(4.9)</span>
-              </div>
-              
-              <div class="lumu-pfp__card-name">{{ product.title }}</div>
-              
-              <div class="lumu-pfp__card-price">
-                {{ product.price | money }}
-                {%- if product.compare_at_price > product.price -%}
-                  <s>{{ product.compare_at_price | money }}</s>
+      {%- if products_list.size > 0 -%}
+        {%- for product in products_list limit: 4 -%}
+          <div class="lumu-pfp__card-wrapper" style="height: 100%;">
+            <a href="{{ product.url }}" class="lumu-pfp__card">
+              <div class="lumu-pfp__card-img-wrap">
+                {%- if product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 600, height: 600, crop: 'center' }}" alt="{{ product.title | escape }}" class="lumu-pfp__card-img" loading="lazy">
+                {%- else -%}
+                  <div class="lumu-pfp__card-img" style="background:#f0f0f5;"></div>
                 {%- endif -%}
               </div>
               
-              <!-- Add to Cart styled button -->
-              <div class="lumu-pfp__atc-btn">
-                Add to Cart
+              <div class="lumu-pfp__card-body">
+                <div class="lumu-pfp__reviews">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>(4.9)</span>
+                </div>
+                
+                <div class="lumu-pfp__card-name">{{ product.title }}</div>
+                
+                <div class="lumu-pfp__card-price">
+                  {{ product.price | money }}
+                  {%- if product.compare_at_price > product.price -%}
+                    <s>{{ product.compare_at_price | money }}</s>
+                  {%- endif -%}
+                </div>
+                
+                <div class="lumu-pfp__atc-btn">Add to Cart</div>
+              </div>
+            </a>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <div class="lumu-pfp__card-wrapper" style="height: 100%;">
+            <div class="lumu-pfp__card">
+              <div class="lumu-pfp__card-img-wrap">
+                <div class="lumu-pfp__card-img" style="background:#f0f0f5;"></div>
+              </div>
+              <div class="lumu-pfp__card-body">
+                <div class="lumu-pfp__reviews">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>(5.0)</span>
+                </div>
+                <div class="lumu-pfp__card-name">Lumu Premium Product {{ i }}</div>
+                <div class="lumu-pfp__card-price">Rs 1,999</div>
+                <div class="lumu-pfp__atc-btn">Add to Cart</div>
               </div>
             </div>
-          </a>
-        </div>
-      {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </div>
