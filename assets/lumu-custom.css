@@ -1604,3 +1604,83 @@ details-modal.header__search {
   .banner__image { min-height: 400px; }
 }
 
+/* ============================================
+   FOOTER MODALS (Popups for details)
+   ============================================ */
+.lumu-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lumu-modal.is-open {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.lumu-modal__content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 40px;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.lumu-modal.is-open .lumu-modal__content {
+  transform: translateY(0);
+}
+
+.lumu-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #a4a4af;
+  font-size: 28px;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.lumu-modal__close:hover {
+  color: #1a1a2e;
+}
+
+.lumu-modal__title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.lumu-modal__body {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #4b4b5e;
+}
+
+.lumu-modal__body p {
+  margin-bottom: 15px;
+}
+.lumu-modal__body p:last-child {
+  margin-bottom: 0;
+}
