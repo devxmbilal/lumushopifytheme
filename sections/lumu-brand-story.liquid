@@ -80,12 +80,8 @@
 <div class="lumu-brand-story">
   <div class="lumu-bs__inner">
     <div class="lumu-bs__img-wrapper">
-      {%- if section.settings.image != blank -%}
-        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" class="lumu-bs__img" loading="lazy">
-      {%- else -%}
-        <!-- Using a high quality placeholder from previously generated hero images -->
-        <img src="{{ 'lumu-hero-3.png' | asset_url }}" alt="Lumu Brand Quality" class="lumu-bs__img" loading="lazy">
-      {%- endif -%}
+      <!-- Using a highly premium portrait lifestyle image specifically generated for Lumu's Curated Excellence -->
+      <img src="{{ 'lumu_curated_excellence.png' | asset_url }}" alt="Lumu Curated Excellence" class="lumu-bs__img" loading="lazy">
     </div>
     
     <div class="lumu-bs__content">
