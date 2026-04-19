@@ -42,51 +42,86 @@
   </div>
 
   {%- comment -%} LUMU Custom Minimalist Footer (Replaces Default Shopify Blocks) {%- endcomment -%}
-  <div class="lumu-minimal-footer page-width">
-    
-    {%- comment -%} Left Side: Brand, Socials, Links {%- endcomment -%}
-    <div class="lumu-footer__left-section">
-      <div class="lumu-footer__brand-social">
-        <a href="/" class="lumu-footer__logo-link">
-          <img src="{{ 'logo-lumu.png' | asset_url }}" alt="Lumu" class="lumu-footer__logo" loading="lazy">
-        </a>
-        <div class="lumu-footer__social-icons">
-          {%- if settings.social_facebook_link != blank -%}
-            <a href="{{ settings.social_facebook_link }}" target="_blank" class="lumu-social-icon">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
-            </a>
-          {%- endif -%}
-          {%- if settings.social_instagram_link != blank -%}
-            <a href="{{ settings.social_instagram_link }}" target="_blank" class="lumu-social-icon">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-          {%- endif -%}
-          {%- if settings.social_youtube_link != blank -%}
-            <a href="{{ settings.social_youtube_link }}" target="_blank" class="lumu-social-icon">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"></polygon></svg>
-            </a>
-          {%- endif -%}
-          {%- if settings.social_tiktok_link != blank -%}
-            <a href="{{ settings.social_tiktok_link }}" target="_blank" class="lumu-social-icon lumu-social-icon--tiktok">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"></path></svg>
-            </a>
-          {%- endif -%}
-          {%- if settings.social_twitter_link != blank -%}
-             <a href="{{ settings.social_twitter_link }}" target="_blank" class="lumu-social-icon">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-             </a>
-          {%- endif -%}
-        </div>
+  <div class="lumu-footer-wrapper">
+    {%- comment -%} Top Links Matrix {%- endcomment -%}
+    <div class="lumu-footer__links-matrix page-width">
+      <div class="lumu-footer__links-column">
+        <h3 class="lumu-footer__links-heading">Info</h3>
+        <ul class="lumu-footer__links-list">
+          <li><a href="/pages/about-us">About Lumu</a></li>
+          <li><a href="/pages/contact">Contact Us</a></li>
+          <li><a href="/pages/careers">Careers</a></li>
+          <li><a href="/pages/press">Press</a></li>
+          <li><a href="/pages/lumu-ability">Lumu's Ability Program</a></li>
+        </ul>
       </div>
-      
-      <div class="lumu-footer__legal-links">
-        <a href="/pages/privacy-policy">Privacy Policy</a>
-        <span class="lumu-footer__separator">|</span>
-        <a href="/pages/terms-and-conditions">Terms & Condition</a>
-        <span class="lumu-footer__separator">|</span>
-        <a href="/pages/security">Security</a>
+      <div class="lumu-footer__links-column">
+        <h3 class="lumu-footer__links-heading">Customer Service</h3>
+        <ul class="lumu-footer__links-list">
+          <li><a href="/policies/refund-policy">Return And Refund Policy</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/shipping-policy">Shipping & Delivery Policy</a></li>
+          <li><a href="/pages/intellectual-property">Intellectual Property Policy</a></li>
+          <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+          <li><a href="/pages/report-problem">Report a Problem</a></li>
+        </ul>
+      </div>
+      <div class="lumu-footer__links-column">
+        <h3 class="lumu-footer__links-heading">Help</h3>
+        <ul class="lumu-footer__links-list">
+          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/purchase-protection">Lumu Purchase Protection</a></li>
+          <li><a href="/pages/partner">Partner With Lumu</a></li>
+          <li><a href="/pages/seller-faq">Seller FAQ</a></li>
+          <li><a href="/pages/seller-terms">Seller Terms & Conditions</a></li>
+        </ul>
       </div>
     </div>
+
+    <div class="lumu-minimal-footer page-width">
+      {%- comment -%} Left Side: Brand, Socials, Links {%- endcomment -%}
+      <div class="lumu-footer__left-section">
+        <div class="lumu-footer__brand-social">
+          <a href="/" class="lumu-footer__logo-link">
+            <img src="{{ 'Lumu.jpeg' | asset_url }}" alt="Lumu" class="lumu-footer__logo" loading="lazy">
+          </a>
+          <div class="lumu-footer__social-icons">
+            {%- if settings.social_facebook_link != blank -%}
+              <a href="{{ settings.social_facebook_link }}" target="_blank" class="lumu-social-icon">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_instagram_link != blank -%}
+              <a href="{{ settings.social_instagram_link }}" target="_blank" class="lumu-social-icon">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_youtube_link != blank -%}
+              <a href="{{ settings.social_youtube_link }}" target="_blank" class="lumu-social-icon">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"></polygon></svg>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_tiktok_link != blank -%}
+              <a href="{{ settings.social_tiktok_link }}" target="_blank" class="lumu-social-icon lumu-social-icon--tiktok">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"></path></svg>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_twitter_link != blank -%}
+               <a href="{{ settings.social_twitter_link }}" target="_blank" class="lumu-social-icon">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+               </a>
+            {%- endif -%}
+          </div>
+        </div>
+        
+        <div class="lumu-footer__legal-links">
+          <a href="/pages/privacy-policy">Privacy Policy</a>
+          <span class="lumu-footer__separator">|</span>
+          <a href="/pages/terms-and-conditions">Terms & Condition</a>
+          <span class="lumu-footer__separator">|</span>
+          <a href="/pages/security">Security</a>
+        </div>
+      </div>
 
     {%- comment -%} Right Side: App Badges using custom design layout {%- endcomment -%}
     <div class="lumu-footer__right-section">
