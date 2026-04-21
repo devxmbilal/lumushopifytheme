@@ -2343,3 +2343,69 @@ details[open] .search-modal__content {
   color: var(--lumu-purple) !important;
   font-weight: 700 !important;
 }
+
+/* ============================================
+   MOBILE HEADER LAYOUT REFINEMENT
+   ============================================ */
+@media screen and (max-width: 989px) {
+  /* Force a structured flexbox layout */
+  .header.header--mobile-center, .header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    padding-left: 10px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* 1. Left side: Drawer and Search */
+  header-drawer {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+  details-modal.header__search {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    margin-left: 0px !important;
+    margin-right: auto !important; /* pushes logo center and cart right */
+  }
+
+  /* 2. Center: Logo */
+  .header__heading {
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header__heading-link, .header__heading-logo-wrapper {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    z-index: 10 !important;
+  }
+  
+  /* Adjust image size slightly for mobile if necessary */
+  .header__heading-logo {
+    max-width: 110px !important;
+    height: auto !important;
+  }
+
+  /* 3. Right side: Icons (Cart/Account) */
+  .header__icons {
+    order: 4 !important;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    padding-right: 0 !important;
+    justify-content: flex-end !important;
+    width: auto !important;
+  }
+  
+  .header__icon--cart {
+    margin-right: 0 !important; 
+  }
+}
