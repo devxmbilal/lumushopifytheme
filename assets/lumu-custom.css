@@ -2205,10 +2205,14 @@ details[open] .search-modal {
   width: 90% !important;
   max-width: 650px !important;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2) !important;
-  padding: 24px 30px !important;
+  padding: 40px 30px 24px !important;
   position: relative !important;
   transform: translateY(-20px);
   transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1) !important;
+  min-height: unset !important;
+  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 details[open] .search-modal__content {
@@ -2217,7 +2221,31 @@ details[open] .search-modal__content {
 
 /* Close button inside modal */
 .search-modal__close-button {
-  display: none !important; /* Hide original close button inside since we have an overlay */
+  display: flex !important;
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  background: #f0f0f5 !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  width: 36px !important;
+  height: 36px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+}
+
+.search-modal__close-button:hover {
+  background: #e4e4e9 !important;
+  transform: scale(1.05);
+}
+
+.search-modal__close-button svg {
+  width: 16px !important;
+  height: 16px !important;
 }
 
 /* Specific Search Form Layout inside Popup */
