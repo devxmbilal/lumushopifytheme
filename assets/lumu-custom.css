@@ -2098,3 +2098,64 @@ cart-remove-button .button:hover {
   background-color: var(--lumu-purple) !important;
   border-radius: 8px !important;
 }
+
+/* ============================================
+   PREMIUM DROPDOWN MENU (HEADER)
+   ============================================ */
+
+/* The outer dropdown container */
+.header__submenu.list-menu--disclosure {
+  position: absolute;
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-top: 16px !important; /* Space between "ALL CATEGORIES" and the menu */
+  background: white !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+  border-radius: 12px !important;
+  padding: 12px 0 !important;
+  min-width: 280px !important;
+  z-index: 100 !important;
+}
+
+/* Little arrow pointer pointing up to the nav item */
+.header__submenu.list-menu--disclosure::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-left: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  z-index: -1;
+}
+
+/* Base style for the links in the dropdown */
+.header__submenu .list-menu__item {
+  padding: 12px 24px !important;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  display: block !important;
+  line-height: 1.4 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+/* Hover effects for links */
+.header__submenu .list-menu__item:hover {
+  background: #f8f7fc !important;
+  color: var(--lumu-purple) !important;
+  padding-left: 30px !important; /* Slight nudge effect */
+}
+
+/* Remove default Dawn summary underline if any */
+details-disclosure summary:hover {
+  text-decoration: none !important;
+}
