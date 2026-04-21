@@ -5,7 +5,6 @@ class CartNotification extends HTMLElement {
     this.notification = document.getElementById('cart-notification');
     this.header = document.querySelector('sticky-header');
     this.onBodyClick = this.handleBodyClick.bind(this);
-    this.autoCloseTimer = null;
 
     this.notification.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelectorAll('button[type="button"]').forEach((closeButton) =>
@@ -15,14 +14,6 @@ class CartNotification extends HTMLElement {
 
   open() {
     this.notification.classList.add('animate', 'active');
-    this.classList.add('lumu-toast-active');
-
-    // Add progress bar
-    const existingBar = this.notification.querySelector('.lumu-toast-progress');
-    if (existingBar) existingBar.remove();
-    const progressBar = document.createElement('div');
-    progressBar.className = 'lumu-toast-progress';
-    this.notification.appendChild(progressBar);
 
     this.notification.addEventListener(
       'transitionend',
@@ -34,26 +25,11 @@ class CartNotification extends HTMLElement {
     );
 
     document.body.addEventListener('click', this.onBodyClick);
-
-    // Auto-dismiss after 3 seconds
-    if (this.autoCloseTimer) clearTimeout(this.autoCloseTimer);
-    this.autoCloseTimer = setTimeout(() => {
-      this.close();
-    }, 3000);
   }
 
   close() {
     this.notification.classList.remove('active');
-    this.classList.remove('lumu-toast-active');
     document.body.removeEventListener('click', this.onBodyClick);
-
-    if (this.autoCloseTimer) {
-      clearTimeout(this.autoCloseTimer);
-      this.autoCloseTimer = null;
-    }
-
-    const progressBar = this.notification.querySelector('.lumu-toast-progress');
-    if (progressBar) progressBar.remove();
 
     removeTrapFocus(this.activeElement);
   }
@@ -105,4 +81,3 @@ class CartNotification extends HTMLElement {
 }
 
 customElements.define('cart-notification', CartNotification);
-
