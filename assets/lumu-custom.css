@@ -2348,64 +2348,57 @@ details[open] .search-modal__content {
    MOBILE HEADER LAYOUT REFINEMENT
    ============================================ */
 @media screen and (max-width: 989px) {
-  /* Force a structured flexbox layout */
-  .header.header--mobile-center, .header {
-    display: flex !important;
+  /* Force the grid to: left-icons | heading(center) | icons(right) */
+  .header {
+    display: grid !important;
+    grid-template-areas: 'left-icons heading icons' !important;
+    grid-template-columns: 1fr 2fr 1fr !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    flex-wrap: nowrap !important;
-    padding-left: 10px !important;
-    padding-right: 15px !important;
   }
-  
-  /* 1. Left side: Drawer and Search */
+
+  /* Left side: Drawer + Search stay in left-icons area */
   header-drawer {
-    order: 1 !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
+    grid-area: left-icons !important;
+    justify-self: start !important;
   }
+
   details-modal.header__search {
-    order: 2 !important;
-    flex: 0 0 auto !important;
-    margin-left: 0px !important;
-    margin-right: auto !important; /* pushes logo center and cart right */
+    grid-area: left-icons !important;
+    justify-self: start !important;
+    margin-left: 36px !important; /* offset past the hamburger */
   }
 
-  /* 2. Center: Logo */
-  .header__heading {
-    position: static !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .header__heading-link, .header__heading-logo-wrapper {
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
+  /* Center: Logo */
+  .header__heading,
+  .header > .header__heading-link {
+    grid-area: heading !important;
+    justify-self: center !important;
     text-align: center !important;
-    margin: 0 !important;
-    display: inline-block !important;
-    z-index: 10 !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
   }
   
-  /* Adjust image size slightly for mobile if necessary */
+  .header__heading-logo-wrapper {
+    display: inline-block !important;
+    text-align: center !important;
+  }
+
   .header__heading-logo {
     max-width: 110px !important;
     height: auto !important;
   }
 
-  /* 3. Right side: Icons (Cart/Account) */
+  /* Right side: Cart icon */
   .header__icons {
-    order: 4 !important;
-    flex: 0 0 auto !important;
-    margin-left: auto !important;
-    padding-right: 0 !important;
-    justify-content: flex-end !important;
-    width: auto !important;
+    grid-area: icons !important;
+    justify-self: end !important;
+    padding-right: 0.5rem !important;
   }
-  
-  .header__icon--cart {
-    margin-right: 0 !important; 
+
+  /* Hide nav on mobile (already in hamburger drawer) */
+  .header__inline-menu.winning-navigation {
+    display: none !important;
   }
 }
