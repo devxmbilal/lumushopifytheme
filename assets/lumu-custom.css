@@ -2402,3 +2402,225 @@ details[open] .search-modal__content {
     display: none !important;
   }
 }
+
+/* ============================================
+   PREMIUM CART SUCCESS TOAST POPUP
+   ============================================ */
+
+/* Dark overlay behind the toast */
+cart-notification::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+cart-notification.lumu-toast-active::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* The notification container */
+#cart-notification {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(0.85) !important;
+  width: 90% !important;
+  max-width: 420px !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2) !important;
+  padding: 32px 28px !important;
+  z-index: 99999 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  border: none !important;
+  text-align: center !important;
+}
+
+#cart-notification.active {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+/* Success header with checkmark */
+.cart-notification__header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+}
+
+.cart-notification__heading {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #222 !important;
+  letter-spacing: 0 !important;
+}
+
+.cart-notification__heading .icon-checkmark,
+.cart-notification__heading svg {
+  width: 56px !important;
+  height: 56px !important;
+  background: linear-gradient(135deg, #6dd968, #34c759) !important;
+  border-radius: 50% !important;
+  padding: 14px !important;
+  color: white !important;
+  fill: white !important;
+  box-shadow: 0 8px 20px rgba(52, 199, 89, 0.3) !important;
+  animation: lumu-pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+@keyframes lumu-pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Close button */
+.cart-notification__close {
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  background: #f0f0f5 !important;
+  border-radius: 50% !important;
+  padding: 6px !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.cart-notification__close:hover {
+  background: #e4e4e9 !important;
+  transform: scale(1.1) !important;
+}
+
+.cart-notification__close svg {
+  width: 14px !important;
+  height: 14px !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  animation: none !important;
+  fill: #666 !important;
+  color: #666 !important;
+}
+
+/* Product info inside toast */
+.cart-notification-product {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  background: #f8f9fa !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  margin-bottom: 20px !important;
+  text-align: left !important;
+}
+
+.cart-notification-product__image {
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.cart-notification-product__image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.cart-notification-product__name {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin: 0 0 4px !important;
+}
+
+/* Action buttons inside toast */
+.cart-notification__links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.cart-notification__links .button--secondary {
+  background: #f4f4f8 !important;
+  color: #333 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  font-weight: 600 !important;
+  font-size: 1.35rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.cart-notification__links .button--secondary:hover {
+  background: #eaeaf0 !important;
+}
+
+.cart-notification__links .button--primary {
+  background: linear-gradient(135deg, var(--lumu-purple), #7b6cc0) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  font-weight: 700 !important;
+  font-size: 1.4rem !important;
+  box-shadow: 0 6px 18px rgba(107, 83, 167, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.cart-notification__links .button--primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(107, 83, 167, 0.4) !important;
+}
+
+/* Continue shopping link inside toast */
+.cart-notification__links .button-label {
+  color: #888 !important;
+  font-size: 1.25rem !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.cart-notification__links .button-label:hover {
+  color: var(--lumu-purple) !important;
+}
+
+/* Auto-dismiss progress bar */
+.lumu-toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lumu-purple), #34c759);
+  border-radius: 0 0 20px 20px;
+  animation: lumu-progress 3s linear forwards;
+}
+
+@keyframes lumu-progress {
+  0% { width: 100%; }
+  100% { width: 0%; }
+}
