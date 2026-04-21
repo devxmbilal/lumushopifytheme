@@ -318,7 +318,7 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <button type="button" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble" aria-haspopup="dialog" onclick="document.querySelector('cart-drawer').open()">
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
           {% else %}
@@ -333,13 +333,11 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-      </button>
+      </a>
     </div>
   </header>
 </{{ header_tag }}>
 
-{%- comment -%} Always render cart drawer for remove/qty controls + notification for success toast {%- endcomment -%}
-{%- render 'cart-drawer' -%}
 {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 
 {% javascript %}
