@@ -816,6 +816,35 @@ span.price-item.price-item--sale.price-item--last {
   background: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* Price range filter: make From/To inputs clearly visible */
+.facets__price .field {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.facets__price .field:before,
+.facets__price .field:after {
+  content: none !important;
+}
+
+.facets__price .field__input {
+  background: #ffffff !important;
+  margin: 0 !important;
+  height: 4.8rem !important;
+  padding: 1.3rem 1.4rem !important;
+  color: #121212 !important;
+}
+
+.facets__price .field__input::placeholder {
+  opacity: 1 !important;
+}
+
+.facets__price .field__label {
+  display: none !important;
+}
+
 /* SEARCH RESULTS PAGE: make the template search input clearly visible */
 .template-search__search .field {
   background: #ffffff !important;
@@ -1107,19 +1136,19 @@ details-modal.header__search {
 
 .lumu-header-search__panel {
   position: absolute;
-  left: 0;
-  top: calc(100% + 8px);
+  left: calc(100% + 10px);
+  top: 50%;
   width: 420px;
   max-width: min(86vw, 420px);
   opacity: 0;
-  transform: translateY(-6px);
+  transform: translateY(-50%) translateX(-8px);
   pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
 .lumu-header-search[open] .lumu-header-search__panel {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-50%) translateX(0);
   pointer-events: auto;
 }
 
