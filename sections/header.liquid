@@ -134,27 +134,34 @@
       endif
     -%}
 
-    {%- comment -%} Desktop: inline search (professional, non-modal) {%- endcomment -%}
-    <div class="lumu-header-search-inline" role="search">
-      <form action="{{ routes.search_url }}" method="get" class="lumu-header-search-inline__form">
-        <input type="hidden" name="type" value="product">
-        <input type="hidden" name="options[prefix]" value="last">
-        <button class="lumu-header-search-inline__btn" type="submit" aria-label="{{ 'general.search.search' | t }}">
-          <span class="svg-wrapper">
-            {{- 'icon-search.svg' | inline_asset_content -}}
-          </span>
-        </button>
-        <input
-          class="lumu-header-search-inline__input"
-          id="Search-Inline-1"
-          type="search"
-          name="q"
-          value="{{ search.terms | escape }}"
-          placeholder="{{ 'general.search.search' | t }}"
-          autocomplete="off"
-        >
-      </form>
-    </div>
+    {%- comment -%} Desktop: icon -> expands to input {%- endcomment -%}
+    <details class="lumu-header-search" role="search">
+      <summary class="lumu-header-search__summary header__icon link focus-inset" aria-label="{{ 'general.search.search' | t }}">
+        <span class="svg-wrapper">
+          {{- 'icon-search.svg' | inline_asset_content -}}
+        </span>
+      </summary>
+      <div class="lumu-header-search__panel">
+        <form action="{{ routes.search_url }}" method="get" class="lumu-header-search__form">
+          <input type="hidden" name="type" value="product">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input
+            class="lumu-header-search__input"
+            id="Search-Inline-1"
+            type="search"
+            name="q"
+            value="{{ search.terms | escape }}"
+            placeholder="{{ 'general.search.search' | t }}"
+            autocomplete="off"
+          >
+          <button class="lumu-header-search__submit" type="submit" aria-label="{{ 'general.search.search' | t }}">
+            <span class="svg-wrapper">
+              {{- 'icon-search.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </form>
+      </div>
+    </details>
 
     {%- comment -%} Mobile: keep original modal search {%- endcomment -%}
     {% render 'header-search', input_id: 'Search-In-Modal-1' %}
@@ -441,6 +448,33 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
+
+  // Desktop inline search: open/close + focus
+  (() => {
+    const searchDetails = document.querySelector('.lumu-header-search');
+    if (!searchDetails) return;
+
+    const input = searchDetails.querySelector('.lumu-header-search__input');
+    const closeIfOutside = (event) => {
+      if (!searchDetails.hasAttribute('open')) return;
+      if (searchDetails.contains(event.target)) return;
+      searchDetails.removeAttribute('open');
+    };
+
+    searchDetails.addEventListener('toggle', () => {
+      if (searchDetails.open && input) {
+        // allow panel to render before focusing
+        window.requestAnimationFrame(() => input.focus());
+      }
+    });
+
+    document.addEventListener('click', closeIfOutside);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && searchDetails.open) {
+        searchDetails.removeAttribute('open');
+      }
+    });
+  })();
 {% endjavascript %}
 
 <script type="application/ld+json">
