@@ -1088,7 +1088,10 @@ details-modal.header__search {
   .header {
     display: grid !important;
     grid-template-columns: 1fr auto 1fr !important;
-    grid-template-areas: "left heading icons" !important;
+    grid-template-rows: auto auto !important;
+    grid-template-areas:
+      "left heading icons"
+      "nav nav nav" !important;
     align-items: center !important;
     row-gap: 0 !important;
   }
