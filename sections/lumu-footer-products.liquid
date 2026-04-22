@@ -11,7 +11,7 @@
     <div class="lumu-pfp__grid">
       {%- assign products_list = collections.all.products -%}
       {%- if products_list.size > 0 -%}
-        {%- for product in products_list limit: 4 -%}
+        {%- for product in products_list limit: 4 offset: 8 -%}
           <div class="lumu-pfp__card-wrapper" style="height: 100%;">
             <a href="{{ product.url }}" class="lumu-pfp__card">
               <div class="lumu-pfp__card-img-wrap">

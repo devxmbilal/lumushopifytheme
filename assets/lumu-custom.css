@@ -2402,3 +2402,66 @@ details[open] .search-modal__content {
     display: none !important;
   }
 }
+
+/* ============================================
+   MOBILE DRAWER — CUSTOM CATEGORY DROPDOWN
+   ============================================ */
+
+/* The details wrapper */
+.lumu-drawer-details {
+  width: 100%;
+}
+
+.lumu-drawer-details > summary {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  cursor: pointer !important;
+}
+
+.lumu-drawer-caret {
+  margin-left: auto !important;
+  transition: transform 0.3s ease !important;
+}
+
+.lumu-drawer-details[open] > summary .lumu-drawer-caret {
+  transform: rotate(180deg) !important;
+}
+
+/* Submenu: expands inline below the "ALL CATEGORIES" item */
+.lumu-drawer-submenu {
+  list-style: none !important;
+  padding: 8px 0 8px 20px !important;
+  margin: 0 !important;
+  border-left: 3px solid var(--lumu-purple, #6153a7) !important;
+  margin-left: 12px !important;
+  animation: lumuSlideDown 0.3s ease forwards;
+}
+
+@keyframes lumuSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lumu-drawer-submenu li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.lumu-drawer-submenu__link {
+  display: block !important;
+  padding: 10px 16px !important;
+  font-size: 1.5rem !important;
+  color: rgba(var(--color-foreground), 0.8) !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+}
+
+.lumu-drawer-submenu__link:hover {
+  background: rgba(var(--color-foreground), 0.04) !important;
+  color: var(--lumu-purple, #6153a7) !important;
+  padding-left: 22px !important;
+}
