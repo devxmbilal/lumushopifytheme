@@ -13,7 +13,7 @@
       "settings": {}
     },
     "lumu_all_products": {
-      "type": "featured-collection",
+      "type": "lumu-scrolling-collection",
       "settings": {
         "title": "All Products",
         "heading_size": "h1",

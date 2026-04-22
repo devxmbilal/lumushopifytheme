@@ -1,0 +1,300 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Marquee Specific Styles */
+  .lumu-collection-marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .lumu-collection-marquee-track {
+    display: inline-flex;
+    animation: scrollCollectionMarquee 40s linear infinite;
+    padding-left: 20px;
+    gap: 20px;
+  }
+
+  .lumu-collection-marquee-wrapper:hover .lumu-collection-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scrollCollectionMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .lumu-marquee-product-card {
+    width: 300px;
+    flex-shrink: 0;
+    white-space: normal; /* Restore normal text wrapping for card content */
+  }
+
+  @media screen and (max-width: 749px) {
+    .lumu-marquee-product-card {
+      width: 240px;
+    }
+    .lumu-collection-marquee-track {
+      gap: 15px;
+      padding-left: 15px;
+      animation-duration: 30s;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
+    
+    <div class="title-wrapper title-wrapper--no-top-margin page-width center" style="margin-bottom: 30px;">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+    </div>
+
+    <!-- Infinite Marquee Slider -->
+    <div class="lumu-collection-marquee-wrapper">
+      {%- capture product_track -%}
+        {%- if section.settings.collection.products.size > 0 -%}
+          {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+            <div class="lumu-marquee-product-card">
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                lazy_load: true,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                section_id: section.id,
+                quick_add: section.settings.quick_add
+              %}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <!-- Placeholders -->
+          {%- for i in (1..section.settings.products_to_show) -%}
+            <div class="lumu-marquee-product-card">
+              {% liquid
+                assign ridx = forloop.rindex
+                case ridx
+                  when 5
+                    assign ridx = 1
+                  when 6
+                    assign ridx = 2
+                endcase
+              %}
+              {%- assign placeholder_image = 'product-apparel-' | append: ridx -%}
+              {% render 'card-product',
+                show_vendor: section.settings.show_vendor,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                lazy_load: false,
+                placeholder_image: placeholder_image
+              %}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endcapture -%}
+
+      <div class="lumu-collection-marquee-track">
+        {{ product_track }}
+      </div>
+      <div class="lumu-collection-marquee-track">
+        {{ product_track }}
+      </div>
+    </div>
+    
+    {%- liquid
+      assign more_in_collection = false
+      if section.settings.collection.all_products_count > section.settings.products_to_show
+        assign more_in_collection = true
+      endif
+    -%}
+    
+    {%- if section.settings.show_view_all and more_in_collection -%}
+      <div class="center collection__view-all" style="margin-top: 40px;">
+        <a
+          href="{{ section.settings.collection.url }}"
+          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
+        >
+          {{ 'sections.featured_collection.view_all' | t }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lumu Scrolling Collection",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 25,
+      "step": 1,
+      "default": 8,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },     
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "All Products",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "h2" },
+        { "value": "h1", "label": "h1" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Show 'View all' button"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "t:sections.featured-collection.settings.view_all_style.label",
+      "options": [
+        { "value": "link", "label": "Link" },
+        { "value": "solid", "label": "Solid Button" }
+      ],
+      "default": "solid"
+    }, 
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "portrait",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "arch", "label": "Arch" }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "standard", "label": "Standard" }
+      ]
+    },    
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.featured-collection.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lumu Scrolling Collection"
+    }
+  ]
+}
+{% endschema %}
