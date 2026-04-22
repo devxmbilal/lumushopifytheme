@@ -2461,7 +2461,76 @@ details[open] .search-modal__content {
 }
 
 .lumu-drawer-submenu__link:hover {
-  background: rgba(var(--color-foreground), 0.04) !important;
-  color: var(--lumu-purple, #6153a7) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
   padding-left: 22px !important;
+}
+
+/* ============================================
+   PREMIUM DRAWER — LUMU PURPLE BG + WHITE TEXT
+   ============================================ */
+
+/* Drawer panel background */
+.menu-drawer {
+  background-color: var(--lumu-purple, #6153a7) !important;
+}
+
+/* All nav items: white text */
+.menu-drawer__menu-item {
+  color: #fff !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  font-size: 1.6rem !important;
+}
+
+/* Hover / active state on items */
+.menu-drawer__menu-item:hover,
+.menu-drawer__menu-item:focus,
+.menu-drawer__menu-item--active {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+/* Category submenu: slightly lighter purple bg + white links */
+.lumu-drawer-submenu {
+  border-left: 3px solid rgba(255, 255, 255, 0.35) !important;
+}
+
+.lumu-drawer-submenu__link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 1.4rem !important;
+}
+
+.lumu-drawer-submenu__link:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+/* Caret icon white */
+.lumu-drawer-caret,
+.menu-drawer__menu-item > .svg-wrapper {
+  color: #fff !important;
+}
+
+/* Utility links area (Log in, country, socials) at bottom */
+.menu-drawer__utility-links {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.menu-drawer__account {
+  color: #fff !important;
+}
+
+.menu-drawer__account .svg-wrapper {
+  color: #fff !important;
+}
+
+/* Social links white */
+.menu-drawer .list-social__link {
+  color: #fff !important;
+}
+
+/* Country/language selectors */
+.menu-drawer__localization .disclosure__button {
+  color: #fff !important;
 }
