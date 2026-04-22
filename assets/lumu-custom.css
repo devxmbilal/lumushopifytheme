@@ -882,6 +882,132 @@ span.price-item.price-item--sale.price-item--last {
 }
 
 /* ============================================
+   CONTACT PAGE — Professional form card
+   ============================================ */
+.contact.page-width--narrow {
+  max-width: 72rem !important;
+  margin: 0 auto !important;
+  padding: 3.2rem 2.4rem !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08) !important;
+}
+
+@media screen and (min-width: 750px) {
+  .contact.page-width--narrow {
+    padding: 4rem 4.5rem !important;
+  }
+}
+
+.contact .title {
+  margin-bottom: 1.2rem !important;
+  text-align: center !important;
+}
+
+.contact__intro {
+  margin: 0 auto 2.4rem !important;
+  max-width: 58rem !important;
+  text-align: center !important;
+  color: rgba(18, 18, 18, 0.72) !important;
+  font-size: 1.45rem !important;
+  line-height: 1.65 !important;
+}
+
+.contact .form-status,
+.contact .form__message {
+  border-radius: 14px !important;
+  padding: 1.4rem 1.6rem !important;
+}
+
+.contact .form-status.form-status-list {
+  background: rgba(46, 125, 50, 0.08) !important;
+  border: 1px solid rgba(46, 125, 50, 0.18) !important;
+  color: #1b5e20 !important;
+}
+
+.contact .form__message[role="alert"] {
+  background: rgba(211, 47, 47, 0.08) !important;
+  border: 1px solid rgba(211, 47, 47, 0.18) !important;
+}
+
+.contact__fields {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1.6rem !important;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 2rem !important;
+    row-gap: 2rem !important;
+  }
+
+  /* Phone + message span full width under name/email */
+  .contact__fields .field:nth-of-type(3),
+  .contact__fields .field:nth-of-type(4) {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+.contact .field {
+  margin-bottom: 0 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.10) !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+}
+
+.contact .field:before,
+.contact .field:after {
+  content: none !important;
+}
+
+.contact .field__input,
+.contact .text-area.field__input {
+  background: #ffffff !important;
+  color: #121212 !important;
+  margin: 0 !important;
+  border-radius: 14px !important;
+}
+
+.contact .text-area.field__input {
+  min-height: 16rem !important;
+  resize: vertical !important;
+  padding: 1.6rem 1.8rem !important;
+}
+
+.contact .field__input:focus,
+.contact .text-area.field__input:focus {
+  box-shadow: 0 0 0 2px rgba(103, 85, 185, 0.35) !important;
+}
+
+.contact__button {
+  margin-top: 2.4rem !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.contact__button .button {
+  min-width: 22rem !important;
+  border-radius: 999px !important;
+  padding: 1.4rem 2.6rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #6755B9, #8577C7) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: 0 14px 30px rgba(103, 85, 185, 0.25) !important;
+}
+
+.contact__button .button:hover {
+  filter: brightness(1.05) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
    SCROLLBAR STYLING
    ============================================ */
 ::-webkit-scrollbar {

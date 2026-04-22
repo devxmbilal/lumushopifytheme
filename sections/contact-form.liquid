@@ -23,6 +23,9 @@
     {%- else -%}
       <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
     {%- endif -%}
+    <p class="contact__intro">
+      Tell us what you need and we’ll reply to the email you enter. Submissions are delivered to your store’s <strong>Customer email</strong> (Shopify Admin → <strong>Settings → Store details</strong>) and you’ll also see a success message here after sending.
+    </p>
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
