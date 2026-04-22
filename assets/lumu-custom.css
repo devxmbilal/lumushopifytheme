@@ -656,6 +656,20 @@ span.price-item.price-item--sale.price-item--last {
   font-size: 1.5rem;
 }
 
+/* Contact page: force hero heading readable + remove stray default rich-text buttons */
+.template-page-contact .rich-text__heading {
+  color: #121212 !important;
+}
+
+.template-page-contact .rich-text__text,
+.template-page-contact .rich-text__text p {
+  color: rgba(18, 18, 18, 0.78) !important;
+}
+
+.template-page-contact .rich-text__buttons {
+  display: none !important;
+}
+
 /* ============================================
    COLLAPSIBLE FAQ STYLES
    ============================================ */
