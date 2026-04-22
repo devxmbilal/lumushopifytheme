@@ -1084,6 +1084,18 @@ details-modal.header__search {
 }
 
 @media screen and (min-width: 990px) {
+  .header__logo-top {
+    display: flex !important;
+    justify-content: center !important;
+    padding-top: 14px !important;
+    padding-bottom: 6px !important;
+  }
+
+  /* Hide inline logo in header row on desktop (logo is above) */
+  .header__heading {
+    display: none !important;
+  }
+
   .header__inline-menu {
     grid-area: nav !important;
     display: flex !important;
@@ -1093,6 +1105,13 @@ details-modal.header__search {
     padding-top: 15px !important;
     margin-top: 5px !important;
     text-align: center;
+  }
+}
+
+/* Mobile: keep default inline logo, hide top logo */
+@media screen and (max-width: 989px) {
+  .header__logo-top {
+    display: none !important;
   }
 }
 
