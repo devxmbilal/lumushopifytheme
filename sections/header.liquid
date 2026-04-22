@@ -173,48 +173,14 @@
       {%- endif -%}
     {%- endif -%}
 
-    {%- comment -%} Custom Menu Row — Winning Structure {%- endcomment -%}
-    <nav class="header__inline-menu winning-navigation">
-      <ul class="list-menu list-menu--inline" role="list">
-        <li>
-          <a href="{{ routes.root_url }}" class="header__menu-item list-menu__item link link--text focus-inset">
-            <span>HOME</span>
-          </a>
-        </li>
-        <li>
-          <details-disclosure>
-            <details id="Details-HeaderMenu-AllCategories">
-              <summary class="header__menu-item list-menu__item link link--text focus-inset">
-                <span>ALL CATEGORIES</span>
-                <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-              </summary>
-              <ul id="HeaderMenu-MenuList-AllCategories" class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce" role="list">
-                <li><a href="/collections/tech-smart-gadgets" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Tech & Smart Gadgets</a></li>
-                <li><a href="/collections/home-kitchen-essentials" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Home & Kitchen Essentials</a></li>
-                <li><a href="/collections/health-beauty" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Health & Beauty</a></li>
-                <li><a href="/collections/premium-fashion-accessories" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Premium Fashion Accessories</a></li>
-                <li><a href="/collections/trending-viral-finds" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Trending & Viral Finds</a></li>
-              </ul>
-            </details>
-          </details-disclosure>
-        </li>
-        <li>
-          <a href="/collections/all" class="header__menu-item list-menu__item link link--text focus-inset">
-            <span>BEST SELLERS</span>
-          </a>
-        </li>
-        <li>
-          <a href="/pages/track-your-order" class="header__menu-item list-menu__item link link--text focus-inset">
-            <span>TRACK YOUR ORDER</span>
-          </a>
-        </li>
-        <li>
-          <a href="/pages/contact" class="header__menu-item list-menu__item link link--text focus-inset">
-            <span>CONTACT US</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    {%- comment -%} Desktop menu (dynamic) {%- endcomment -%}
+    {%- if section.settings.menu != blank and section.settings.menu_type_desktop != 'drawer' -%}
+      {%- if section.settings.menu_type_desktop == 'dropdown' -%}
+        {%- render 'header-dropdown-menu' -%}
+      {%- elsif section.settings.menu_type_desktop == 'mega' -%}
+        {%- render 'header-mega-menu' -%}
+      {%- endif -%}
+    {%- endif -%}
 
     {%- if false -%} {% comment %} Overriding default logo center logic to use custom nav below {% endcomment %}
     {%- if section.settings.logo_position == 'middle-center' -%}
