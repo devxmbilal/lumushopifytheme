@@ -1078,13 +1078,13 @@ details-modal.header__search {
     justify-self: end !important;
   }
 
-  .winning-navigation {
+  .header__inline-menu {
     display: none !important;
   }
 }
 
 @media screen and (min-width: 990px) {
-  .winning-navigation {
+  .header__inline-menu {
     grid-area: nav !important;
     display: flex !important;
     justify-content: center !important;
@@ -1115,12 +1115,12 @@ details-modal.header__search {
 }
 
 /* Winning Navigation Typography */
-.winning-navigation .list-menu--inline {
+.header__inline-menu .list-menu--inline {
   justify-content: center !important;
   gap: 3.5rem !important;
 }
 
-.winning-navigation .header__menu-item {
+.header__inline-menu .header__menu-item {
   font-family: var(--font-heading-family) !important;
   font-weight: 700 !important;
   font-size: 1.35rem !important;
@@ -1134,16 +1134,16 @@ details-modal.header__search {
   gap: 6px;
 }
 
-.winning-navigation .header__menu-item:hover {
+.header__inline-menu .header__menu-item:hover {
   color: var(--lumu-purple) !important;
   transform: translateY(-1px);
 }
 
-.winning-navigation .header__menu-item span {
+.header__inline-menu .header__menu-item span {
   position: relative;
 }
 
-.winning-navigation .header__menu-item span::after {
+.header__inline-menu .header__menu-item span::after {
   content: '';
   position: absolute;
   width: 0;
@@ -1154,7 +1154,7 @@ details-modal.header__search {
   transition: width 0.3s ease;
 }
 
-.winning-navigation .header__menu-item:hover span::after {
+.header__inline-menu .header__menu-item:hover span::after {
   width: 100%;
 }
 
@@ -1209,7 +1209,7 @@ details-modal.header__search {
 }
 
 /* Force submenu visibility when open */
-.winning-navigation details[open] > .header__submenu {
+.header__inline-menu details[open] > .header__submenu {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -2398,7 +2398,7 @@ details[open] .search-modal__content {
   }
 
   /* Hide nav on mobile (already in hamburger drawer) */
-  .header__inline-menu.winning-navigation {
+  .header__inline-menu {
     display: none !important;
   }
 }
