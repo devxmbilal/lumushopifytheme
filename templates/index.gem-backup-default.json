@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "lumu_hero_slider": {
+      "type": "lumu-hero-slider",
+      "settings": {}
+    },
+    "lumu_categories": {
+      "type": "lumu-categories",
+      "settings": {}
+    },
+    "lumu_trending_products": {
+      "type": "lumu-footer-products",
+      "settings": {}
+    },
+    "lumu_all_products": {
+      "type": "lumu-scrolling-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "All Products",
+        "heading_size": "h1",
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "lumu_tech_gadgets": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "tech-smart-gadgets",
+        "products_to_show": 4,
+        "title": "Tech & Smart Gadgets",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_home_kitchen": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "home-kitchen-essentials",
+        "products_to_show": 4,
+        "title": "Home & Kitchen Essentials",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_health_beauty": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "health-beauty",
+        "products_to_show": 4,
+        "title": "Health & Beauty",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_fashion": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "premium-fashion-accessories",
+        "products_to_show": 4,
+        "title": "Premium Fashion Accessories",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_trending_viral": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "trending-viral-finds",
+        "products_to_show": 4,
+        "title": "Trending & Viral Finds",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "lumu_brand_story": {
+      "type": "lumu-brand-story",
+      "settings": {}
+    },
+    "lumu_customer_reviews": {
+      "type": "lumu-customer-reviews",
+      "settings": {}
+    },
+    "lumu_trust_features": {
+      "type": "lumu-trust-features",
+      "settings": {}
+    },
+    "lumu_newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get Exclusive Deals & Updates",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our newsletter for first access to flash sales, new arrivals, and exclusive discount codes.<\/p>"
+          }
+        },
+        "email": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "lumu_hero_slider",
+    "lumu_categories",
+    "lumu_trending_products",
+    "lumu_all_products",
+    "lumu_tech_gadgets",
+    "lumu_home_kitchen",
+    "lumu_health_beauty",
+    "lumu_fashion",
+    "lumu_trending_viral",
+    "lumu_brand_story",
+    "lumu_customer_reviews",
+    "lumu_trust_features",
+    "lumu_newsletter"
+  ]
+}
