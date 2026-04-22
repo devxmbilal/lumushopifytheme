@@ -1019,6 +1019,10 @@ span.price-item.price-item--sale.price-item--last {
   gap: 1.6rem !important;
 }
 
+.contact__fields .field {
+  margin-bottom: 0 !important;
+}
+
 @media screen and (min-width: 750px) {
   .contact__fields {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -1034,12 +1038,20 @@ span.price-item.price-item--sale.price-item--last {
 }
 
 .contact .field {
-  margin-bottom: 0 !important;
+  margin: 0 0 1.8rem 0 !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
   border-radius: 0 !important;
   overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+.contact .field:before,
+.contact .field:after {
+  content: none !important;
 }
 
 /* Label “tab” only (purple like Send button, white text) */
@@ -1065,7 +1077,33 @@ span.price-item.price-item--sale.price-item--last {
   color: #ffffff !important;
 }
 
-/* Inputs keep Dawn defaults (white field + normal border) */
+.contact .field__input,
+.contact .text-area.field__input {
+  width: 100% !important;
+  background: #ffffff !important;
+  color: #121212 !important;
+  border: 1px solid rgba(0, 0, 0, 0.16) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05) !important;
+  margin: 0 !important;
+  padding: 1.4rem 1.6rem !important;
+  height: auto !important;
+  min-height: 4.8rem !important;
+}
+
+.contact .field__input::placeholder,
+.contact .text-area.field__input::placeholder {
+  opacity: 1 !important;
+  color: rgba(18, 18, 18, 0.45) !important;
+}
+
+.contact .field__input:focus,
+.contact .text-area.field__input:focus {
+  outline: none !important;
+  border-color: rgba(103, 85, 185, 0.75) !important;
+  box-shadow: 0 0 0 3px rgba(103, 85, 185, 0.18), 0 10px 22px rgba(0, 0, 0, 0.05) !important;
+}
+
 .contact .text-area.field__input {
   min-height: 14rem !important;
   resize: vertical !important;
