@@ -1033,6 +1033,59 @@ details-modal.header__search {
   justify-content: flex-start !important;
 }
 
+/* Inline header search (desktop-first) */
+.lumu-header-search-inline {
+  grid-area: left-side !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.lumu-header-search-inline__form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  width: 320px;
+  transition: width 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lumu-header-search-inline__form:focus-within {
+  border-color: rgba(103, 85, 185, 0.55);
+  box-shadow: 0 10px 26px rgba(103, 85, 185, 0.14);
+  width: 380px;
+}
+
+.lumu-header-search-inline__btn {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(103, 85, 185, 0.08);
+  color: #6755B9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lumu-header-search-inline__input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  font-size: 1.35rem;
+  color: #121212;
+}
+
+.lumu-header-search-inline__input::placeholder {
+  color: rgba(18, 18, 18, 0.55);
+}
+
 /* ============================================
    MOBILE HEADER — Single Clean Override
    Hamburger + Search side-by-side | Logo CENTERED | Cart right
@@ -1063,6 +1116,10 @@ details-modal.header__search {
     display: flex !important;
     align-items: center !important;
     margin: 0 !important;
+  }
+
+  .lumu-header-search-inline {
+    display: none !important;
   }
 
   .header__heading {
@@ -1097,6 +1154,17 @@ details-modal.header__search {
   }
 
   details-modal.header__search {
+    grid-area: left !important;
+    justify-self: start !important;
+    margin: 0 !important;
+  }
+
+  /* Desktop: use inline search, hide modal search */
+  details-modal.header__search {
+    display: none !important;
+  }
+
+  .lumu-header-search-inline {
     grid-area: left !important;
     justify-self: start !important;
     margin: 0 !important;
