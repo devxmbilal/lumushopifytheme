@@ -29,24 +29,20 @@
                   HOME
                 </a>
               </li>
-              <li>
-                <details id="Details-menu-drawer-categories" class="lumu-drawer-details">
-                  <summary
-                    class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
-                  >
-                    ALL CATEGORIES
-                    <span class="lumu-drawer-caret svg-wrapper">
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
-                    </span>
-                  </summary>
-                  <ul class="lumu-drawer-submenu" role="list">
-                    <li><a href="/collections/tech-smart-gadgets" class="lumu-drawer-submenu__link">Tech & Smart Gadgets</a></li>
-                    <li><a href="/collections/home-kitchen-essentials" class="lumu-drawer-submenu__link">Home & Kitchen Essentials</a></li>
-                    <li><a href="/collections/health-beauty" class="lumu-drawer-submenu__link">Health & Beauty</a></li>
-                    <li><a href="/collections/premium-fashion-accessories" class="lumu-drawer-submenu__link">Premium Fashion Accessories</a></li>
-                    <li><a href="/collections/trending-viral-finds" class="lumu-drawer-submenu__link">Trending & Viral Finds</a></li>
-                  </ul>
-                </details>
+              <li class="lumu-cat-toggle-wrap">
+                <button type="button" class="menu-drawer__menu-item list-menu__item link link--text lumu-cat-toggle-btn" onclick="this.parentElement.classList.toggle('is-open'); event.stopPropagation();">
+                  ALL CATEGORIES
+                  <span class="lumu-drawer-caret svg-wrapper">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
+                </button>
+                <ul class="lumu-drawer-submenu" role="list">
+                  <li><a href="/collections/tech-smart-gadgets" class="lumu-drawer-submenu__link">Tech & Smart Gadgets</a></li>
+                  <li><a href="/collections/home-kitchen-essentials" class="lumu-drawer-submenu__link">Home & Kitchen Essentials</a></li>
+                  <li><a href="/collections/health-beauty" class="lumu-drawer-submenu__link">Health & Beauty</a></li>
+                  <li><a href="/collections/premium-fashion-accessories" class="lumu-drawer-submenu__link">Premium Fashion Accessories</a></li>
+                  <li><a href="/collections/trending-viral-finds" class="lumu-drawer-submenu__link">Trending & Viral Finds</a></li>
+                </ul>
               </li>
               <li>
                 <a
