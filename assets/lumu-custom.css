@@ -967,6 +967,13 @@ span.price-item.price-item--sale.price-item--last {
   overflow: hidden;
 }
 
+/* Comment field: label comes after textarea in markup (Dawn), flip visually so label sits on top */
+.contact .field:has(.text-area.field__input) {
+  display: flex !important;
+  flex-direction: column-reverse !important;
+  gap: 0 !important;
+}
+
 .contact .field:before,
 .contact .field:after {
   content: none !important;
@@ -986,14 +993,25 @@ span.price-item.price-item--sale.price-item--last {
 .contact .field__label,
 .contact .form__label.field__label {
   position: static !important;
-  display: block !important;
-  padding: 1.2rem 1.6rem 0 !important;
-  margin: 0 !important;
-  pointer-events: auto !important;
-  font-size: 1.15rem !important;
-  letter-spacing: 0.06em !important;
-  text-transform: uppercase !important;
-  color: rgba(18, 18, 18, 0.62) !important;
+  display: inline-block !important;
+  align-self: flex-start !important;
+  width: auto !important;
+  padding: 0.55rem 1rem !important;
+  margin: 0 0 0.8rem 0 !important;
+  pointer-events: none !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: #ffffff !important;
+  background: #2f6feb !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.contact .field__label span,
+.contact .form__label.field__label span {
+  color: #ffffff !important;
 }
 
 .contact .text-area.field__input {
