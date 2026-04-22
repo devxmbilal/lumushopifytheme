@@ -130,6 +130,10 @@
       "type": "lumu-brand-story",
       "settings": {}
     },
+    "lumu_customer_reviews": {
+      "type": "lumu-customer-reviews",
+      "settings": {}
+    },
     "lumu_trust_features": {
       "type": "lumu-trust-features",
       "settings": {}
@@ -175,6 +179,7 @@
     "lumu_fashion",
     "lumu_trending_viral",
     "lumu_brand_story",
+    "lumu_customer_reviews",
     "lumu_trust_features",
     "lumu_newsletter"
   ]
