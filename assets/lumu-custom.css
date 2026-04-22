@@ -816,6 +816,42 @@ span.price-item.price-item--sale.price-item--last {
   background: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* SEARCH RESULTS PAGE: make the template search input clearly visible */
+.template-search__search .field {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.10) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08) !important;
+  overflow: hidden;
+}
+
+.template-search__search .field:before,
+.template-search__search .field:after {
+  content: none !important;
+}
+
+.template-search__search .field__input.search__input {
+  background: #ffffff !important;
+  color: #121212 !important;
+  height: 5.2rem !important;
+  padding: 1.4rem 9.8rem 1.4rem 1.8rem !important;
+  margin: 0 !important;
+}
+
+.template-search__search .field__input::placeholder {
+  opacity: 1 !important;
+  color: rgba(18, 18, 18, 0.55) !important;
+}
+
+.template-search__search .field__label {
+  display: none !important;
+}
+
+.template-search__search .field__button {
+  height: 5.2rem !important;
+  width: 5.2rem !important;
+}
+
 /* ============================================
    SCROLLBAR STYLING
    ============================================ */
