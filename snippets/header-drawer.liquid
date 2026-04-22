@@ -30,12 +30,12 @@
                 </a>
               </li>
               <li class="lumu-cat-toggle-wrap">
-                <button type="button" class="menu-drawer__menu-item list-menu__item link link--text lumu-cat-toggle-btn" onclick="this.parentElement.classList.toggle('is-open'); event.stopPropagation();">
+                <div role="button" tabindex="0" class="menu-drawer__menu-item list-menu__item link link--text lumu-cat-toggle-btn" onclick="event.preventDefault(); event.stopPropagation(); this.parentElement.classList.toggle('is-open');">
                   ALL CATEGORIES
                   <span class="lumu-drawer-caret svg-wrapper">
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </span>
-                </button>
+                </div>
                 <ul class="lumu-drawer-submenu" role="list">
                   <li><a href="/collections/tech-smart-gadgets" class="lumu-drawer-submenu__link">Tech & Smart Gadgets</a></li>
                   <li><a href="/collections/home-kitchen-essentials" class="lumu-drawer-submenu__link">Home & Kitchen Essentials</a></li>

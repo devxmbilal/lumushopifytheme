@@ -2407,20 +2407,22 @@ details[open] .search-modal__content {
    MOBILE DRAWER — COMPLETE PREMIUM OVERHAUL
    ============================================ */
 
-/* 1. HALF-SCREEN DRAWER — NOT FULL PAGE */
+/* 1. SIDE DRAWER — CUSTOM WIDTH NOT FULL SCREEN */
 .menu-drawer {
   background-color: var(--lumu-purple, #6153a7) !important;
-  height: auto !important;
-  max-height: 70vh !important;
-  border-radius: 0 0 20px 20px !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
+  width: 82vw !important; /* Width on mobile */
+  height: 100% !important; /* Revert to full height */
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  box-shadow: 10px 0 30px rgba(0,0,0,0.5) !important;
   z-index: 100 !important;
   overflow-y: auto !important;
 }
 
 .js .menu-drawer {
-  height: auto !important;
-  max-height: 70vh !important;
+  height: 100% !important;
+  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%))) !important;
+  max-height: 100vh !important;
 }
 
 /* Overlay behind drawer - make it higher z-index too */
