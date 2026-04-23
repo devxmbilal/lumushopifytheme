@@ -3430,3 +3430,15 @@ details[open].menu-opening~.header__heading~.header__inline-menu~.header__icons,
  } 
   
  
+ / *   F o r c e   T r e n d i n g   N o w   t o   1   c o l u m n   o n   M o b i l e   * / 
+ @ m e d i a   ( m a x - w i d t h :   5 4 9 p x )   { 
+     . l u m u - p f p _ _ g r i d   { 
+         g r i d - t e m p l a t e - c o l u m n s :   1 f r   ! i m p o r t a n t ; 
+         g a p :   2 4 p x   ! i m p o r t a n t ; 
+     } 
+     . l u m u - p f p _ _ c a r d - w r a p p e r   { 
+         w i d t h :   1 0 0 %   ! i m p o r t a n t ; 
+     } 
+ } 
+  
+ 
