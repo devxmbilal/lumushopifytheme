@@ -3631,3 +3631,29 @@ track123-search-artsy {
  
  
  
+ / *   F o r c e   G l o b a l   P r o d u c t   G r i d s   t o   1 - C o l u m n   o n   M o b i l e   ( C o l l e c t i o n s ,   S e a r c h ,   F e a t u r e d )   * / 
+ @ m e d i a   s c r e e n   a n d   ( m a x - w i d t h :   7 6 7 p x )   { 
+     . g r i d . p r o d u c t - g r i d , 
+     . g r i d - - 2 - c o l - t a b l e t - d o w n , 
+     . l u m u - p f p _ _ g r i d   { 
+         d i s p l a y :   f l e x   ! i m p o r t a n t ; 
+         f l e x - d i r e c t i o n :   c o l u m n   ! i m p o r t a n t ; 
+         g a p :   3 5 p x   ! i m p o r t a n t ; 
+         p a d d i n g :   0   1 5 p x   ! i m p o r t a n t ; 
+     } 
+ 
+     . g r i d . p r o d u c t - g r i d   . g r i d _ _ i t e m , 
+     . g r i d - - 2 - c o l - t a b l e t - d o w n   . g r i d _ _ i t e m , 
+     . l u m u - p f p _ _ c a r d - w r a p p e r   { 
+         w i d t h :   1 0 0 %   ! i m p o r t a n t ; 
+         m a x - w i d t h :   1 0 0 %   ! i m p o r t a n t ; 
+         f l e x :   0   0   1 0 0 %   ! i m p o r t a n t ; 
+     } 
+     
+     / *   E n s u r e   i m a g e s   t a k e   f u l l   w i d t h   b u t   m a i n t a i n   a s p e c t   r a t i o   * / 
+     . c a r d _ _ m e d i a ,   . c a r d _ _ c o n t e n t   { 
+         w i d t h :   1 0 0 %   ! i m p o r t a n t ; 
+     } 
+ } 
+  
+ 
