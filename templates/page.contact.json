@@ -21,7 +21,7 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 52,
         "padding_bottom": 40
@@ -30,14 +30,13 @@
     "lumu_contact_methods": {
       "type": "multicolumn",
       "blocks": {
-        "m_1": { "type": "column", "settings": { "title": "📧 Email Us", "text": "<p>support@lumu.pk<br>We reply within 4 hours</p>" } },
-        "m_2": { "type": "column", "settings": { "title": "💬 WhatsApp", "text": "<p>+92 XXX XXXXXXX<br>Available 24/7</p>" } },
-        "m_3": { "type": "column", "settings": { "title": "📍 Location", "text": "<p>Lahore, Pakistan<br>Operating Hours: 9 AM - 9 PM</p>" } }
+        "m_1": { "type": "column", "settings": { "title": "📧 Email Us", "text": "<p><a href=\"mailto:contactus@lumu.ae\">contactus@lumu.ae</a><br>We typically reply within a few hours.</p>" } },
+        "m_2": { "type": "column", "settings": { "title": "💬 WhatsApp", "text": "<p>+92 XXX XXXXXXX<br>Available 24/7</p>" } }
       },
-      "block_order": ["m_1", "m_2", "m_3"],
+      "block_order": ["m_1", "m_2"],
       "settings": {
         "title": "",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "column_alignment": "center",

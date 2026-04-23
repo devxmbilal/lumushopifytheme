@@ -1,0 +1,146 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "product_recommendations",
+    "custom_reviews"
+  ],
+  "sections": {
+    "custom_reviews": {
+      "settings": {},
+      "type": "lumu-product-reviews"
+    },
+    "main": {
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "urgency",
+        "buy_buttons",
+        "trust",
+        "description",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2",
+        "share"
+      ],
+      "blocks": {
+        "buy_buttons": {
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          },
+          "type": "buy_buttons"
+        },
+        "collapsible-row-0": {
+          "settings": {
+            "content": "<p>We offer free shipping on orders above Rs 2,000 across Pakistan. Standard delivery takes 3-5 business days. Major cities receive orders within 2-3 days.</p>",
+            "heading": "Shipping & Delivery",
+            "icon": "truck",
+            "page": ""
+          },
+          "type": "collapsible_tab"
+        },
+        "collapsible-row-1": {
+          "settings": {
+            "content": "<p>Changed your mind? No worries! We accept returns within 7 days of delivery. Items must be unused and in original packaging. Contact us via WhatsApp for instant support.</p>",
+            "heading": "Returns & Exchange",
+            "icon": "return",
+            "page": ""
+          },
+          "type": "collapsible_tab"
+        },
+        "collapsible-row-2": {
+          "settings": {
+            "content": "<p>Every product sold on Lumu is 100% authentic and quality-checked. We work directly with trusted brands and manufacturers to ensure you receive only genuine items.</p>",
+            "heading": "Quality Guarantee",
+            "icon": "check_mark",
+            "page": ""
+          },
+          "type": "collapsible_tab"
+        },
+        "description": {
+          "settings": {},
+          "type": "description"
+        },
+        "price": {
+          "settings": {},
+          "type": "price"
+        },
+        "quantity_selector": {
+          "settings": {},
+          "type": "quantity_selector"
+        },
+        "share": {
+          "settings": {
+            "share_label": "Share"
+          },
+          "type": "share"
+        },
+        "title": {
+          "settings": {},
+          "type": "title"
+        },
+        "trust": {
+          "settings": {},
+          "type": "trust_badges"
+        },
+        "urgency": {
+          "settings": {},
+          "type": "lumu_urgency"
+        },
+        "variant_picker": {
+          "settings": {
+            "picker_type": "button"
+          },
+          "type": "variant_picker"
+        },
+        "vendor": {
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          },
+          "type": "text"
+        }
+      },
+      "settings": {
+        "constrain_to_viewport": true,
+        "enable_sticky_info": true,
+        "enable_video_looping": false,
+        "gallery_layout": "thumbnail_slider",
+        "hide_variants": true,
+        "media_size": "large",
+        "mobile_thumbnails": "show",
+        "padding_bottom": 12,
+        "padding_top": 36
+      },
+      "type": "main-product"
+    },
+    "product_recommendations": {
+      "settings": {
+        "color_scheme": "scheme-1",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "You May Also Like",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "show_rating": false,
+        "show_secondary_image": true,
+        "show_vendor": false
+      },
+      "type": "related-products"
+    }
+  }
+}

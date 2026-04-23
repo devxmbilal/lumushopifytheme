@@ -303,7 +303,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
 
-  <body class="gradient template-{{ template.name }}{% if template.suffix != blank %} template-{{ template.name }}-{{ template.suffix }}{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -312,7 +312,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% sections 'header-group' %}
+    <div style="display:none"> {% sections 'header-group' %} </div>
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
@@ -320,27 +320,6 @@
 
     {% sections 'footer-group' %}
     {% section 'lumu-footer-modals' %}
-
-    {%- liquid
-      assign lumu_whatsapp_phone = shop.phone
-      assign lumu_whatsapp_phone_clean = lumu_whatsapp_phone
-        | replace: '+', ''
-        | replace: ' ', ''
-        | replace: '-', ''
-        | replace: '(', ''
-        | replace: ')', ''
-    -%}
-    {%- if lumu_whatsapp_phone_clean != blank -%}
-      <a
-        class="lumu-whatsapp-float"
-        href="https://wa.me/{{ lumu_whatsapp_phone_clean }}"
-        target="_blank"
-        rel="noopener"
-        aria-label="Chat on WhatsApp"
-      >
-        <span class="lumu-whatsapp-float__icon" aria-hidden="true">WA</span>
-      </a>
-    {%- endif -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
