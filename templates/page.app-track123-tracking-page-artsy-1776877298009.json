@@ -16,7 +16,7 @@
           "type": "shopify://apps/track123/blocks/search/60c49c11-a7c0-49a0-861e-2f84d2f294e6",
           "settings": {
             "block_image": "shopify://shop_images/banner.webp",
-            "search_form_background_color": "#ffffff",
+            "search_form_background_color": "transparent",
             "preview_state": "detail",
             "search_by": "by_order_number_or_by_tracking_number",
             "time_format": "hh:mm a",
