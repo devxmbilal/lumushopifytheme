@@ -9,6 +9,12 @@
  */
 {
   "current": {
+    "sections": {
+      "lumu-footer-modals": {
+        "type": "lumu-footer-modals",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "616324007356007219": {
@@ -18,6 +24,11 @@
       },
       "776302416715791028": {
         "type": "shopify://apps/bucks/blocks/app-embed/4f0a9b06-9da4-4a49-b378-2de9d23a3af3",
+        "disabled": false,
+        "settings": {}
+      },
+      "13017476918150166000": {
+        "type": "shopify://apps/wa-chat-button/blocks/whatsapp/f4d01795-3d1a-4ac7-bca7-9d0d178df50e",
         "disabled": false,
         "settings": {}
       }
