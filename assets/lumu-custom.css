@@ -3448,3 +3448,17 @@ track123-search-artsy {
   }
 }
 
+
+ / *   F i x   M o b i l e   M e n u   Z - I n d e x   t o   s t a y   a b o v e   e v e r y t h i n g   * / 
+ . m e n u - d r a w e r - c o n t a i n e r ,   
+ h e a d e r - d r a w e r ,   
+ # m e n u - d r a w e r , 
+ . m e n u - d r a w e r   { 
+     z - i n d e x :   9 9 9 9   ! i m p o r t a n t ; 
+ } 
+ 
+ . j s   d e t a i l s [ o p e n ] . m e n u - d r a w e r - c o n t a i n e r   >   s u m m a r y : : b e f o r e   { 
+     z - i n d e x :   9 9 9 8   ! i m p o r t a n t ; 
+ } 
+  
+ 
