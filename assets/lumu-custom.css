@@ -3322,46 +3322,43 @@ details[open].menu-opening~.header__heading~.header__inline-menu~.header__icons,
 }
 
 /* ============================================
-   MOBILE MENU — Localization dropdown should overlay (not expand)
-   Fix: country/location dropdown transparent + navbar height jump
+   MOBILE MENU — Localization (country / language)
+   Solid purple panel only: do NOT override Dawn’s position rules.
+   Dawn uses position:fixed bottom-sheet for country (max-width 749px); forcing
+   absolute + top broke the picker (nothing visible).
    ============================================ */
 @media screen and (max-width: 989px) {
-  /* Anchor dropdown to the localization block */
-  .menu-drawer__localization,
-  .menu-drawer__localization .disclosure {
-    position: relative !important;
-  }
-
-  /* Make the list behave like a popup overlay */
-  .menu-drawer__localization .disclosure__list-wrapper {
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: calc(100% + 8px) !important;
-    width: auto !important;
-    margin: 0 !important;
-    padding: 10px 0 !important;
-    max-height: min(44vh, 360px) !important;
-    overflow: auto !important;
-
-    background: #6153a7 !important; /* solid (no transparency) */
+  .menu-drawer__localization .disclosure__list-wrapper:not([hidden]) {
+    background: #6153a7 !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
-    border-radius: 14px !important;
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35) !important;
-    z-index: 10005 !important;
   }
 
-  /* Ensure inner list doesn't add extra padding/transparent bg */
-  .menu-drawer__localization .disclosure__list {
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    max-width: 100% !important;
+  .menu-drawer__localization .disclosure__list-wrapper.language-selector:not([hidden]) {
+    border-radius: 14px !important;
   }
 
-  /* Readable items on purple */
-  .menu-drawer__localization .disclosure__link {
+  .menu-drawer__localization .disclosure__link,
+  .menu-drawer__localization .disclosure__link span {
     color: #ffffff !important;
+  }
+
+  .menu-drawer__localization .country-filter {
+    background-color: #6153a7 !important;
+  }
+
+  .menu-drawer__localization .country-filter__input {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  }
+
+  .menu-drawer__localization .country-filter__input::placeholder {
+    color: rgba(255, 255, 255, 0.55) !important;
+  }
+
+  .menu-drawer__localization .field__label {
+    color: rgba(255, 255, 255, 0.85) !important;
   }
 }
 /* Track123 Premium Glassmorphism Global Styles */
