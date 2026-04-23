@@ -7,6 +7,10 @@
     min-width: 100%; position: relative;
     display: flex; align-items: center; justify-content: center;
     min-height: 520px; background-size: cover; background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media screen and (min-width: 1600px) {
+    .lumu-slider__slide { min-height: 600px; }
   }
   .lumu-slider__overlay {
     position: absolute; inset: 0;
@@ -91,7 +95,7 @@
       </div>
     </div>
     <!-- Slide 2 -->
-    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-2.png' | asset_url }}');">
+    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-2-premium.png' | asset_url }}');">
       <div class="lumu-slider__overlay"></div>
       <div class="lumu-slider__content">
         <h2>Latest Tech & Gadgets</h2>
@@ -102,7 +106,7 @@
       </div>
     </div>
     <!-- Slide 3 -->
-    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-3.png' | asset_url }}');">
+    <div class="lumu-slider__slide" style="background-image: url('{{ 'lumu-hero-3-premium.png' | asset_url }}');">
       <div class="lumu-slider__overlay"></div>
       <div class="lumu-slider__content">
         <h2>Transform Your Space</h2>
