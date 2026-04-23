@@ -323,6 +323,10 @@
 
     {%- liquid
       assign lumu_whatsapp_phone = shop.phone
+      if lumu_whatsapp_phone == blank
+        assign lumu_whatsapp_phone = '+971 52 586 4353'
+      endif
+
       assign lumu_whatsapp_phone_clean = lumu_whatsapp_phone
         | replace: '+', ''
         | replace: ' ', ''
