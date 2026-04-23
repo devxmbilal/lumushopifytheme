@@ -22,7 +22,7 @@
             "show_tracking_number": true,
             "show_package_info": true,
             "show_reorder_button": true,
-            "custom_css": ""
+            "custom_css": ".t123-search-form { background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(10px); border-radius: 24px !important; box-shadow: 0 20px 40px rgba(97, 83, 167, 0.15) !important; border: 1px solid rgba(97, 83, 167, 0.1) !important; padding: 40px !important; } .t123-search-form h2 { color: #6153a7 !important; font-size: 28px !important; font-weight: 800 !important; margin-bottom: 30px !important; } .t123-search-form .t123-input-wrapper input { border-radius: 12px !important; border: 1.5px solid #eee !important; padding: 15px !important; transition: all 0.3s ease !important; } .t123-search-form .t123-input-wrapper input:focus { border-color: #6153a7 !important; box-shadow: 0 0 0 4px rgba(97, 83, 167, 0.1) !important; } .t123-search-form .t123-submit-button { background: #6153a7 !important; border-radius: 12px !important; height: 55px !important; font-weight: 700 !important; letter-spacing: 0.5px !important; transition: transform 0.2s ease !important; } .t123-search-form .t123-submit-button:hover { transform: translateY(-2px) !important; }"
           }
         }
       },
