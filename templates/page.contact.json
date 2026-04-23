@@ -30,8 +30,8 @@
     "lumu_contact_methods": {
       "type": "multicolumn",
       "blocks": {
-        "m_1": { "type": "column", "settings": { "title": "📧 Email Us", "text": "<p><a href=\"mailto:contactus@lumu.ae\">contactus@lumu.ae</a><br>We typically reply within a few hours.</p>" } },
-        "m_2": { "type": "column", "settings": { "title": "💬 WhatsApp", "text": "<p><a href=\"https://wa.me/971525864353\" target=\"_blank\" rel=\"noopener\">+971 52 586 4353</a><br>Available 24/7</p>" } }
+        "m_1": { "type": "column", "settings": { "title": "📧 Email Us", "text": "<p><a href=\"mailto:contactus@lumu.ae\">contactus@lumu.ae</a><br>We typically reply within a few hours.</p>", "link_label": "", "link": "" } },
+        "m_2": { "type": "column", "settings": { "title": "💬 WhatsApp", "text": "<p><a href=\"https://wa.me/971525864353\" target=\"_blank\" rel=\"noopener\">+971 52 586 4353</a><br>Available 24/7</p>", "link_label": "", "link": "" } }
       },
       "block_order": ["m_1", "m_2"],
       "settings": {
@@ -42,6 +42,8 @@
         "column_alignment": "center",
         "background_style": "primary",
         "color_scheme": "scheme-2",
+        "button_label": "",
+        "button_link": "",
         "padding_top": 40,
         "padding_bottom": 40
       }
