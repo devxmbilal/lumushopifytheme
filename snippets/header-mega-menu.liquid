@@ -73,7 +73,7 @@
         {%- else -%}
           <a
             id="HeaderMenu-{{ link.handle }}"
-            href="{% if link.title contains 'TRACK' %}/apps/track123{% else %}{{ link.url }}{% endif %}"
+            href="{{ link.url }}"
             class="header__menu-item list-menu__item link link--text focus-inset"
             {% if link.current %}
               aria-current="page"
