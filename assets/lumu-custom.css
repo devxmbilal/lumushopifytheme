@@ -441,32 +441,7 @@ span.price-item.price-item--sale.price-item--last {
    PRODUCT PAGE — Trust & Urgency
    ============================================ */
 
-/* Trust Badges */
-.product-trust-badges {
-  display: flex;
-  margin-top: 15px;
-  gap: 10px;
-  justify-content: space-between;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 15px;
-}
-
-.trust-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 11px;
-  color: #555;
-  text-align: center;
-  font-weight: 500;
-}
-
-.trust-badge svg {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 5px;
-  color: var(--lumu-purple);
-}
+/* Trust Badges — see PRODUCT DETAIL PAGE section below for full styles */
 
 /* Urgency Counter */
 .lumu-urgency-timer {
@@ -1199,15 +1174,6 @@ html {
 
   .pre-footer-item {
     flex: 1 1 100%;
-  }
-
-  .product-trust-badges {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .trust-badge {
-    flex: 1 1 45%;
   }
 
   .image-with-text__content {
@@ -3789,68 +3755,7 @@ header-drawer,
   }
 }
 
-/* ---- Product Trust Badges Widget ---- */
-.product-trust-badges {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 24px 0;
-  padding: 20px;
-  background: rgba(133, 119, 199, 0.04);
-  border: 1px solid rgba(133, 119, 199, 0.1);
-  border-radius: 12px;
-}
-
-.trust-badge {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  text-align: left;
-}
-
-.trust-badge__icon {
-  font-size: 2.4rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  flex-shrink: 0;
-}
-
-.trust-badge__text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.trust-badge__text strong {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  text-align: left;
-}
-
-.trust-badge__text span {
-  font-size: 1.2rem;
-  color: #6a6a7c;
-  font-weight: 500;
-  text-align: left;
-}
-
-/* RTL details for trust badge text */
-.rtl .trust-badge {
-  text-align: right !important;
-}
-
-.rtl .trust-badge__text strong,
-.rtl .trust-badge__text span {
-  text-align: right !important;
-}
+/* ---- Product Trust Badges — consolidated in PRODUCT DETAIL PAGE section ---- */
 
 /* ==========================================================================
    PRODUCT DETAIL PAGE — Premium Neaten & Polish
@@ -4001,71 +3906,154 @@ header-drawer,
   display: block !important;
 }
 
-/* 6. Original Trust Badges Card Styling */
+/* 6. Product info column — more room so trust badges don't clip on the right */
+@media screen and (min-width: 990px) {
+  .product--large:not(.product--no-media) .product__media-wrapper {
+    max-width: 58% !important;
+    width: calc(58% - var(--grid-desktop-horizontal-spacing) / 2) !important;
+  }
+
+  .product--large:not(.product--no-media) .product__info-wrapper {
+    max-width: 42% !important;
+    width: calc(42% - var(--grid-desktop-horizontal-spacing) / 2) !important;
+    padding: 0 1.5rem 0 2.5rem !important;
+  }
+}
+
+.product__info-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* 6b. Trust Badges — reference card layout */
 .gp-product-trust-badges,
 .product-trust-badges {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 12px !important;
-  margin: 24px 0 !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  margin: 20px 0 24px !important;
+  padding: 12px 10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background: #f4f4f7 !important;
+  border: 1px solid rgba(133, 119, 199, 0.1) !important;
+  border-radius: 14px !important;
 }
 
 .trust-badge,
 .gp-trust-badge {
   background: #ffffff !important;
-  border: 1px solid rgba(133, 119, 199, 0.12) !important;
+  border: 1px solid rgba(133, 119, 199, 0.1) !important;
   border-radius: 12px !important;
-  padding: 16px 10px !important;
+  padding: 14px 8px 12px !important;
+  min-width: 0 !important;
   text-align: center !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  box-shadow: 0 4px 12px rgba(133, 119, 199, 0.03) !important;
-  transition: all 0.3s ease !important;
-  text-align: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  box-shadow: 0 2px 8px rgba(133, 119, 199, 0.05) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease !important;
 }
 
 .trust-badge:hover,
 .gp-trust-badge:hover {
-  border-color: var(--lumu-purple) !important;
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 20px rgba(133, 119, 199, 0.1) !important;
+  border-color: rgba(133, 119, 199, 0.35) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(133, 119, 199, 0.1) !important;
 }
 
 .trust-badge__icon,
 .trust-badge svg {
-  font-size: 2.2rem !important;
-  width: 38px !important;
-  height: 38px !important;
+  font-size: 2rem !important;
+  width: 42px !important;
+  height: 42px !important;
+  line-height: 1 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: rgba(133, 119, 199, 0.08) !important;
+  background: #ffffff !important;
   border-radius: 50% !important;
-  color: var(--lumu-purple-dark) !important;
-  padding: 6px !important;
-  margin: 0 auto !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  flex-shrink: 0 !important;
+  margin: 0 auto 2px !important;
+  padding: 0 !important;
+}
+
+.trust-badge__text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  width: 100% !important;
+  min-width: 0 !important;
 }
 
 .trust-badge__text strong,
 .trust-badge strong {
-  font-size: 1.3rem !important;
+  font-size: 1.15rem !important;
   font-weight: 700 !important;
   color: #1a1a2e !important;
   display: block !important;
-  margin-top: 4px !important;
+  line-height: 1.3 !important;
   text-align: center !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
 }
 
 .trust-badge__text span,
 .trust-badge span {
-  font-size: 1.1rem !important;
-  color: #8c8c9e !important;
+  font-size: 1rem !important;
+  color: #6a6a7c !important;
   font-weight: 500 !important;
   display: block !important;
+  line-height: 1.35 !important;
   text-align: center !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* RTL trust badges */
+.rtl .trust-badge,
+.rtl .gp-trust-badge {
+  text-align: center !important;
+}
+
+.rtl .trust-badge__text strong,
+.rtl .trust-badge__text span {
+  text-align: center !important;
+}
+
+@media screen and (max-width: 749px) {
+  .product-trust-badges,
+  .gp-product-trust-badges {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+
+  .trust-badge,
+  .gp-trust-badge {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 14px 16px !important;
+    gap: 14px !important;
+  }
+
+  .trust-badge__icon {
+    margin: 0 !important;
+  }
+
+  .trust-badge__text strong,
+  .trust-badge__text span {
+    text-align: left !important;
+  }
 }
 
 /* 7. Accordions / Collapsible Tabs Polish */
