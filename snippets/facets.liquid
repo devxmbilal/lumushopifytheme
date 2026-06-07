@@ -474,6 +474,16 @@
         <form id="FacetFiltersFormMobile" class="mobile-facets">
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
+              <button
+                type="button"
+                class="mobile-facets__header-close link focus-inset"
+                aria-label="{{ 'accessibility.close' | t }}"
+                onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+              >
+                <span class="svg-wrapper">
+                  {{- 'icon-close.svg' | inline_asset_content -}}
+                </span>
+              </button>
               <div class="mobile-facets__header-inner">
                 <h2 class="mobile-facets__heading medium-hide large-up-hide">
                   {%- if enable_filtering and enable_sorting -%}
@@ -751,21 +761,21 @@
                   </div>
                 </div>
               {%- endif -%}
+            </div>
 
-              <div class="mobile-facets__footer">
-                <facet-remove class="mobile-facets__clear-wrapper">
-                  <a href="{{ results_url }}" class="mobile-facets__clear underlined-link">
-                    {{- 'products.facets.clear_all' | t -}}
-                  </a>
-                </facet-remove>
-                <button
-                  type="button"
-                  class="button button--primary"
-                  onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
-                >
-                  {{ 'products.facets.apply' | t }}
-                </button>
-              </div>
+            <div class="mobile-facets__footer mobile-facets__footer--main">
+              <facet-remove class="mobile-facets__clear-wrapper">
+                <a href="{{ results_url }}" class="mobile-facets__clear underlined-link">
+                  {{- 'products.facets.clear_all' | t -}}
+                </a>
+              </facet-remove>
+              <button
+                type="button"
+                class="button button--primary"
+                onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+              >
+                {{ 'products.facets.apply' | t }}
+              </button>
             </div>
 
             {% if results.current_vendor or results.current_type %}
