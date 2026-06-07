@@ -490,25 +490,69 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+              {%- when 'tabby_tamara' -%}
+                {%- assign installment_price = product.selected_or_first_available_variant.price | divided_by: 4 -%}
+                <div class="lumu-bnpl-widget" {{ block.shopify_attributes }}>
+                  <div class="lumu-bnpl-widget__row">
+                    <div class="lumu-bnpl-widget__item tabby">
+                      <span class="bnpl-text">
+                        {%- if request.locale.iso_code == 'ar' -%}
+                          أو قسّمها على 4 دفعات شهرية بقيمة <strong>{{ installment_price | money }}</strong> بدون فوائد مع
+                        {%- else -%}
+                          Or split in 4 payments of <strong>{{ installment_price | money }}</strong> interest-free with
+                        {%- endif -%}
+                      </span>
+                      <span class="bnpl-logo tabby-logo">tabby</span>
+                    </div>
+                    <div class="lumu-bnpl-widget__item tamara">
+                      <span class="bnpl-text">
+                        {%- if request.locale.iso_code == 'ar' -%}
+                          أو قسّمها على 4 دفعات شهرية بقيمة <strong>{{ installment_price | money }}</strong> بدون فوائد مع
+                        {%- else -%}
+                          Or split in 4 payments of <strong>{{ installment_price | money }}</strong> interest-free with
+                        {%- endif -%}
+                      </span>
+                      <span class="bnpl-logo tamara-logo">tamara</span>
+                    </div>
+                  </div>
+                </div>
               {%- when 'trust_badges' -%}
                 <div class="product-trust-badges" {{ block.shopify_attributes }}>
                   <div class="trust-badge">
                     <span class="svg-wrapper">
                       {{- 'icon-success.svg' | inline_asset_content -}}
                     </span>
-                    <span>100% Original</span>
+                    <span>
+                      {%- if request.locale.iso_code == 'ar' -%}
+                        أصلي 100%
+                      {%- else -%}
+                        100% Original
+                      {%- endif -%}
+                    </span>
                   </div>
                   <div class="trust-badge">
                     <span class="svg-wrapper">
                       {{- 'icon-return.svg' | inline_asset_content -}}
                     </span>
-                    <span>7 Day Returns</span>
+                    <span>
+                      {%- if request.locale.iso_code == 'ar' -%}
+                        الدفع عند الاستلام
+                      {%- else -%}
+                        Cash on Delivery
+                      {%- endif -%}
+                    </span>
                   </div>
                   <div class="trust-badge">
                     <span class="svg-wrapper">
                       {{- 'icon-truck.svg' | inline_asset_content -}}
                     </span>
-                    <span>Fast Delivery</span>
+                    <span>
+                      {%- if request.locale.iso_code == 'ar' -%}
+                        توصيل سريع للخليج
+                      {%- else -%}
+                        Fast GCC Delivery
+                      {%- endif -%}
+                    </span>
                   </div>
                 </div>
               {%- when 'lumu_urgency' -%}
@@ -800,6 +844,11 @@
     {
       "type": "lumu_urgency",
       "name": "Lumu Urgency Counter",
+      "limit": 1
+    },
+    {
+      "type": "tabby_tamara",
+      "name": "Tabby & Tamara BNPL",
       "limit": 1
     },
     {

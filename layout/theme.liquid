@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="js" lang="{{ request.locale.iso_code }}">
+<html class="js" lang="{{ request.locale.iso_code }}" {% if request.locale.iso_code == 'ar' %}dir="rtl"{% endif %}>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -301,6 +301,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    {%- if request.locale.iso_code == 'ar' -%}
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+      {{ 'lumu-rtl.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
   </head>
 
   <body class="gradient template-{{ template.name }}{% if template.suffix != blank %} template-{{ template.name }}-{{ template.suffix }}{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -333,16 +337,44 @@
         | replace: '-', ''
         | replace: '(', ''
         | replace: ')', ''
+
+      assign whatsapp_text = ''
+      if template.name == 'product'
+        if request.locale.iso_code == 'ar'
+          assign whatsapp_text = 'مرحباً، أود الاستفسار عن منتج: ' | append: product.title | append: ' (' | append: canonical_url | append: ')'
+        else
+          assign whatsapp_text = 'Hi, I would like to inquire about: ' | append: product.title | append: ' (' | append: canonical_url | append: ')'
+        endif
+      else
+        if request.locale.iso_code == 'ar'
+          assign whatsapp_text = 'مرحباً، أود الاستفسار عن متجركم.'
+        else
+          assign whatsapp_text = 'Hi, I would like to make an inquiry.'
+        endif
+      endif
+
+      assign whatsapp_text_encoded = whatsapp_text | url_encode
     -%}
     {%- if lumu_whatsapp_phone_clean != blank -%}
       <a
         class="lumu-whatsapp-float"
-        href="https://wa.me/{{ lumu_whatsapp_phone_clean }}"
+        href="https://wa.me/{{ lumu_whatsapp_phone_clean }}?text={{ whatsapp_text_encoded }}"
         target="_blank"
         rel="noopener"
         aria-label="Chat on WhatsApp"
       >
-        <span class="lumu-whatsapp-float__icon" aria-hidden="true">WA</span>
+        <span class="lumu-whatsapp-float__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.233-1.371a9.945 9.945 0 004.773 1.226h.005c5.505 0 9.987-4.479 9.989-9.985.002-2.67-1.037-5.18-2.93-7.073A9.914 9.914 0 0012.012 2zm5.727 14.113c-.313.882-1.83 1.722-2.528 1.881-.613.139-1.416.25-2.29-.033a11.854 11.854 0 01-5.11-3.238 12.872 12.872 0 01-2.92-4.526c-.46-.807-.026-1.246.33-1.637.288-.316.637-.768.855-1.054.218-.286.3-.49.444-.783.143-.292.072-.547-.036-.765-.108-.218-.971-2.336-1.33-3.201-.35-.839-.705-.726-.97-.739-.253-.013-.544-.015-.834-.015-.29 0-.763.109-1.162.544-.4.435-1.524 1.49-1.524 3.633 0 2.143 1.56 4.215 1.778 4.507.218.293 3.07 4.688 7.438 6.572.843.364 1.62.617 2.223.808.847.269 1.62.23 2.229.139.679-.101 2.085-.852 2.375-1.674.29-.822.29-1.529.203-1.674-.087-.145-.32-.232-.683-.414z"/>
+          </svg>
+        </span>
+        <span class="lumu-whatsapp-tooltip">
+          {%- if request.locale.iso_code == 'ar' -%}
+            تواصل معنا على واتساب
+          {%- else -%}
+            Chat with us
+          {%- endif -%}
+        </span>
       </a>
     {%- endif -%}
 
