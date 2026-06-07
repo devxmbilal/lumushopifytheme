@@ -1,0 +1,227 @@
+{{ 'lumu-product-tabs.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lumu-product-tabs.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign is_ar = false
+  if request.locale.iso_code == 'ar'
+    assign is_ar = true
+  endif
+
+  assign product_category = product.type
+  if product_category == blank and product.collections.size > 0
+    assign product_category = product.collections.first.title
+  endif
+
+  assign weight_display = '—'
+  if variant.weight > 0
+    if variant.weight >= 1000
+      assign weight_display = variant.weight | divided_by: 1000.0 | round: 2 | append: ' kg'
+    else
+      assign weight_display = variant.weight | append: ' g'
+    endif
+  endif
+
+  if variant.available
+    if is_ar
+      assign availability_text = '✓ متوفر وجاهز للشحن'
+    else
+      assign availability_text = '✓ In Stock & Ready to Ship'
+    endif
+    assign availability_class = 'lumu-tabs__availability--in-stock'
+  else
+    if is_ar
+      assign availability_text = 'غير متوفر حالياً'
+    else
+      assign availability_text = 'Currently Unavailable'
+    endif
+    assign availability_class = 'lumu-tabs__availability--out-of-stock'
+  endif
+-%}
+
+<div class="lumu-product-tabs page-width" id="LumuProductTabs-{{ section.id }}">
+  <div class="lumu-tabs" data-lumu-tabs>
+    <div class="lumu-tabs__nav" role="tablist" aria-label="{% if is_ar %}معلومات المنتج{% else %}Product information{% endif %}">
+      <button
+        type="button"
+        class="lumu-tabs__btn is-active"
+        role="tab"
+        aria-selected="true"
+        aria-controls="LumuTabDesc-{{ section.id }}"
+        id="LumuTabBtnDesc-{{ section.id }}"
+        data-lumu-tab="description"
+      >
+        {% if is_ar %}الوصف{% else %}Description{% endif %}
+      </button>
+      <button
+        type="button"
+        class="lumu-tabs__btn"
+        role="tab"
+        aria-selected="false"
+        aria-controls="LumuTabSpecs-{{ section.id }}"
+        id="LumuTabBtnSpecs-{{ section.id }}"
+        data-lumu-tab="specs"
+      >
+        {% if is_ar %}التفاصيل والمواصفات{% else %}Details & Specs{% endif %}
+      </button>
+      <button
+        type="button"
+        class="lumu-tabs__btn"
+        role="tab"
+        aria-selected="false"
+        aria-controls="LumuTabShipping-{{ section.id }}"
+        id="LumuTabBtnShipping-{{ section.id }}"
+        data-lumu-tab="shipping"
+      >
+        {% if is_ar %}الشحن والإرجاع{% else %}Shipping & Returns{% endif %}
+      </button>
+    </div>
+
+    <div class="lumu-tabs__panels">
+      {%- comment -%} Description Tab {%- endcomment -%}
+      <div
+        class="lumu-tabs__panel is-active"
+        role="tabpanel"
+        id="LumuTabDesc-{{ section.id }}"
+        aria-labelledby="LumuTabBtnDesc-{{ section.id }}"
+        data-lumu-panel="description"
+      >
+        <div class="lumu-tabs__desc-wrap" data-lumu-desc-wrap>
+          <div class="lumu-tabs__desc rte" data-lumu-desc>
+            {%- if product.description != blank -%}
+              {{ product.description }}
+            {%- else -%}
+              {%- if is_ar -%}
+                <p>اكتشف جودة لومو المميزة — منتجات مختارة بعناية لتناسب أسلوب حياتك في الإمارات ودول الخليج. اطلب الآن واستمتع بتجربة تسوق سلسة.</p>
+              {%- else -%}
+                <p>Discover Lumu's premium quality — carefully selected products designed for your lifestyle across the UAE & GCC. Order today and enjoy a seamless shopping experience.</p>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+          <div class="lumu-tabs__desc-fade" data-lumu-desc-fade aria-hidden="true"></div>
+        </div>
+        <button type="button" class="lumu-tabs__see-more" data-lumu-see-more aria-expanded="false">
+          <span class="lumu-tabs__see-more-label" data-lumu-see-more-label>
+            {% if is_ar %}عرض المزيد{% else %}See More{% endif %}
+          </span>
+          <svg class="lumu-tabs__see-more-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      {%- comment -%} Details & Specs Tab {%- endcomment -%}
+      <div
+        class="lumu-tabs__panel"
+        role="tabpanel"
+        id="LumuTabSpecs-{{ section.id }}"
+        aria-labelledby="LumuTabBtnSpecs-{{ section.id }}"
+        data-lumu-panel="specs"
+        hidden
+      >
+        <table class="lumu-tabs__specs">
+          <tbody>
+            <tr>
+              <th scope="row">{% if is_ar %}العلامة التجارية{% else %}Brand{% endif %}</th>
+              <td>{{ product.vendor | default: 'Lumu' }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{% if is_ar %}رمز المنتج{% else %}SKU{% endif %}</th>
+              <td>{{ variant.sku | default: '—' }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{% if is_ar %}الفئة{% else %}Category{% endif %}</th>
+              <td>{{ product_category | default: '—' }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{% if is_ar %}الوزن{% else %}Weight{% endif %}</th>
+              <td>{{ weight_display }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{% if is_ar %}التوفر{% else %}Availability{% endif %}</th>
+              <td><span class="lumu-tabs__availability {{ availability_class }}">{{ availability_text }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {%- comment -%} Shipping & Returns Tab {%- endcomment -%}
+      <div
+        class="lumu-tabs__panel"
+        role="tabpanel"
+        id="LumuTabShipping-{{ section.id }}"
+        aria-labelledby="LumuTabBtnShipping-{{ section.id }}"
+        data-lumu-panel="shipping"
+        hidden
+      >
+        <ul class="lumu-tabs__shipping-list">
+          <li class="lumu-tabs__shipping-item">
+            <span class="lumu-tabs__shipping-icon" aria-hidden="true">🚚</span>
+            <div class="lumu-tabs__shipping-text">
+              <strong>
+                {%- if is_ar -%}التوصيل القياسي في الإمارات{% else %}Standard UAE Delivery{% endif -%}
+              </strong>
+              <span>
+                {%- if is_ar -%}
+                  مجاني للطلبات فوق 200 درهم — توصيل متتبع خلال 1-2 يوم عمل.
+                {%- else -%}
+                  Free on orders over 200 AED — Tracked delivery in 1–2 business days.
+                {%- endif -%}
+              </span>
+            </div>
+          </li>
+          <li class="lumu-tabs__shipping-item">
+            <span class="lumu-tabs__shipping-icon" aria-hidden="true">⚡</span>
+            <div class="lumu-tabs__shipping-text">
+              <strong>
+                {%- if is_ar -%}الشحن السريع في دول الخليج{% else %}GCC Express Shipping{% endif -%}
+              </strong>
+              <span>
+                {%- if is_ar -%}
+                  توصيل آمن ومتتبع إلى السعودية والكويت وقطر والبحرين وعُمان خلال 3-5 أيام عمل.
+                {%- else -%}
+                  Secure tracked delivery to Saudi Arabia, Kuwait, Qatar, Bahrain & Oman in 3–5 business days.
+                {%- endif -%}
+              </span>
+            </div>
+          </li>
+          <li class="lumu-tabs__shipping-item">
+            <span class="lumu-tabs__shipping-icon" aria-hidden="true">🌍</span>
+            <div class="lumu-tabs__shipping-text">
+              <strong>
+                {%- if is_ar -%}الدفع عند الاستلام (COD){% else %}Cash on Delivery (COD){% endif -%}
+              </strong>
+              <span>
+                {%- if is_ar -%}
+                  متاح في الإمارات ومعظم دول الخليج — ادفع نقداً عند استلام طلبك.
+                {%- else -%}
+                  Available across UAE & most GCC countries — pay cash when your order arrives.
+                {%- endif -%}
+              </span>
+            </div>
+          </li>
+          <li class="lumu-tabs__shipping-item">
+            <span class="lumu-tabs__shipping-icon" aria-hidden="true">↩️</span>
+            <div class="lumu-tabs__shipping-text">
+              <strong>
+                {%- if is_ar -%}إرجاع واستبدال سهل{% else %}Easy Returns & Exchange{% endif -%}
+              </strong>
+              <span>
+                {%- if is_ar -%}
+                  إرجاع مجاني خلال 7 أيام — المنتج غير مستخدم وبعبوته الأصلية. تواصل معنا عبر واتساب للمساعدة الفورية.
+                {%- else -%}
+                  Free 7-day returns — item must be unused in original packaging. Contact us on WhatsApp for instant support.
+                {%- endif -%}
+              </span>
+            </div>
+          </li>
+        </ul>
+        {%- if section.settings.returns_policy_url != blank -%}
+          <a href="{{ section.settings.returns_policy_url }}" class="lumu-tabs__policy-link">
+            {% if is_ar %}عرض سياسة الإرجاع الكاملة ←{% else %}View full returns policy →{% endif %}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>

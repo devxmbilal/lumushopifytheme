@@ -1,0 +1,311 @@
+/* ============================================
+   LUMU PRODUCT TABS — Description / Specs / Shipping
+   ============================================ */
+
+.lumu-product-tabs {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.lumu-tabs__nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: rgba(133, 119, 199, 0.08);
+  border-radius: 14px 14px 0 0;
+  border: 1px solid rgba(133, 119, 199, 0.15);
+  border-bottom: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.lumu-tabs__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.lumu-tabs__btn {
+  flex: 1;
+  min-width: max-content;
+  padding: 1.4rem 2rem;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.lumu-tabs__btn:hover {
+  color: var(--lumu-purple, #8577c7);
+  background: rgba(133, 119, 199, 0.06);
+}
+
+.lumu-tabs__btn.is-active {
+  color: var(--lumu-purple, #8577c7);
+  background: #fff;
+}
+
+.lumu-tabs__btn.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--lumu-purple, #8577c7);
+  border-radius: 3px 3px 0 0;
+}
+
+.lumu-tabs__panels {
+  background: #fff;
+  border: 1px solid rgba(133, 119, 199, 0.15);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 24px rgba(133, 119, 199, 0.06);
+}
+
+.lumu-tabs__panel {
+  display: none;
+  padding: 2.4rem 2.8rem 2.8rem;
+}
+
+.lumu-tabs__panel.is-active {
+  display: block;
+}
+
+/* Description tab */
+.lumu-tabs__desc-wrap {
+  position: relative;
+  overflow: hidden;
+  max-height: 280px;
+  transition: max-height 0.45s ease;
+}
+
+.lumu-tabs__desc-wrap.is-expanded {
+  max-height: none;
+}
+
+.lumu-tabs__desc {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.lumu-tabs__desc p {
+  margin: 0 0 1.2rem;
+}
+
+.lumu-tabs__desc ul,
+.lumu-tabs__desc ol {
+  margin: 0 0 1.2rem 1.6rem;
+  padding: 0;
+}
+
+.lumu-tabs__desc li {
+  margin-bottom: 0.5rem;
+}
+
+.lumu-tabs__desc strong {
+  color: #1e293b;
+}
+
+.lumu-tabs__desc-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 90%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lumu-tabs__desc-wrap.is-expanded .lumu-tabs__desc-fade,
+.lumu-tabs__desc-wrap.is-short .lumu-tabs__desc-fade {
+  opacity: 0;
+}
+
+.lumu-tabs__see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid rgba(133, 119, 199, 0.35);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--lumu-purple, #8577c7);
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lumu-tabs__see-more:hover {
+  background: rgba(133, 119, 199, 0.08);
+  border-color: var(--lumu-purple, #8577c7);
+}
+
+.lumu-tabs__see-more.is-expanded .lumu-tabs__see-more-icon {
+  transform: rotate(180deg);
+}
+
+.lumu-tabs__see-more-icon {
+  transition: transform 0.25s ease;
+}
+
+.lumu-tabs__desc-wrap.is-short + .lumu-tabs__see-more {
+  display: none;
+}
+
+/* Specs table */
+.lumu-tabs__specs {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(133, 119, 199, 0.12);
+}
+
+.lumu-tabs__specs tr:not(:last-child) th,
+.lumu-tabs__specs tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(133, 119, 199, 0.1);
+}
+
+.lumu-tabs__specs th {
+  width: 38%;
+  padding: 1.4rem 1.8rem;
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #334155;
+  background: rgba(133, 119, 199, 0.07);
+  vertical-align: middle;
+}
+
+.lumu-tabs__specs td {
+  padding: 1.4rem 1.8rem;
+  font-size: 1.4rem;
+  color: #475569;
+  background: #fff;
+  vertical-align: middle;
+}
+
+.lumu-tabs__availability--in-stock {
+  color: var(--lumu-green, #2e7d32);
+  font-weight: 600;
+}
+
+.lumu-tabs__availability--out-of-stock {
+  color: var(--lumu-red, #d32f2f);
+  font-weight: 600;
+}
+
+/* Shipping list */
+.lumu-tabs__shipping-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lumu-tabs__shipping-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid rgba(133, 119, 199, 0.1);
+}
+
+.lumu-tabs__shipping-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.lumu-tabs__shipping-item:first-child {
+  padding-top: 0;
+}
+
+.lumu-tabs__shipping-icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+
+.lumu-tabs__shipping-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lumu-tabs__shipping-text strong {
+  font-size: 1.45rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.lumu-tabs__shipping-text span {
+  font-size: 1.35rem;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.lumu-tabs__policy-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--lumu-purple, #8577c7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lumu-tabs__policy-link:hover {
+  color: var(--lumu-purple-dark, #6153a7);
+}
+
+/* RTL support */
+[dir='rtl'] .lumu-tabs__specs th {
+  text-align: right;
+}
+
+[dir='rtl'] .lumu-tabs__shipping-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Mobile */
+@media screen and (max-width: 749px) {
+  .lumu-product-tabs {
+    margin-top: 2.4rem;
+  }
+
+  .lumu-tabs__btn {
+    padding: 1.2rem 1.4rem;
+    font-size: 1.25rem;
+  }
+
+  .lumu-tabs__panel {
+    padding: 1.8rem 1.6rem 2rem;
+  }
+
+  .lumu-tabs__specs th,
+  .lumu-tabs__specs td {
+    padding: 1.1rem 1.2rem;
+    font-size: 1.25rem;
+  }
+
+  .lumu-tabs__specs th {
+    width: 42%;
+  }
+
+  .lumu-tabs__desc {
+    font-size: 1.35rem;
+  }
+}

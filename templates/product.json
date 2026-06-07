@@ -38,15 +38,12 @@
         "trust": {
           "type": "trust_badges"
         },
-        "description": {
-          "type": "description"
-        },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Shipping & Delivery",
             "icon": "truck",
-            "content": "<p>We offer free shipping on orders above Rs 2,000 across Pakistan. Standard delivery takes 3-5 business days. Major cities receive orders within 2-3 days.</p>",
+            "content": "<p>Free shipping on orders over 200 AED across the UAE. GCC delivery in 3–5 business days with full tracking. Cash on Delivery (COD) available.</p>",
             "page": ""
           }
         },
@@ -84,7 +81,6 @@
         "urgency",
         "buy_buttons",
         "trust",
-        "description",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
@@ -98,6 +94,8 @@
         "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
+        "enable_product_tabs": true,
+        "returns_policy_url": "",
         "padding_top": 36,
         "padding_bottom": 12
       }
