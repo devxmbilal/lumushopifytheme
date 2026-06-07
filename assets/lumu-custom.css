@@ -2914,10 +2914,6 @@ details[open] .search-modal__content {
   transform: translateY(0);
 }
 
-.lumu-search-mobile-header {
-  display: none;
-}
-
 /* Close button inside modal */
 .search-modal__close-button {
   display: flex !important;
@@ -3015,15 +3011,48 @@ details[open] .search-modal__content {
   height: 20px !important;
 }
 
-.search-modal__form .reset__button {
+.search-modal__form .reset__button,
+.search-modal__form .lumu-search-clear {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   right: 10px !important;
   left: auto !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  width: 34px !important;
-  height: 34px !important;
+  width: 32px !important;
+  height: 32px !important;
   border-radius: 50% !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #9ca3af !important;
+  cursor: pointer !important;
+  z-index: 3 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.search-modal__form .lumu-search-clear--empty {
+  opacity: 0.45 !important;
+  pointer-events: none !important;
+}
+
+.search-modal__form .reset__button:not(.lumu-search-clear--empty):hover,
+.search-modal__form .lumu-search-clear:not(.lumu-search-clear--empty):hover {
+  color: var(--lumu-purple) !important;
   background: rgba(133, 119, 199, 0.08) !important;
+}
+
+.search-modal__form .reset__button svg,
+.search-modal__form .lumu-search-clear svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.search-modal__form .reset__button.hidden {
+  display: flex !important;
+  visibility: visible !important;
 }
 
 .search-modal__form .reset__button:not(:focus-visible)::after,
@@ -3031,83 +3060,97 @@ details[open] .search-modal__content {
   display: none !important;
 }
 
-/* Mobile — full-screen top sheet search */
+.search-modal__form .field__input {
+  padding-right: 46px !important;
+}
+
+/* Mobile — compact popup (reference style) */
 @media screen and (max-width: 749px) {
   .search-modal {
-    padding-top: 0 !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    background: rgba(15, 23, 42, 0.45) !important;
+    padding: 10px 12px 0 !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    background: rgba(15, 23, 42, 0.5) !important;
   }
 
   .search-modal__content {
     width: 100% !important;
     max-width: 100% !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
-    border-radius: 0 0 20px 20px !important;
-    padding: 0 0 24px !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18) !important;
-    transform: translateY(-100%) !important;
-    animation: none !important;
+    min-height: unset !important;
+    height: auto !important;
+    border-radius: 18px !important;
+    padding: 48px 14px 14px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-12px) scale(0.98) !important;
+    opacity: 0 !important;
   }
 
   details[open] .search-modal__content {
-    transform: translateY(0) !important;
-  }
-
-  .lumu-search-mobile-header {
-    display: block !important;
-    padding: 18px 56px 14px 18px !important;
-    border-bottom: 1px solid rgba(133, 119, 199, 0.1) !important;
-    background: linear-gradient(180deg, #faf9fd 0%, #ffffff 100%) !important;
-  }
-
-  .lumu-search-mobile-header__title {
-    margin: 0 0 4px !important;
-    font-size: 2rem !important;
-    font-weight: 800 !important;
-    color: #1a1a2e !important;
-    letter-spacing: -0.02em !important;
-  }
-
-  .lumu-search-mobile-header__hint {
-    margin: 0 !important;
-    font-size: 1.25rem !important;
-    color: #6a6a7c !important;
-    font-weight: 500 !important;
+    transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
   }
 
   .search-modal__close-button {
-    top: 14px !important;
-    right: 14px !important;
-    width: 40px !important;
-    height: 40px !important;
-    background: #ffffff !important;
-    border: 1px solid rgba(133, 119, 199, 0.15) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 34px !important;
+    height: 34px !important;
+    background: #f4f4f7 !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .search-modal__form {
-    padding: 16px 16px 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .search-modal__form .field__input {
-    font-size: 1.7rem !important;
-    min-height: 56px !important;
-    border-radius: 16px !important;
-    padding: 16px 50px 16px 50px !important;
+    font-size: 1.6rem !important;
+    min-height: 50px !important;
+    border-radius: 14px !important;
+    padding: 14px 44px 14px 44px !important;
     background: #ffffff !important;
+    border: 1.5px solid rgba(133, 119, 199, 0.28) !important;
   }
 
-  .predictive-search {
-    margin: 0 16px !important;
-    padding-top: 12px !important;
-    max-height: calc(100dvh - 220px) !important;
+  .search-modal__form .search__button {
+    left: 10px !important;
+    color: #9ca3af !important;
+  }
+
+  .search-modal__form .reset__button,
+  .search-modal__form .lumu-search-clear {
+    right: 8px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .search-modal predictive-search {
+    position: static !important;
+    display: block !important;
+  }
+
+  .search-modal .predictive-search {
+    display: none !important;
+    position: static !important;
+    margin: 10px 0 0 !important;
+    padding-top: 8px !important;
+    max-height: 50vh !important;
+    border-top: 1px solid rgba(133, 119, 199, 0.1) !important;
+  }
+
+  .search-modal predictive-search[open] .predictive-search,
+  .search-modal predictive-search[loading] .predictive-search {
+    display: block !important;
+  }
+
+  .search-modal .predictive-search__loading-state {
+    margin: 0 auto !important;
   }
 
   .predictive-search__item {
-    padding: 14px 12px !important;
+    padding: 12px 4px !important;
   }
 }
 
@@ -3132,20 +3175,15 @@ details[open] .search-modal__content {
   left: 14px !important;
 }
 
-[dir='rtl'] .lumu-search-mobile-header {
-  padding: 18px 18px 14px 56px !important;
-  text-align: right !important;
-}
 
 /* Predictive Search Results Box */
-.predictive-search {
+.search-modal .predictive-search {
   background: white !important;
   border-radius: 0 0 12px 12px !important;
   max-height: 50vh !important;
   overflow-y: auto !important;
   border: none !important;
   box-shadow: none !important;
-  padding-top: 16px !important;
 }
 
 .predictive-search::-webkit-scrollbar {

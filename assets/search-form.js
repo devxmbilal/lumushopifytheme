@@ -16,10 +16,19 @@ class SearchForm extends HTMLElement {
   }
 
   toggleResetButton() {
+    if (!this.resetButton) return;
+
+    const isEmpty = this.input.value.length === 0;
+
+    if (this.resetButton.classList.contains('lumu-search-clear')) {
+      this.resetButton.classList.toggle('lumu-search-clear--empty', isEmpty);
+      return;
+    }
+
     const resetIsHidden = this.resetButton.classList.contains('hidden');
-    if (this.input.value.length > 0 && resetIsHidden) {
+    if (!isEmpty && resetIsHidden) {
       this.resetButton.classList.remove('hidden');
-    } else if (this.input.value.length === 0 && !resetIsHidden) {
+    } else if (isEmpty && !resetIsHidden) {
       this.resetButton.classList.add('hidden');
     }
   }

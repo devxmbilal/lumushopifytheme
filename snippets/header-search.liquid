@@ -35,16 +35,6 @@
         class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
         tabindex="-1"
       >
-        <div class="lumu-search-mobile-header">
-          <p class="lumu-search-mobile-header__title">{{ 'general.search.search' | t }}</p>
-          <p class="lumu-search-mobile-header__hint">
-            {%- if request.locale.iso_code == 'ar' -%}
-              ابحث عن المنتجات، المجموعات والمزيد
-            {%- else -%}
-              Find products, collections &amp; more
-            {%- endif -%}
-          </p>
-        </div>
         {%- if settings.predictive_search_enabled -%}
           <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
         {%- else -%}
@@ -58,7 +48,7 @@
               type="search"
               name="q"
               value="{{ search.terms | escape }}"
-              placeholder="{%- if request.locale.iso_code == 'ar' -%}ابحث عن المنتجات...{%- else -%}Search products, brands & more...{%- endif -%}"
+              placeholder="{{ 'general.search.search' | t }}"
               {%- if settings.predictive_search_enabled -%}
                 role="combobox"
                 aria-expanded="false"
@@ -76,7 +66,7 @@
             <input type="hidden" name="options[prefix]" value="last">
             <button
               type="reset"
-              class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
+              class="reset__button field__button lumu-search-clear{% if search.terms == blank %} lumu-search-clear--empty{% endif %}"
               aria-label="{{ 'general.search.reset' | t }}"
             >
               <span class="svg-wrapper">
