@@ -1872,6 +1872,7 @@ details[open]:hover > .header__menu-item,
    ANNOUNCEMENT BAR — Custom Branding
    ============================================ */
 .announcement-bar-section {
+  --lumu-announcement-height: 40px;
   background-color: #6755B9 !important;
 }
 
@@ -3066,8 +3067,21 @@ details[open] .search-modal__content {
 
 /* Mobile — compact popup (reference style) */
 @media screen and (max-width: 749px) {
+  /* Keep search modal above announcement + sticky header */
+  .shopify-section-group-header-group:has(details-modal.header__search details[open]) {
+    z-index: 100001 !important;
+  }
+
+  .header-wrapper:has(details-modal.header__search details[open]) {
+    z-index: 100002 !important;
+  }
+
+  details-modal.header__search details[open] .search-modal {
+    z-index: 100003 !important;
+  }
+
   .search-modal {
-    padding: 10px 12px 0 !important;
+    padding: calc(var(--lumu-announcement-height, 40px) + var(--header-height, 64px) + 12px) 12px 0 !important;
     align-items: flex-start !important;
     justify-content: center !important;
     background: rgba(15, 23, 42, 0.5) !important;
