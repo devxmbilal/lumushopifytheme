@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="js" lang="{{ request.locale.iso_code }}" {% if request.locale.iso_code == 'ar' %}dir="rtl"{% endif %}>
+<html class="js{% if request.locale.iso_code == 'ar' %} rtl{% endif %}" lang="{{ request.locale.iso_code }}"{% if request.locale.iso_code == 'ar' %} dir="rtl"{% endif %}>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -257,6 +257,9 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'lumu-custom.css' | asset_url | stylesheet_tag }}
+    {%- if request.locale.iso_code == 'ar' -%}
+      {{ 'lumu-rtl.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -302,8 +305,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     {%- if request.locale.iso_code == 'ar' -%}
-      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-      {{ 'lumu-rtl.css' | asset_url | stylesheet_tag }}
+      <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+      <style>
+        :root {
+          --font-body-family: 'Tajawal', sans-serif !important;
+          --font-heading-family: 'Tajawal', sans-serif !important;
+        }
+        body, html, input, select, textarea, .button, h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, .h6 {
+          font-family: 'Tajawal', sans-serif !important;
+        }
+      </style>
     {%- endif -%}
   </head>
 
@@ -337,43 +348,19 @@
         | replace: '-', ''
         | replace: '(', ''
         | replace: ')', ''
-
-      assign whatsapp_text = ''
-      if template.name == 'product'
-        if request.locale.iso_code == 'ar'
-          assign whatsapp_text = 'مرحباً، أود الاستفسار عن منتج: ' | append: product.title | append: ' (' | append: canonical_url | append: ')'
-        else
-          assign whatsapp_text = 'Hi, I would like to inquire about: ' | append: product.title | append: ' (' | append: canonical_url | append: ')'
-        endif
-      else
-        if request.locale.iso_code == 'ar'
-          assign whatsapp_text = 'مرحباً، أود الاستفسار عن متجركم.'
-        else
-          assign whatsapp_text = 'Hi, I would like to make an inquiry.'
-        endif
-      endif
-
-      assign whatsapp_text_encoded = whatsapp_text | url_encode
     -%}
     {%- if lumu_whatsapp_phone_clean != blank -%}
       <a
         class="lumu-whatsapp-float"
-        href="https://wa.me/{{ lumu_whatsapp_phone_clean }}?text={{ whatsapp_text_encoded }}"
+        href="https://wa.me/{{ lumu_whatsapp_phone_clean }}"
         target="_blank"
         rel="noopener"
         aria-label="Chat on WhatsApp"
       >
         <span class="lumu-whatsapp-float__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.233-1.371a9.945 9.945 0 004.773 1.226h.005c5.505 0 9.987-4.479 9.989-9.985.002-2.67-1.037-5.18-2.93-7.073A9.914 9.914 0 0012.012 2zm5.727 14.113c-.313.882-1.83 1.722-2.528 1.881-.613.139-1.416.25-2.29-.033a11.854 11.854 0 01-5.11-3.238 12.872 12.872 0 01-2.92-4.526c-.46-.807-.026-1.246.33-1.637.288-.316.637-.768.855-1.054.218-.286.3-.49.444-.783.143-.292.072-.547-.036-.765-.108-.218-.971-2.336-1.33-3.201-.35-.839-.705-.726-.97-.739-.253-.013-.544-.015-.834-.015-.29 0-.763.109-1.162.544-.4.435-1.524 1.49-1.524 3.633 0 2.143 1.56 4.215 1.778 4.507.218.293 3.07 4.688 7.438 6.572.843.364 1.62.617 2.223.808.847.269 1.62.23 2.229.139.679-.101 2.085-.852 2.375-1.674.29-.822.29-1.529.203-1.674-.087-.145-.32-.232-.683-.414z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="currentColor" style="display: block;">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L32 503l138.9-36.4c32.6 17.8 69 27.2 106.4 27.2 122.4 0 222-99.6 222-222 0-59.3-23.2-115-65.1-117.5zM223.9 455.3c-33.2 0-65.7-8.9-94-25.7l-6.7-4-82.4 21.6 22-80.4-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
           </svg>
-        </span>
-        <span class="lumu-whatsapp-tooltip">
-          {%- if request.locale.iso_code == 'ar' -%}
-            تواصل معنا على واتساب
-          {%- else -%}
-            Chat with us
-          {%- endif -%}
         </span>
       </a>
     {%- endif -%}
@@ -436,6 +423,9 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     {{ 'lumu-custom.css' | asset_url | stylesheet_tag }}
+    {%- if request.locale.iso_code == 'ar' -%}
+      {{ 'lumu-rtl.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
 
     {%- comment -%} LUMU: Shadow DOM CSS Injector for Tracking Page {%- endcomment -%}
     <script>

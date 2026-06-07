@@ -1,248 +1,234 @@
-/* ============================================================
-   LUMU CUSTOM RTL OVERRIDES — Dubai & GCC Premium Optimization
-   ============================================================ */
+/* ==========================================================================
+   LUMU ARABIC RTL OVERRIDES — Premium GCC Adaptations
+   ========================================================================== */
 
-/* ---- Modern Arabic Typography ---- */
-:root {
-  --font-body-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  --font-heading-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif !important;
-}
-
-body,
-html,
-h1, h2, h3, h4, h5, h6,
-.h0, .h1, .h2, .h3, .h4, .h5, .h6,
-button, input, select, textarea,
-.button, .shopify-payment-button__button,
-.price, .card__heading, .list-menu__item {
-  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif !important;
-}
-
-/* ---- Global Alignment Overrides ---- */
-body {
-  text-align: right !important;
-}
-
-/* Align text to start (right) for utility elements */
-p, span, div, li, a, h1, h2, h3, h4, h5, h6, input, select, textarea {
+/* ---- Global RTL Configuration ---- */
+html[dir="rtl"],
+body.rtl {
+  direction: rtl;
   text-align: right;
 }
 
-/* Force standard text elements */
-.text-left, .rte, .card__information, .card-information, .product__description {
+/* Base Text Alignments */
+.rtl p,
+.rtl span,
+.rtl a,
+.rtl h1,
+.rtl h2,
+.rtl h3,
+.rtl h4,
+.rtl h5,
+.rtl h6,
+.rtl li,
+.rtl input,
+.rtl select,
+.rtl textarea,
+.rtl legend,
+.rtl label {
   text-align: right !important;
 }
 
-.center, .text-center {
+/* Keep centered items centered */
+.rtl .center,
+.rtl [class*="--center"],
+.rtl .text-center,
+.rtl .card__content,
+.rtl .ticker__inner {
   text-align: center !important;
 }
 
-/* ---- Structural Reversals (Flex & Grid) ---- */
-.grid, .flex, .flex-row {
+/* Swap Float & Positioning */
+.rtl .float-left { float: right !important; }
+.rtl .float-right { float: left !important; }
+
+/* ---- Layout & Grid Mirroring ---- */
+.rtl .grid {
   direction: rtl !important;
 }
 
-/* Align lists and navigation items */
-.list-unstyled, .list-menu, .disclosure__list {
-  padding-right: 0 !important;
-  padding-left: revert !important;
-  text-align: right !important;
+/* Font Adjustments for Arabic legibility */
+.rtl body,
+.rtl html,
+.rtl input,
+.rtl select,
+.rtl textarea,
+.rtl button,
+.rtl .button {
+  letter-spacing: 0 !important; /* Letter spacing looks bad in Arabic script */
 }
 
-/* Header & Navigation */
-.header {
-  grid-template-areas: 'navigation logo icons' !important;
+/* ---- Header and Navigation Drawer ---- */
+.rtl .header__inline-menu {
+  padding-right: 2rem;
+  padding-left: 0;
 }
 
-@media screen and (min-width: 990px) {
-  .header--top-left {
-    grid-template-areas: 'logo navigation icons' !important;
-  }
+.rtl .header__heading-link {
+  margin-left: auto;
+  margin-right: 0;
 }
 
-.header__inline-menu {
-  margin-right: 2rem !important;
+.rtl .header__icons {
+  margin-left: 0;
+  margin-right: auto;
+  gap: 1.5rem;
+}
+
+/* Menu Drawer Position and Sliding (Slides from Right in RTL) */
+.rtl .menu-drawer {
+  left: auto !important;
+  right: 0 !important;
+  transform: translateX(100%) !important;
+}
+
+.rtl details[open] > .menu-drawer {
+  transform: translateX(0) !important;
+}
+
+/* Header Drawer z-indexes and summary alignment */
+.rtl .header__icon--menu {
+  margin-right: -1.2rem;
+  margin-left: 0;
+}
+
+/* Close buttons alignment in drawers */
+.rtl .menu-drawer__close-button {
+  margin-right: auto;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 2.6rem;
+  text-align: left !important;
+}
+
+/* Submenu slides from right */
+.rtl .menu-drawer__submenu {
+  transform: translateX(100%) !important;
+}
+
+.rtl details[open] > .menu-drawer__submenu {
+  transform: translateX(0) !important;
+}
+
+/* Mobile Menu Accordion Left Padding Fix */
+.rtl .menu-drawer__localization .disclosure__item {
+  border-left: none !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.2) !important;
   margin-left: 0 !important;
+  margin-right: 10px !important;
 }
 
-.list-menu--inline {
+/* ---- Cart Drawer Mirroring (Slides from Left in RTL) ---- */
+.rtl .cart-drawer {
+  left: 0 !important;
+  right: auto !important;
+}
+
+.rtl .drawer {
   justify-content: flex-start !important;
 }
 
-/* Cart & Header Icons Group */
-.header__icons {
-  justify-content: flex-end !important;
+.rtl .drawer__inner {
+  transform: translateX(-100%) !important;
 }
 
-.header__icon + .header__icon {
-  margin-right: 1rem !important;
-  margin-left: 0 !important;
+.rtl .drawer.active .drawer__inner {
+  transform: translateX(0) !important;
 }
 
-/* Search Form placement */
-.search-modal__form {
-  padding-left: 0 !important;
-  padding-right: 2rem !important;
-}
-
-.search__button {
+.rtl .drawer__close {
   right: auto !important;
   left: 1.5rem !important;
 }
 
-/* ---- Chevron & Arrow Rotations ---- */
-.icon-caret,
-.icon-arrow,
-.slider-button .svg-wrapper,
-.announcement-bar-slider .slider-button svg,
-.disclosure__button svg,
-.accordion summary svg,
-.product__view-details svg {
+/* ---- Chevrons, Icons, and Slider Arrows ---- */
+.rtl .icon-caret,
+.rtl .icon-arrow,
+.rtl svg[class*="arrow"],
+.rtl svg[class*="chevron"],
+.rtl .slider-button .icon {
   transform: scaleX(-1) !important;
 }
 
-/* ---- Product Page Specifics ---- */
-.product__info-container {
-  padding-left: 0 !important;
-  padding-right: 4rem !important;
+/* ---- Product Details Page Mirroring ---- */
+.rtl .product__info-container {
+  padding-right: 0 !important;
+  padding-left: 4rem !important;
 }
 
-@media screen and (max-width: 749px) {
-  .product__info-container {
-    padding-right: 0 !important;
+@media screen and (max-width: 989px) {
+  .rtl .product__info-container {
+    padding-left: 0 !important;
   }
 }
 
-/* Product Form fields & quantities */
-.quantity {
+/* Swatches / Pills */
+.rtl .product-form__input input[type='radio'] + label {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+/* Quantity Selector */
+.rtl .quantity {
   margin-left: 1.5rem !important;
   margin-right: 0 !important;
 }
 
-.quantity__button svg {
-  transform: none !important; /* Keep plus and minus normal */
+.rtl .quantity__button {
+  border-right: none !important;
 }
 
-/* Swatches and Variant Pickers */
-.product-form__input input[type='radio'] + label {
-  margin-left: 1rem !important;
-  margin-right: 0 !important;
+.rtl .quantity__input {
+  border-left: none !important;
+  border-right: none !important;
 }
 
-/* Accordions/FAQ Chevrons */
-.accordion__title {
+/* Add margins to payment terms / trust badges */
+.rtl .product-form__buttons {
+  margin-left: 0 !important;
+}
+
+/* ---- Cart Page Overrides ---- */
+.rtl .cart__footer-wrapper {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.rtl .cart-items th {
   text-align: right !important;
 }
 
-.accordion summary .icon-caret {
-  left: 1.5rem !important;
-  right: auto !important;
-}
-
-/* Badges Alignment */
-.card__badge {
-  left: auto !important;
-  right: 1.5rem !important;
-}
-
-/* ---- Cart Drawer Overrides ---- */
-.drawer__inner {
-  left: auto !important;
-  right: 0 !important;
-}
-
-.drawer {
-  justify-content: flex-end !important;
-}
-
-.drawer__close {
-  left: auto !important;
-  right: 1.5rem !important;
-}
-
-.cart-drawer-shipping-bar {
-  text-align: right !important;
-}
-
-/* Pre-footer trust highlights alignment */
-.pre-footer-item {
-  flex-direction: row !important;
-  text-align: right !important;
-}
-
-.pre-footer-text {
-  text-align: right !important;
-}
-
-/* Footer details layout */
-.footer-block {
-  text-align: right !important;
-}
-
-.footer-block__brand-info {
-  text-align: right !important;
-}
-
-.footer-block .list-menu__item.link:hover {
+.rtl .cart-item__details {
   padding-left: 0 !important;
-  padding-right: 4px !important;
+  padding-right: 2rem !important;
 }
 
-/* Breadcrumbs text alignment */
-.breadcrumbs__list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+.rtl .cart-item__quantity {
+  padding-left: 0 !important;
+  padding-right: 2rem !important;
+}
+
+/* ---- Custom Footer Matrix Alignment ---- */
+.rtl .lumu-footer__links-matrix {
+  direction: rtl;
+}
+
+.rtl .lumu-footer__links-list {
   padding-right: 0;
 }
 
-/* ---- WhatsApp Button Shift (to bottom-left to not overlap typical chat buttons) ---- */
-.lumu-whatsapp-float {
+.rtl .lumu-footer__legal-links {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* ---- Floating WhatsApp Widget Left Shift ---- */
+.rtl .lumu-whatsapp-float {
   right: auto !important;
   left: 24px !important;
 }
 
-/* ---- Tabby & Tamara Widget Styles ---- */
-.lumu-bnpl-widget {
-  margin: 1.5rem 0;
-  padding: 1.2rem;
-  background: #f9f9fb;
-  border: 1px solid #eef0f3;
-  border-radius: 10px;
-}
-
-.lumu-bnpl-widget__row {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.lumu-bnpl-widget__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.3rem;
-  color: #333;
-}
-
-.bnpl-logo {
-  font-weight: 900;
-  padding: 2px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.tabby-logo {
-  background: #3affad;
-  color: #121212;
-}
-
-.tamara-logo {
-  background: #ff7d33;
-  color: #ffffff;
-}
-
-/* RTL details modal positioning */
-details-modal[open] {
-  direction: rtl !important;
+/* ---- Accordions and Collapsible Panels ---- */
+.rtl .accordion details summary .icon-caret {
+  right: auto !important;
+  left: 1.5rem !important;
 }
