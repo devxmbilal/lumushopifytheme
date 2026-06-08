@@ -1,0 +1,26 @@
+{% comment %}
+  Alternating Lumu logo: English (lumulogo.png) ↔ Urdu (lumu2.png) every 5s
+{% endcomment %}
+
+<div class="lumu-logo-slider" data-lumu-logo-slider>
+  <img
+    src="{{ 'lumulogo.png' | asset_url }}"
+    alt="{{ shop.name }}"
+    class="header__heading-logo premium-logo lumu-logo-slider__img is-active"
+    width="120"
+    height="40"
+    loading="eager"
+    data-lumu-logo="en"
+  >
+  <img
+    src="{{ 'lumu2.png' | asset_url }}"
+    alt="{{ shop.name }}"
+    class="header__heading-logo premium-logo lumu-logo-slider__img"
+    width="120"
+    height="40"
+    loading="eager"
+    data-lumu-logo="ur"
+  >
+</div>
+
+<script src="{{ 'lumu-logo-slider.js' | asset_url }}" defer="defer"></script>

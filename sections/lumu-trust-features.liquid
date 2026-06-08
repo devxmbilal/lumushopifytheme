@@ -51,13 +51,44 @@
   @media (max-width: 989px) {
     .lumu-trust__grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 549px) {
-    .lumu-trust__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-    .lumu-trust__card { padding: 22px 16px; }
-    .lumu-trust__icon { width: 48px; height: 48px; border-radius: 12px; }
-    .lumu-trust__icon svg { width: 22px; height: 22px; }
-    .lumu-trust__card-title { font-size: 1.4rem; }
-    .lumu-trust__card-text { font-size: 1.2rem; }
+  @media (max-width: 749px) {
+    .lumu-trust { padding: 48px 0; }
+    .lumu-trust__title { margin-bottom: 32px; }
+    .lumu-trust__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 0 16px;
+    }
+    .lumu-trust__card {
+      padding: 24px 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .lumu-trust__icon {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      margin: 0;
+      border-radius: 12px;
+    }
+    .lumu-trust__icon svg { width: 24px; height: 24px; }
+    .lumu-trust__card-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .lumu-trust__card-title {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      text-align: left;
+    }
+    .lumu-trust__card-text {
+      font-size: 1.3rem;
+      text-align: left;
+      line-height: 1.5;
+    }
     .lumu-trust__title h2 { font-size: 2.2rem; }
   }
 </style>
@@ -74,8 +105,10 @@
           <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
         </svg>
       </div>
-      <div class="lumu-trust__card-title">Premium Shipping</div>
-      <div class="lumu-trust__card-text">Tracked and secure delivery across the UAE & GCC straight to your doorstep. Free shipping on orders over 200 AED across the UAE.</div>
+      <div class="lumu-trust__card-body">
+        <div class="lumu-trust__card-title">Premium Shipping</div>
+        <div class="lumu-trust__card-text">Tracked and secure delivery across the UAE & GCC straight to your doorstep. Free shipping on orders over 200 AED across the UAE.</div>
+      </div>
     </div>
     <!-- Quality Promise -->
     <div class="lumu-trust__card">
@@ -84,8 +117,10 @@
           <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
         </svg>
       </div>
-      <div class="lumu-trust__card-title">Quality Promise</div>
-      <div class="lumu-trust__card-text">We stand by our products. If something isn't right, our team is here to help with a straightforward return process.</div>
+      <div class="lumu-trust__card-body">
+        <div class="lumu-trust__card-title">Quality Promise</div>
+        <div class="lumu-trust__card-text">We stand by our products. If something isn't right, our team is here to help with a straightforward return process.</div>
+      </div>
     </div>
     <!-- Safe & Flexible Checkout -->
     <div class="lumu-trust__card">
@@ -95,8 +130,10 @@
           <polyline points="9 12 11 14 15 10"/>
         </svg>
       </div>
-      <div class="lumu-trust__card-title">Safe & Flexible Checkout</div>
-      <div class="lumu-trust__card-text">Shop with confidence. We offer 100% secure card payments and convenient Cash on Delivery (COD) options.</div>
+      <div class="lumu-trust__card-body">
+        <div class="lumu-trust__card-title">Safe & Flexible Checkout</div>
+        <div class="lumu-trust__card-text">Shop with confidence. We offer 100% secure card payments and convenient Cash on Delivery (COD) options.</div>
+      </div>
     </div>
     <!-- We're Here For You -->
     <div class="lumu-trust__card">
@@ -106,8 +143,10 @@
           <line x1="9" y1="10" x2="15" y2="10"/>
         </svg>
       </div>
-      <div class="lumu-trust__card-title">We're Here For You</div>
-      <div class="lumu-trust__card-text">Got a question? Our dedicated support team is just an email or message away to ensure a smooth shopping experience.</div>
+      <div class="lumu-trust__card-body">
+        <div class="lumu-trust__card-title">We're Here For You</div>
+        <div class="lumu-trust__card-text">Got a question? Our dedicated support team is just an email or message away to ensure a smooth shopping experience.</div>
+      </div>
     </div>
   </div>
 </div>
