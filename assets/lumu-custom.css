@@ -2277,9 +2277,26 @@ details[open]:hover > .header__menu-item,
 
 .lumu-footer__logo {
   height: 45px;
-  /* Adjust based on logo size */
   width: auto;
   display: block;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+.lumu-logo-slider--footer {
+  width: 140px;
+  height: 45px;
+  margin: 0;
+}
+
+.lumu-logo-slider--footer .lumu-logo-slider__img {
+  max-height: 45px !important;
+  max-width: 140px !important;
+}
+
+.lumu-footer__logo-link {
+  display: inline-flex;
+  align-items: center;
 }
 
 .lumu-footer__social-icons {

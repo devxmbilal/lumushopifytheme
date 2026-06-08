@@ -83,7 +83,7 @@
       <div class="lumu-footer__left-section">
         <div class="lumu-footer__brand-social">
           <a href="/" class="lumu-footer__logo-link">
-            <img src="{{ 'lumu2.png' | asset_url }}" alt="Lumu" class="lumu-footer__logo" loading="lazy">
+            {% render 'lumu-logo-slider', variant: 'footer' %}
           </a>
           <div class="lumu-footer__social-icons">
             {%- if settings.social_facebook_link != blank -%}

@@ -1,26 +1,44 @@
 {% comment %}
   Alternating Lumu logo: English (lumulogo.png) ↔ Urdu (lumu2.png) every 5s
+
+  Accepts:
+  - variant: {String} 'header' or 'footer' (optional, default header)
 {% endcomment %}
 
-<div class="lumu-logo-slider" data-lumu-logo-slider>
+{%- liquid
+  assign slider_variant = variant | default: 'header'
+  if slider_variant == 'footer'
+    assign slider_class = 'lumu-logo-slider lumu-logo-slider--footer'
+    assign img_class = 'lumu-footer__logo lumu-logo-slider__img'
+    assign img_width = 140
+    assign img_height = 45
+    assign img_loading = 'lazy'
+  else
+    assign slider_class = 'lumu-logo-slider lumu-logo-slider--header'
+    assign img_class = 'header__heading-logo premium-logo lumu-logo-slider__img'
+    assign img_width = 120
+    assign img_height = 40
+    assign img_loading = 'eager'
+  endif
+-%}
+
+<div class="{{ slider_class }}" data-lumu-logo-slider>
   <img
     src="{{ 'lumulogo.png' | asset_url }}"
     alt="{{ shop.name }}"
-    class="header__heading-logo premium-logo lumu-logo-slider__img is-active"
-    width="120"
-    height="40"
-    loading="eager"
+    class="{{ img_class }} is-active"
+    width="{{ img_width }}"
+    height="{{ img_height }}"
+    loading="{{ img_loading }}"
     data-lumu-logo="en"
   >
   <img
     src="{{ 'lumu2.png' | asset_url }}"
     alt="{{ shop.name }}"
-    class="header__heading-logo premium-logo lumu-logo-slider__img"
-    width="120"
-    height="40"
-    loading="eager"
+    class="{{ img_class }}"
+    width="{{ img_width }}"
+    height="{{ img_height }}"
+    loading="{{ img_loading }}"
     data-lumu-logo="ur"
   >
 </div>
-
-<script src="{{ 'lumu-logo-slider.js' | asset_url }}" defer="defer"></script>
