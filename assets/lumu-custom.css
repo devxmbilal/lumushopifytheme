@@ -1990,36 +1990,84 @@ details-modal.header__search {
   display: block;
 }
 
-/* Lumu logo slider — English ↔ Urdu every 5s */
+.lumu-logo-slider .header__heading-logo.premium-logo {
+  transition: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.03));
+}
+
+/* Lumu logo slider — English ↔ Urdu every 5s (CSS animation) */
+@keyframes lumu-logo-show-en {
+  0%, 42% { opacity: 1; visibility: visible; z-index: 2; }
+  48%, 92% { opacity: 0; visibility: hidden; z-index: 1; }
+  100% { opacity: 1; visibility: visible; z-index: 2; }
+}
+
+@keyframes lumu-logo-show-ur {
+  0%, 42% { opacity: 0; visibility: hidden; z-index: 1; }
+  48%, 92% { opacity: 1; visibility: visible; z-index: 2; }
+  100% { opacity: 0; visibility: hidden; z-index: 1; }
+}
+
 .lumu-logo-slider {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 130px;
   height: 52px;
   margin: 0 auto;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.lumu-logo-slider__img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.lumu-logo-slider .lumu-logo-slider__img,
+.lumu-logo-slider .lumu-logo-slider__img--en,
+.lumu-logo-slider .lumu-logo-slider__img--ur,
+.lumu-logo-slider .header__heading-logo,
+.lumu-logo-slider .lumu-footer__logo {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
   max-height: 52px !important;
   max-width: 130px !important;
   width: auto !important;
   height: auto !important;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.55s ease, visibility 0.55s ease;
-  pointer-events: none;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 !important;
+  transition: none !important;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-.lumu-logo-slider__img.is-active {
+.lumu-logo-slider .lumu-logo-slider__img--en,
+.lumu-logo-slider [data-lumu-logo="en"] {
+  animation-name: lumu-logo-show-en;
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
+}
+
+.lumu-logo-slider .lumu-logo-slider__img--ur,
+.lumu-logo-slider [data-lumu-logo="ur"] {
+  animation-name: lumu-logo-show-ur;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumu-logo-slider .lumu-logo-slider__img--en,
+  .lumu-logo-slider [data-lumu-logo="en"] {
+    animation: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lumu-logo-slider .lumu-logo-slider__img--ur,
+  .lumu-logo-slider [data-lumu-logo="ur"] {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -2028,7 +2076,9 @@ details-modal.header__search {
     height: 44px;
   }
 
-  .lumu-logo-slider__img {
+  .lumu-logo-slider .lumu-logo-slider__img,
+  .lumu-logo-slider .header__heading-logo,
+  .lumu-logo-slider .lumu-footer__logo {
     max-height: 44px !important;
     max-width: 110px !important;
   }
@@ -2289,7 +2339,9 @@ details[open]:hover > .header__menu-item,
   margin: 0;
 }
 
-.lumu-logo-slider--footer .lumu-logo-slider__img {
+.lumu-logo-slider--footer .lumu-logo-slider__img,
+.lumu-logo-slider--footer .lumu-footer__logo,
+.lumu-logo-slider--footer .header__heading-logo {
   max-height: 45px !important;
   max-width: 140px !important;
 }

@@ -1,5 +1,6 @@
 {% comment %}
   Alternating Lumu logo: English (lumulogo.png) ↔ Urdu (lumu2.png) every 5s
+  Uses CSS animation (works without JS) + JS fallback
 
   Accepts:
   - variant: {String} 'header' or 'footer' (optional, default header)
@@ -22,11 +23,11 @@
   endif
 -%}
 
-<div class="{{ slider_class }}" data-lumu-logo-slider>
+<div class="{{ slider_class }}" data-lumu-logo-slider aria-hidden="false">
   <img
     src="{{ 'lumulogo.png' | asset_url }}"
     alt="{{ shop.name }}"
-    class="{{ img_class }} is-active"
+    class="{{ img_class }} lumu-logo-slider__img lumu-logo-slider__img--en"
     width="{{ img_width }}"
     height="{{ img_height }}"
     loading="{{ img_loading }}"
@@ -35,7 +36,7 @@
   <img
     src="{{ 'lumu2.png' | asset_url }}"
     alt="{{ shop.name }}"
-    class="{{ img_class }}"
+    class="{{ img_class }} lumu-logo-slider__img lumu-logo-slider__img--ur"
     width="{{ img_width }}"
     height="{{ img_height }}"
     loading="{{ img_loading }}"

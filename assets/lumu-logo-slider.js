@@ -10,11 +10,14 @@
 
     let activeIndex = 0;
 
-    setInterval(() => {
-      images[activeIndex].classList.remove('is-active');
-      activeIndex = (activeIndex + 1) % images.length;
+    const tick = () => {
+      images.forEach((img) => img.classList.remove('is-active'));
       images[activeIndex].classList.add('is-active');
-    }, INTERVAL_MS);
+      activeIndex = (activeIndex + 1) % images.length;
+    };
+
+    tick();
+    window.setInterval(tick, INTERVAL_MS);
   }
 
   function initAll() {
@@ -28,7 +31,6 @@
   }
 
   document.addEventListener('shopify:section:load', (event) => {
-    const slider = event.target.querySelector('[data-lumu-logo-slider]');
-    if (slider) initLogoSlider(slider);
+    event.target.querySelectorAll('[data-lumu-logo-slider]').forEach(initLogoSlider);
   });
 })();
