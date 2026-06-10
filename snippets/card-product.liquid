@@ -13,6 +13,8 @@
         <div class="lumu-pfp__card-img" style="background:#f9f9fb;"></div>
       {%- endif -%}
 
+      {% render 'lumu-brand-badge', size: 'card' %}
+
       <!-- Global Sales Badges Overlay -->
       <div class="card__badge">
         {%- if card_product.available == false -%}

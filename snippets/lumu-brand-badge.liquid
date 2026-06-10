@@ -1,0 +1,28 @@
+{% comment %}
+  Lumu brand badge overlay on product images.
+
+  Accepts:
+  - size: {String} 'card' or 'pdp' (default: 'pdp')
+{% endcomment %}
+
+{%- liquid
+  assign badge_size = size | default: 'pdp'
+  if badge_size == 'card'
+    assign logo_width = 48
+    assign logo_height = 16
+  else
+    assign logo_width = 72
+    assign logo_height = 24
+  endif
+-%}
+
+<div class="lumu-brand-badge lumu-brand-badge--{{ badge_size }}" aria-hidden="true">
+  <img
+    src="{{ 'lumu2.png' | asset_url }}"
+    alt=""
+    class="lumu-brand-badge__logo"
+    width="{{ logo_width }}"
+    height="{{ logo_height }}"
+    loading="lazy"
+  >
+</div>

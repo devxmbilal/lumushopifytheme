@@ -4704,4 +4704,59 @@ menu-drawer.mobile-facets__wrapper {
   background-color: var(--lumu-purple) !important;
 }
 
+/* Lumu brand badge — product cards & PDP images */
+.lumu-brand-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.lumu-brand-badge--card {
+  top: 8px;
+  left: 8px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.lumu-brand-badge--pdp {
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.lumu-brand-badge__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 14px;
+  object-fit: contain;
+}
+
+.lumu-brand-badge--pdp .lumu-brand-badge__logo {
+  max-height: 22px;
+}
+
+@media screen and (max-width: 749px) {
+  .lumu-brand-badge--pdp {
+    top: 8px;
+    left: 8px;
+    padding: 5px 8px;
+  }
+
+  .lumu-brand-badge--pdp .lumu-brand-badge__logo {
+    max-height: 18px;
+  }
+}
 
