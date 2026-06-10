@@ -1,5 +1,5 @@
 {% comment %}
-  Lumu brand badge overlay on product images.
+  Lumu brand badge overlay — English ↔ Urdu logo alternates every 5s.
 
   Accepts:
   - size: {String} 'card' or 'pdp' (default: 'pdp')
@@ -17,12 +17,22 @@
 -%}
 
 <div class="lumu-brand-badge lumu-brand-badge--{{ badge_size }}" aria-hidden="true">
-  <img
-    src="{{ 'lumu2.png' | asset_url }}"
-    alt=""
-    class="lumu-brand-badge__logo"
-    width="{{ logo_width }}"
-    height="{{ logo_height }}"
-    loading="lazy"
-  >
+  <div class="lumu-brand-badge__slider">
+    <img
+      src="{{ 'lumulogo.png' | asset_url }}"
+      alt=""
+      class="lumu-brand-badge__logo lumu-brand-badge__logo--en"
+      width="{{ logo_width }}"
+      height="{{ logo_height }}"
+      loading="lazy"
+    >
+    <img
+      src="{{ 'lumu2.png' | asset_url }}"
+      alt=""
+      class="lumu-brand-badge__logo lumu-brand-badge__logo--ur"
+      width="{{ logo_width }}"
+      height="{{ logo_height }}"
+      loading="lazy"
+    >
+  </div>
 </div>

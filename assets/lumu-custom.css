@@ -4736,16 +4736,66 @@ menu-drawer.mobile-facets__wrapper {
   border-radius: 10px;
 }
 
+.lumu-brand-badge__slider {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lumu-brand-badge--card .lumu-brand-badge__slider {
+  width: 52px;
+  height: 16px;
+}
+
+.lumu-brand-badge--pdp .lumu-brand-badge__slider {
+  width: 76px;
+  height: 24px;
+}
+
 .lumu-brand-badge__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
   width: auto;
   height: auto;
-  max-height: 14px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  margin: 0;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-.lumu-brand-badge--pdp .lumu-brand-badge__logo {
-  max-height: 22px;
+.lumu-brand-badge__logo--en {
+  animation-name: lumu-logo-show-en;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.lumu-brand-badge__logo--ur {
+  animation-name: lumu-logo-show-ur;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumu-brand-badge__logo--en {
+    animation: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lumu-brand-badge__logo--ur {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -4755,8 +4805,9 @@ menu-drawer.mobile-facets__wrapper {
     padding: 5px 8px;
   }
 
-  .lumu-brand-badge--pdp .lumu-brand-badge__logo {
-    max-height: 18px;
+  .lumu-brand-badge--pdp .lumu-brand-badge__slider {
+    width: 64px;
+    height: 18px;
   }
 }
 
