@@ -4704,7 +4704,7 @@ menu-drawer.mobile-facets__wrapper {
   background-color: var(--lumu-purple) !important;
 }
 
-/* Lumu brand badge — product cards & PDP images */
+/* Lumu brand badge — product cards, categories & PDP images */
 .lumu-brand-badge {
   position: absolute;
   top: 10px;
