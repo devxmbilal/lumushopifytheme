@@ -4014,18 +4014,17 @@ track123-search-artsy {
 }
 
 
-/* Force Trending Now to 1 column on Mobile - STRENGTHENED */
+/* Trending Now 2 columns on Mobile */
 @media screen and (max-width: 767px) {
   .lumu-pfp__grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 30px !important;
-    padding: 0 15px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 15px !important;
+    padding: 0 10px !important;
   }
   .lumu-pfp__card-wrapper {
     width: 100% !important;
     max-width: 100% !important;
-    flex: 0 0 100% !important;
   }
   .lumu-pfp__card {
     width: 100% !important;
@@ -4167,30 +4166,7 @@ menu-drawer.mobile-facets__wrapper {
     margin-left: 10px !important;
 }
 
-/* Force Global Product Grids to 1-Column on Mobile (Collections, Search, Featured) */
-@media screen and (max-width: 767px) {
-    .grid.product-grid,
-    .grid--2-col-tablet-down,
-    .lumu-pfp__grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 35px !important;
-        padding: 0 15px !important;
-    }
 
-    .grid.product-grid .grid__item,
-    .grid--2-col-tablet-down .grid__item,
-    .lumu-pfp__card-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 0 0 100% !important;
-    }
-
-    /* Ensure images take full width but maintain aspect ratio */
-    .card__media, .card__content {
-        width: 100% !important;
-    }
-}
 
 /* ---- Floating WhatsApp Widget ---- */
 .lumu-whatsapp-float {
