@@ -59,6 +59,20 @@
     .lumu-cat-card__name { font-size: 1.25rem; }
     .lumu-cats__title h2 { font-size: 2.2rem; }
   }
+
+  /* Force 2 columns on mobile */
+  @media screen and (max-width: 767px) {
+    .lumu-cats__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      padding: 0 10px !important;
+    }
+    .lumu-cat-card__body { padding: 12px !important; }
+    .lumu-cat-card__name { font-size: 1.25rem !important; margin-bottom: 2px !important; }
+    .lumu-cat-card__desc { font-size: 1.1rem !important; margin-bottom: 6px !important; }
+    .lumu-cat-card__link { font-size: 1.1rem !important; }
+    .lumu-cats__title h2 { font-size: 2.2rem !important; }
+  }
 </style>
 
 <div class="lumu-cats">
