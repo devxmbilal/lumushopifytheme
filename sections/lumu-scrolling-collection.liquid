@@ -26,29 +26,27 @@
   /* Marquee Specific Styles */
   .lumu-collection-marquee-wrapper {
     display: flex;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
     width: 100%;
     position: relative;
     padding: 20px 0;
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lumu-collection-marquee-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .lumu-collection-marquee-track {
     display: inline-flex;
-    animation: scrollCollectionMarquee 40s linear infinite;
     padding-left: 20px;
     gap: 20px;
-  }
-
-  .lumu-collection-marquee-wrapper:hover .lumu-collection-marquee-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes scrollCollectionMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
   }
 
   .lumu-marquee-product-card {
@@ -64,7 +62,6 @@
     .lumu-collection-marquee-track {
       gap: 15px;
       padding-left: 15px;
-      animation-duration: 30s;
     }
   }
 {%- endstyle -%}
@@ -81,7 +78,7 @@
     </div>
 
     <!-- Infinite Marquee Slider -->
-    <div class="lumu-collection-marquee-wrapper">
+    <div class="lumu-collection-marquee-wrapper" id="marquee-wrapper-{{ section.id }}">
       {%- capture product_track -%}
         {%- if section.settings.collection.products.size > 0 -%}
           {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
@@ -153,6 +150,68 @@
     {%- endif -%}
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const wrapper = document.getElementById('marquee-wrapper-{{ section.id }}');
+    if (!wrapper) return;
+
+    let isDown = false;
+    let isHovered = false;
+    let startX;
+    let scrollLeft;
+    let animationId;
+    let scrollSpeed = 1; // Pixels per frame
+
+    const tracks = wrapper.querySelectorAll('.lumu-collection-marquee-track');
+    if (tracks.length < 2) return;
+
+    function getTrackWidth() {
+      return tracks[0].offsetWidth;
+    }
+
+    function autoScroll() {
+      if (!isDown && !isHovered) {
+        wrapper.scrollLeft += scrollSpeed;
+        
+        if (wrapper.scrollLeft >= getTrackWidth()) {
+          wrapper.scrollLeft = 0;
+        }
+      }
+      animationId = requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+
+    wrapper.addEventListener('mouseenter', () => { isHovered = true; });
+    wrapper.addEventListener('mouseleave', () => { isHovered = false; });
+
+    wrapper.addEventListener('touchstart', () => { isHovered = true; }, {passive: true});
+    wrapper.addEventListener('touchend', () => { isHovered = false; });
+
+    wrapper.addEventListener('mousedown', (e) => {
+      isDown = true;
+      wrapper.style.cursor = 'grabbing';
+      startX = e.pageX - wrapper.offsetLeft;
+      scrollLeft = wrapper.scrollLeft;
+    });
+    wrapper.addEventListener('mouseleave', () => {
+      isDown = false;
+      wrapper.style.cursor = 'auto';
+    });
+    wrapper.addEventListener('mouseup', () => {
+      isDown = false;
+      wrapper.style.cursor = 'auto';
+    });
+    wrapper.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - wrapper.offsetLeft;
+      const walk = (x - startX) * 2;
+      wrapper.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>
 
 {% schema %}
 {
